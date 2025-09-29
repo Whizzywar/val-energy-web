@@ -1,0 +1,200 @@
+import { Bell, Menu, Phone, X, Zap } from "lucide-react";
+import React, { useEffect, useState } from "react";
+
+const Navbar = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [showNotifications, setShowNotifications] = useState(false);
+
+  // Handle scroll effects
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+
+      // Update active section based on scroll
+      const sections = ["home", "products", "about", "contact"];
+      const current = sections.find((section) => {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          return rect.top <= 100 && rect.bottom >= 100;
+        }
+        return false;
+      });
+      if (current) setActiveSection(current);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+    setIsMenuOpen(false);
+  };
+
+  const navigationItems = [
+    { id: "home", label: "Home" },
+    { id: "products", label: "Products" },
+    { id: "about", label: "About" },
+    { id: "contact", label: "Contact" },
+  ];
+
+  return (
+    <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
+      <nav
+        className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+          isScrolled
+            ? "bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl shadow-2xl py-2"
+            : "bg-white/90 dark:bg-gray-900/90 backdrop-blur-md shadow-lg py-0"
+        } border-b border-gray-100 dark:border-gray-800`}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div
+            className={`flex items-center justify-between transition-all duration-300 ${
+              isScrolled ? "h-16" : "h-20"
+            }`}
+          >
+            {/* Brand Logo */}
+            <div
+              className="flex items-center space-x-3 cursor-pointer group"
+              onClick={() => scrollToSection("home")}
+            >
+              <div className="relative">
+                <div
+                  className={`bg-gradient-to-br from-blue-500 via-green-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-xl group-hover:shadow-2xl transition-all duration-300 ${
+                    isScrolled ? "w-12 h-12" : "w-14 h-14"
+                  }`}
+                >
+                  <Zap
+                    className={`text-white animate-pulse transition-all duration-300 ${
+                      isScrolled ? "w-6 h-6" : "w-8 h-8"
+                    }`}
+                  />
+                </div>
+                <div className="absolute -top-1 -right-1 w-4 h-4 bg-green-400 rounded-full animate-ping"></div>
+              </div>
+              <div>
+                <h1
+                  className={`font-bold bg-gradient-to-r from-blue-600 via-green-600 to-purple-600 bg-clip-text text-transparent transition-all duration-300 ${
+                    isScrolled ? "text-2xl" : "text-3xl"
+                  }`}
+                >
+                  Valtech Energy
+                </h1>
+                <p className="text-sm font-medium text-gray-500 dark:text-gray-400 -mt-1">
+                  Clean Energy Solutions
+                </p>
+              </div>
+            </div>
+
+            {/* Desktop Navigation */}
+            <div className="hidden lg:flex items-center space-x-8">
+              {navigationItems.map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => scrollToSection(item.id)}
+                  className={`relative px-4 py-2 font-semibold transition-all duration-300 ${
+                    activeSection === item.id
+                      ? "text-blue-600 dark:text-blue-400"
+                      : "text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
+                  }`}
+                >
+                  {item.label}
+                  {activeSection === item.id && (
+                    <div className="absolute -bottom-1 left-0 w-full h-1 bg-gradient-to-r from-blue-600 to-green-500 rounded-full"></div>
+                  )}
+                </button>
+              ))}
+            </div>
+
+            {/* Desktop Actions */}
+            <div className="hidden md:flex items-center space-x-4">
+              {/* Notifications */}
+              <div className="relative">
+                <button
+                  onClick={() => setShowNotifications(!showNotifications)}
+                  className="p-2 text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full transition-all duration-300"
+                >
+                  <Bell className="w-5 h-5" />
+                </button>
+                <div className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
+
+                {showNotifications && (
+                  <div className="absolute right-0 mt-2 w-80 bg-white dark:bg-gray-800 rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-700 py-4">
+                    <div className="px-4 pb-3 border-b border-gray-100 dark:border-gray-700">
+                      <h3 className="font-bold text-gray-900 dark:text-white">
+                        Notifications
+                      </h3>
+                    </div>
+                    <div className="px-4 py-3 hover:bg-gray-50 dark:hover:bg-gray-700 cursor-pointer">
+                      <p className="text-sm text-gray-900 dark:text-white">
+                        New solar panel promotion available!
+                      </p>
+                      <p className="text-xs text-gray-500 dark:text-gray-400">
+                        2 hours ago
+                      </p>
+                    </div>
+                    <div className="px-4 py-3 hover:bg-gray-50 dark:hover:bg-gray-700 cursor-pointer">
+                      <p className="text-sm text-gray-900 dark:text-white">
+                        Your quote request has been processed
+                      </p>
+                      <p className="text-xs text-gray-500 dark:text-gray-400">
+                        5 hours ago
+                      </p>
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* Phone Number */}
+              <div className="hidden lg:flex items-center space-x-2 text-gray-600 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 px-3 py-2 rounded-full">
+                <Phone className="w-4 h-4" />
+                <span className="text-sm font-medium">+234 802-057-4628</span>
+              </div>
+            </div>
+
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-300"
+            >
+              {isMenuOpen ? (
+                <X className="w-6 h-6 text-gray-700 dark:text-gray-300" />
+              ) : (
+                <Menu className="w-6 h-6 text-gray-700 dark:text-gray-300" />
+              )}
+            </button>
+          </div>
+
+          {/* Mobile Menu */}
+          {isMenuOpen && (
+            <div className="md:hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 shadow-2xl">
+              <div className="px-4 py-6 space-y-4">
+                {navigationItems.map((item) => (
+                  <button
+                    key={item.id}
+                    onClick={() => scrollToSection(item.id)}
+                    className={`block w-full text-left px-4 py-3 font-medium rounded-xl transition-all duration-300 ${
+                      activeSection === item.id
+                        ? "text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30"
+                        : "text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-gray-800"
+                    }`}
+                  >
+                    {item.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+      </nav>
+    </div>
+  );
+};
+
+export default Navbar;
