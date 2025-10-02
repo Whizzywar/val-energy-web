@@ -174,7 +174,6 @@ const Footer = () => {
                   "Privacy Policy",
                   "Terms of Service",
                   "Warranty Information",
-                  "Financing Options",
                 ].map((link, index) => (
                   <a
                     key={index}

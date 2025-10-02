@@ -1,8 +1,16 @@
 import { Award, Battery, CheckCircle, Star, Sun, Zap } from "lucide-react";
 import React from "react";
 
+// Import images from the image directory
+import FingerBattery from "../images/FingerBattery.jpg";
+import InverterBox from "../images/InverterBox.jpg";
+import InverterBattery from "../images/InverterBattery.jpg";
+import VirtualSolar from "../images/VirtualSolar.jpg";
+import SolarBattery from "../images/SolarBattery.jpg";
+import SolarPanel from "../images/SolarPanel.jpg";
+
 const ProductsList = () => {
-  // Products data with detailed pricing
+  // Products data with detailed pricing and local images
   const products = [
     {
       id: 1,
@@ -10,7 +18,7 @@ const ProductsList = () => {
       category: "Lithium Battery",
       price: 1299,
       originalPrice: 1499,
-      image: "🔋",
+      image: FingerBattery,
       features: [
         "100Ah LiFePO4 Capacity",
         "10-Year Warranty",
@@ -18,11 +26,6 @@ const ProductsList = () => {
         "Built-in BMS Protection",
         "Lightweight Design",
       ],
-      rating: 4.9,
-      reviews: 324,
-      inStock: true,
-      popular: true,
-      savings: 200,
     },
     {
       id: 2,
@@ -30,7 +33,7 @@ const ProductsList = () => {
       category: "Lithium Battery",
       price: 2199,
       originalPrice: 2499,
-      image: "🔋",
+      image: InverterBox,
       features: [
         "200Ah High Capacity",
         "15-Year Warranty",
@@ -38,19 +41,15 @@ const ProductsList = () => {
         "Smart Monitoring System",
         "Temperature Control",
       ],
-      rating: 4.8,
-      reviews: 256,
-      inStock: true,
-      popular: false,
-      savings: 300,
     },
+
     {
       id: 3,
       name: "SolarMax 400W Panel",
       category: "Solar Panel",
       price: 299,
       originalPrice: 349,
-      image: "☀️",
+      image: InverterBattery,
       features: [
         "400W Monocrystalline",
         "25-Year Warranty",
@@ -58,11 +57,6 @@ const ProductsList = () => {
         "Weather Resistant",
         "Easy Installation",
       ],
-      rating: 4.7,
-      reviews: 412,
-      inStock: true,
-      popular: true,
-      savings: 50,
     },
     {
       id: 4,
@@ -70,7 +64,7 @@ const ProductsList = () => {
       category: "Solar Panel",
       price: 399,
       originalPrice: 459,
-      image: "☀️",
+      image: VirtualSolar,
       features: [
         "500W High Output",
         "25-Year Warranty",
@@ -78,11 +72,6 @@ const ProductsList = () => {
         "Low Light Performance",
         "Durable Frame",
       ],
-      rating: 4.8,
-      reviews: 189,
-      inStock: false,
-      popular: false,
-      savings: 60,
     },
     {
       id: 5,
@@ -90,7 +79,7 @@ const ProductsList = () => {
       category: "Solar Inverter",
       price: 899,
       originalPrice: 999,
-      image: "⚡",
+      image: SolarBattery,
       features: [
         "3000W Pure Sine Wave",
         "10-Year Warranty",
@@ -98,11 +87,6 @@ const ProductsList = () => {
         "Remote Monitoring",
         "Grid-Tie Compatible",
       ],
-      rating: 4.6,
-      reviews: 145,
-      inStock: true,
-      popular: false,
-      savings: 100,
     },
     {
       id: 6,
@@ -110,7 +94,7 @@ const ProductsList = () => {
       category: "Complete System",
       price: 4999,
       originalPrice: 5999,
-      image: "🏠",
+      image: SolarPanel,
       features: [
         "5kW Complete System",
         "25-Year Warranty",
@@ -118,11 +102,6 @@ const ProductsList = () => {
         "Monitoring App",
         "Battery Compatible",
       ],
-      rating: 4.9,
-      reviews: 89,
-      inStock: true,
-      popular: true,
-      savings: 1000,
     },
   ];
 
@@ -238,17 +217,12 @@ const ProductsList = () => {
                 <div className="p-8">
                   {/* Product Header */}
                   <div className="flex items-center justify-between mb-6">
-                    <div className="text-7xl">{product.image}</div>
-                    <div className="text-right">
-                      {product.inStock ? (
-                        <span className="bg-green-100 text-green-800 text-sm px-4 py-2 rounded-full font-bold">
-                          ✓ In Stock
-                        </span>
-                      ) : (
-                        <span className="bg-red-100 text-red-800 text-sm px-4 py-2 rounded-full font-bold">
-                          Out of Stock
-                        </span>
-                      )}
+                    <div className="w-100 h-100 rounded-xl overflow-hidden bg-gray-100">
+                      <img
+                        src={product.image}
+                        alt={product.name}
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                      />
                     </div>
                   </div>
 
@@ -261,27 +235,8 @@ const ProductsList = () => {
                       {product.category}
                     </p>
 
-                    {/* Rating */}
-                    <div className="flex items-center mb-6">
-                      <div className="flex items-center mr-3">
-                        {[...Array(5)].map((_, i) => (
-                          <Star
-                            key={i}
-                            className={`w-5 h-5 ${
-                              i < Math.floor(product.rating)
-                                ? "text-yellow-400 fill-current"
-                                : "text-gray-300"
-                            }`}
-                          />
-                        ))}
-                      </div>
-                      <span className="text-gray-600 font-medium">
-                        ({product.reviews} reviews)
-                      </span>
-                    </div>
-
                     {/* Features */}
-                    <div className="space-y-3 mb-8">
+                    <div className="space-y-3 mb-6">
                       {product.features.map((feature, index) => (
                         <div
                           key={index}
@@ -292,28 +247,9 @@ const ProductsList = () => {
                         </div>
                       ))}
                     </div>
-
-                    {/* Pricing */}
-                    <div className="mb-8">
-                      <div className="flex items-center justify-between">
-                        <div>
-                          <span className="text-4xl font-bold text-gray-900">
-                            ${product.price.toLocaleString()}
-                          </span>
-                          {product.originalPrice > product.price && (
-                            <div className="mt-1">
-                              <span className="text-xl text-gray-500 line-through mr-2">
-                                ${product.originalPrice.toLocaleString()}
-                              </span>
-                              <span className="bg-red-100 text-red-800 text-sm px-3 py-1 rounded-full font-bold">
-                                Save ${product.savings}
-                              </span>
-                            </div>
-                          )}
-                        </div>
-                      </div>
-                    </div>
                   </div>
+
+                  {/* Action Buttons */}
                 </div>
               </div>
             ))}
