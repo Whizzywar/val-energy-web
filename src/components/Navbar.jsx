@@ -5,7 +5,6 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   const [isScrolled, setIsScrolled] = useState(false);
-  const [showNotifications, setShowNotifications] = useState(false);
 
   // Handle scroll effects
   useEffect(() => {
@@ -45,7 +44,7 @@ const Navbar = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
+    <div className=" bg-white dark:bg-gray-900 transition-colors duration-300">
       <nav
         className={`fixed top-0 w-full z-50 transition-all duration-300 ${
           isScrolled
@@ -114,43 +113,6 @@ const Navbar = () => {
 
             {/* Desktop Actions */}
             <div className="hidden md:flex items-center space-x-4">
-              {/* Notifications */}
-              <div className="relative">
-                <button
-                  onClick={() => setShowNotifications(!showNotifications)}
-                  className="p-2 text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full transition-all duration-300"
-                >
-                  <Bell className="w-5 h-5" />
-                </button>
-                <div className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
-
-                {showNotifications && (
-                  <div className="absolute right-0 mt-2 w-80 bg-white dark:bg-gray-800 rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-700 py-4">
-                    <div className="px-4 pb-3 border-b border-gray-100 dark:border-gray-700">
-                      <h3 className="font-bold text-gray-900 dark:text-white">
-                        Notifications
-                      </h3>
-                    </div>
-                    <div className="px-4 py-3 hover:bg-gray-50 dark:hover:bg-gray-700 cursor-pointer">
-                      <p className="text-sm text-gray-900 dark:text-white">
-                        New solar panel promotion available!
-                      </p>
-                      <p className="text-xs text-gray-500 dark:text-gray-400">
-                        2 hours ago
-                      </p>
-                    </div>
-                    <div className="px-4 py-3 hover:bg-gray-50 dark:hover:bg-gray-700 cursor-pointer">
-                      <p className="text-sm text-gray-900 dark:text-white">
-                        Your quote request has been processed
-                      </p>
-                      <p className="text-xs text-gray-500 dark:text-gray-400">
-                        5 hours ago
-                      </p>
-                    </div>
-                  </div>
-                )}
-              </div>
-
               {/* Phone Number */}
               <div className="hidden lg:flex items-center space-x-2 text-gray-600 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 px-3 py-2 rounded-full">
                 <Phone className="w-4 h-4" />

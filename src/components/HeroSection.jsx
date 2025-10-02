@@ -171,22 +171,6 @@ const HeroSection = () => {
                   Explore Products
                   <ArrowRight className="w-5 h-5 ml-3 group-hover:translate-x-1 transition-transform duration-300" />
                 </button>
-
-                <button
-                  onClick={() => setIsVideoPlaying(true)}
-                  className="group bg-white/10 backdrop-blur-sm border-2 border-white/30 text-white px-10 py-5 rounded-full text-lg font-bold hover:bg-white/20 hover:scale-105 transition-all duration-300 flex items-center justify-center"
-                >
-                  <Play className="w-5 h-5 mr-3" />
-                  Watch Demo
-                </button>
-
-                <button
-                  onClick={() => scrollToSection("contact")}
-                  className="group bg-gradient-to-r from-green-500 to-blue-500 text-white px-10 py-5 rounded-full text-lg font-bold hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center justify-center"
-                >
-                  <Phone className="w-5 h-5 mr-3" />
-                  Contact Us
-                </button>
               </div>
 
               {/* Enhanced Stats - Centered */}
@@ -238,26 +222,6 @@ const HeroSection = () => {
               </div>
             </div>
           </div>
-        </div>
-
-        {/* Navigation Dots */}
-        <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 flex space-x-3">
-          {heroContent.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => setHeroIndex(index)}
-              className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                heroIndex === index
-                  ? "bg-white scale-125 shadow-lg"
-                  : "bg-white/50 hover:bg-white/75"
-              }`}
-            />
-          ))}
-        </div>
-
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <ChevronDown className="w-6 h-6 text-white/70" />
         </div>
 
         {/* Video Modal */}
