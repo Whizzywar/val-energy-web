@@ -1,67 +1,57 @@
-import {
-  Heart,
-  Lightbulb,
-  Mail,
-  MapPin,
-  Phone,
-  PhoneCall,
-  Target,
-} from "lucide-react";
 import React, { useState } from "react";
+import { PhoneCall, Mail, MapPin } from "lucide-react";
 
 const ContactSection = () => {
-  const [status, setStatus] = useState(0);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
   });
-
-  // Formspree Integration
-  const FORMSPREE_ENDPOINT = "https://formspree.io/f/xqaypqad";
+  const [status, setStatus] = useState("idle"); // idle, loading, success, error
+  const [isDisabled, setIsDisabled] = useState(false);
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus("loading");
+    setIsDisabled(true);
 
+    // Simulate form submission
     try {
-      const response = await fetch(FORMSPREE_ENDPOINT, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (response.ok) {
-        setStatus("success");
-        setFormData({ name: "", email: "", message: "" });
-      } else {
-        setStatus("error");
-      }
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+      setStatus("success");
+      setFormData({ name: "", email: "", message: "" });
     } catch (error) {
       setStatus("error");
+    } finally {
+      setIsDisabled(false);
     }
   };
-
-  const isDisabled = status === "loading";
 
   return (
     <div>
       {/* Contact Section */}
       <section
         id="contact"
-        className="py-12 sm:py-16 md:py-20 lg:py-24 bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 text-white"
+        className="relative py-12 sm:py-16 md:py-20 lg:py-24 text-white"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Background Image */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: "url('src/images/InverterBattery.jpg')", // Replace with your image path
+          }}
+        >
+          <div className="absolute inset-0 bg-black/60"></div>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           {/* Header Section */}
           <div className="text-center mb-12 sm:mb-16 lg:mb-20">
             <div className="inline-flex items-center bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 sm:px-6 py-2 sm:py-3 mb-6 sm:mb-8">
@@ -91,7 +81,7 @@ const ContactSection = () => {
               <div>
                 <label
                   htmlFor="name"
-                  className="block text-sm font-medium text-white-700 mb-2"
+                  className="block text-sm font-medium text-white mb-2"
                 >
                   Full Name
                 </label>
@@ -111,7 +101,7 @@ const ContactSection = () => {
               <div>
                 <label
                   htmlFor="email"
-                  className="block text-sm font-medium text-white-700 mb-2"
+                  className="block text-sm font-medium text-white mb-2"
                 >
                   Email Address
                 </label>
@@ -131,7 +121,7 @@ const ContactSection = () => {
               <div>
                 <label
                   htmlFor="message"
-                  className="block text-sm font-medium text-white-700 mb-2"
+                  className="block text-sm font-medium text-white mb-2"
                 >
                   Message
                 </label>
@@ -231,114 +221,80 @@ const ContactSection = () => {
                 </div>
               )}
 
-              <p className="text-xs sm:text-sm text-gray-400 text-center leading-relaxed">
+              <p className="text-xs sm:text-sm text-gray-300 text-center leading-relaxed">
                 🔒 Your information is secure and will never be shared with
                 third parties.
               </p>
             </form>
-          </div>
 
-          {/* Contact Information */}
-          <div className="space-y-6 sm:space-y-8 order-1 lg:order-2">
-            <div>
-              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6 text-center lg:text-left">
-                Contact Information
-              </h3>
-              <p className="text-base sm:text-lg md:text-xl text-gray-300 leading-relaxed text-center lg:text-left">
-                Ready to harness the power of clean energy? Our team of
-                renewable energy experts is here to guide you through every step
-                of your sustainable energy journey.
-              </p>
-            </div>
-
-            <div className="space-y-4 sm:space-y-6">
-              {/* Phone Support */}
-              <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-4 sm:space-y-0 sm:space-x-6 p-4 sm:p-6 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl sm:rounded-2xl">
-                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-green-500/20 rounded-xl sm:rounded-2xl flex items-center justify-center flex-shrink-0 mx-auto sm:mx-0">
-                  <PhoneCall className="w-6 h-6 sm:w-8 sm:h-8 text-green-400" />
-                </div>
-                <div className="text-center sm:text-left w-full">
-                  <h4 className="text-lg sm:text-xl font-bold mb-2">
-                    Phone Support
-                  </h4>
-                  <p className="text-xl sm:text-2xl font-bold text-green-400 mb-2">
-                    +1 (555) 123-ENERGY
-                  </p>
-                  <p className="text-sm sm:text-base text-gray-400">
-                    Mon-Fri 8AM-8PM, Sat 9AM-5PM, Sun 10AM-4PM
-                  </p>
-                </div>
+            {/* Contact Information */}
+            <div className="space-y-6 sm:space-y-8">
+              <div>
+                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6 text-center lg:text-left">
+                  Contact Information
+                </h3>
+                <p className="text-base sm:text-lg md:text-xl text-gray-300 leading-relaxed text-center lg:text-left">
+                  Ready to harness the power of clean energy? Our team of
+                  renewable energy experts is here to guide you through every
+                  step of your sustainable energy journey.
+                </p>
               </div>
 
-              {/* Email Support */}
-              <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-4 sm:space-y-0 sm:space-x-6 p-4 sm:p-6 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl sm:rounded-2xl">
-                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-blue-500/20 rounded-xl sm:rounded-2xl flex items-center justify-center flex-shrink-0 mx-auto sm:mx-0">
-                  <Mail className="w-6 h-6 sm:w-8 sm:h-8 text-blue-400" />
+              <div className="space-y-4 sm:space-y-6">
+                {/* Phone Support */}
+                <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-4 sm:space-y-0 sm:space-x-6 p-4 sm:p-6 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl sm:rounded-2xl">
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 bg-green-500/20 rounded-xl sm:rounded-2xl flex items-center justify-center flex-shrink-0 mx-auto sm:mx-0">
+                    <PhoneCall className="w-6 h-6 sm:w-8 sm:h-8 text-green-400" />
+                  </div>
+                  <div className="text-center sm:text-left w-full">
+                    <h4 className="text-lg sm:text-xl font-bold mb-2">
+                      Phone Support
+                    </h4>
+                    <p className="text-xl sm:text-2xl font-bold text-green-400 mb-2">
+                      +1 (555) 123-ENERGY
+                    </p>
+                    <p className="text-sm sm:text-base text-gray-400">
+                      Mon-Fri 8AM-8PM, Sat 9AM-5PM, Sun 10AM-4PM
+                    </p>
+                  </div>
                 </div>
-                <div className="text-center sm:text-left w-full">
-                  <h4 className="text-lg sm:text-xl font-bold mb-2">
-                    Email Us
-                  </h4>
-                  <p
-                    href=""
-                    className="text-lg sm:text-xl font-bold text-blue-400 mb-2 break-all sm:break-normal"
-                  >
-                    <a
-                      href="mailto:ubaniwisdom480@gmail.com/?subject=EnergyFlow Solar Inquiry&body=Hello EnergyFlow Team, I'm interested in learning more about your solar solutions."
-                      className="flex items-start space-x-4 no-underline"
-                    ></a>
-                    ubaniwisdom480@gmail.com
-                  </p>
-                  <p className="text-sm sm:text-base text-gray-400">
-                    Quick response within 2 hours during business days
-                  </p>
-                </div>
-              </div>
 
-              {/* Visit Showroom */}
-              <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-4 sm:space-y-0 sm:space-x-6 p-4 sm:p-6 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl sm:rounded-2xl">
-                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-purple-500/20 rounded-xl sm:rounded-2xl flex items-center justify-center flex-shrink-0 mx-auto sm:mx-0">
-                  <MapPin className="w-6 h-6 sm:w-8 sm:h-8 text-purple-400" />
+                {/* Email Support */}
+                <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-4 sm:space-y-0 sm:space-x-6 p-4 sm:p-6 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl sm:rounded-2xl">
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 bg-blue-500/20 rounded-xl sm:rounded-2xl flex items-center justify-center flex-shrink-0 mx-auto sm:mx-0">
+                    <Mail className="w-6 h-6 sm:w-8 sm:h-8 text-blue-400" />
+                  </div>
+                  <div className="text-center sm:text-left w-full">
+                    <h4 className="text-lg sm:text-xl font-bold mb-2">
+                      Email Us
+                    </h4>
+                    <p className="text-lg sm:text-xl font-bold text-blue-400 mb-2 break-all sm:break-normal">
+                      ubaniwisdom480@gmail.com
+                    </p>
+                    <p className="text-sm sm:text-base text-gray-400">
+                      Quick response within 2 hours during business days
+                    </p>
+                  </div>
                 </div>
-                <div className="text-center sm:text-left w-full">
-                  <h4 className="text-lg sm:text-xl font-bold mb-2">
-                    Visit Our Showroom
-                  </h4>
-                  <p className="text-base sm:text-lg text-white mb-2">
-                    456 Clean Energy Boulevard
-                    <br />
-                    Solar City, CA 90210
-                  </p>
-                  <p className="text-sm sm:text-base text-gray-400">
-                    Experience our products firsthand
-                  </p>
-                </div>
-              </div>
-            </div>
 
-            {/* Social Proof */}
-            <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl sm:rounded-2xl p-4 sm:p-6">
-              <h4 className="text-lg sm:text-xl font-bold mb-4 text-center sm:text-left">
-                Why Customers Choose Us
-              </h4>
-              <div className="space-y-3 sm:space-y-4">
-                <div className="flex items-center justify-center sm:justify-start space-x-3">
-                  <Heart className="w-5 h-5 text-red-400 flex-shrink-0" />
-                  <span className="text-sm sm:text-base text-gray-300">
-                    98% Customer Satisfaction Rate
-                  </span>
-                </div>
-                <div className="flex items-center justify-center sm:justify-start space-x-3">
-                  <Target className="w-5 h-5 text-yellow-400 flex-shrink-0" />
-                  <span className="text-sm sm:text-base text-gray-300">
-                    Average 40% Energy Cost Reduction
-                  </span>
-                </div>
-                <div className="flex items-center justify-center sm:justify-start space-x-3">
-                  <Lightbulb className="w-5 h-5 text-yellow-400 flex-shrink-0" />
-                  <span className="text-sm sm:text-base text-gray-300">
-                    15+ Years Industry Experience
-                  </span>
+                {/* Visit Showroom */}
+                <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-4 sm:space-y-0 sm:space-x-6 p-4 sm:p-6 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl sm:rounded-2xl">
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 bg-purple-500/20 rounded-xl sm:rounded-2xl flex items-center justify-center flex-shrink-0 mx-auto sm:mx-0">
+                    <MapPin className="w-6 h-6 sm:w-8 sm:h-8 text-purple-400" />
+                  </div>
+                  <div className="text-center sm:text-left w-full">
+                    <h4 className="text-lg sm:text-xl font-bold mb-2">
+                      Visit Our Showroom
+                    </h4>
+                    <p className="text-base sm:text-lg text-white mb-2">
+                      456 Clean Energy Boulevard
+                      <br />
+                      Solar City, CA 90210
+                    </p>
+                    <p className="text-sm sm:text-base text-gray-400">
+                      Experience our products firsthand
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>

@@ -138,7 +138,7 @@ const ProductsList = () => {
           <div className="grid md:grid-cols-3 gap-8 mb-20">
             {[
               {
-                icon: <Battery className="w-12 h-12 text-blue-600" />,
+                icon: "/src/images/FingerBattery.jpg",
                 title: "Lithium Batteries",
                 description:
                   "Advanced LiFePO4 batteries with smart BMS technology for reliable energy storage.",
@@ -149,7 +149,7 @@ const ProductsList = () => {
                 ],
               },
               {
-                icon: <Sun className="w-12 h-12 text-orange-500" />,
+                icon: "/src/images/MiniSolar.jpg",
                 title: "Solar Panels",
                 description:
                   "High-efficiency monocrystalline panels designed for maximum energy generation.",
@@ -160,7 +160,7 @@ const ProductsList = () => {
                 ],
               },
               {
-                icon: <Zap className="w-12 h-12 text-orange-500" />,
+                icon: "/src/images/SolarPanel.jpg",
                 title: "Complete Systems",
                 description:
                   "Turnkey solar and storage solutions with professional installation services.",
@@ -173,28 +173,37 @@ const ProductsList = () => {
             ].map((category, index) => (
               <div
                 key={index}
-                className="group bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-100"
+                className="group bg-white rounded-3xl p-6 md:p-8 shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-100 flex flex-col"
               >
-                <div className="text-center">
-                  <div className="w-20 h-20 bg-gradient-to-br from-gray-100 to-gray-200 rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-                    {category.icon}
+                <div className="text-center flex flex-col items-center flex-1">
+                  {/* Image Container */}
+                  <div className="w-full max-w-[200px] h-48 md:h-52 rounded-xl overflow-hidden bg-gray-100 mb-6 mx-auto">
+                    <img
+                      src={category.icon}
+                      alt={category.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 ease-in-out"
+                    />
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                    {category.title}
-                  </h3>
-                  <p className="text-gray-600 mb-6 leading-relaxed">
-                    {category.description}
-                  </p>
-                  <div className="space-y-3">
-                    {category.features.map((feature, idx) => (
-                      <div
-                        key={idx}
-                        className="flex items-center justify-center space-x-2 text-sm text-gray-600"
-                      >
-                        <CheckCircle className="w-4 h-4 text-green-500" />
-                        <span>{feature}</span>
-                      </div>
-                    ))}
+
+                  {/* Content */}
+                  <div className="flex-1 flex flex-col">
+                    <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-4">
+                      {category.title}
+                    </h3>
+                    <p className="text-gray-600 mb-6 leading-relaxed flex-1">
+                      {category.description}
+                    </p>
+                    <div className="space-y-3">
+                      {category.features.map((feature, idx) => (
+                        <div
+                          key={idx}
+                          className="flex items-center justify-center space-x-2 text-sm text-gray-600"
+                        >
+                          <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
+                          <span className="text-center">{feature}</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>

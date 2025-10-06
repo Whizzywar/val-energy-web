@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import {
   Leaf,
   ArrowRight,
-  Phone,
   Zap,
   ChevronDown,
   Battery,
@@ -23,21 +22,21 @@ const HeroSection = () => {
       subtitle: "Powering Tomorrow",
       description:
         "Revolutionary lithium batteries and solar solutions for a sustainable future",
-      bg: "from-blue-600 via-purple-600 to-green-600",
+      image: "src/images/VirtualSolar.jpg", // Replace with your image path
     },
     {
       title: "Clean Energy",
       subtitle: "Smart Solutions",
       description:
         "Advanced solar technology and energy storage systems for modern living",
-      bg: "from-green-500 via-teal-600 to-blue-600",
+      image: "src/images/SolarBattery.jpg", // Replace with your image path
     },
     {
       title: "Sustainable",
       subtitle: "Energy Systems",
       description:
         "Premium lithium batteries and solar equipment for residential & commercial use",
-      bg: "from-orange-500 via-red-600 to-purple-700",
+      image: "src/images/SolarPanel.jpg", // Replace with your image path
     },
   ];
 
@@ -63,55 +62,14 @@ const HeroSection = () => {
         id="home"
         className="relative min-h-screen flex items-center justify-center overflow-hidden"
       >
-        {/* Dynamic Background */}
+        {/* Background Image */}
         <div
-          className={`absolute inset-0 bg-gradient-to-br ${heroContent[heroIndex].bg} transition-all duration-2000`}
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-all duration-2000"
+          style={{
+            backgroundImage: `url(${heroContent[heroIndex].image})`,
+          }}
         >
-          <div className="absolute inset-0 bg-black/40"></div>
-
-          {/* Animated Particles */}
-          <div className="absolute inset-0">
-            {[...Array(12)].map((_, i) => (
-              <div
-                key={i}
-                className="absolute opacity-20 animate-pulse"
-                style={{
-                  left: `${5 + i * 8}%`,
-                  top: `${10 + (i % 4) * 25}%`,
-                  animationDelay: `${i * 0.5}s`,
-                  animationDuration: `${3 + (i % 3)}s`,
-                }}
-              >
-                <div className="w-4 h-4 bg-white/40 rounded-full blur-sm"></div>
-              </div>
-            ))}
-
-            {/* Floating Icons */}
-            <div
-              className="absolute top-20 left-10 opacity-10 animate-bounce"
-              style={{ animationDelay: "1s" }}
-            >
-              <Battery className="w-8 h-8 text-white" />
-            </div>
-            <div
-              className="absolute top-32 right-16 opacity-10 animate-bounce"
-              style={{ animationDelay: "2s" }}
-            >
-              <Sun className="w-10 h-10 text-white" />
-            </div>
-            <div
-              className="absolute bottom-32 left-20 opacity-10 animate-bounce"
-              style={{ animationDelay: "0.5s" }}
-            >
-              <Zap className="w-6 h-6 text-white" />
-            </div>
-            <div
-              className="absolute bottom-40 right-32 opacity-10 animate-bounce"
-              style={{ animationDelay: "1.5s" }}
-            >
-              <Battery className="w-7 h-7 text-white" />
-            </div>
-          </div>
+          <div className="absolute inset-0 bg-black/50"></div>
         </div>
 
         {/* Main Content Container - Fully Centered */}
