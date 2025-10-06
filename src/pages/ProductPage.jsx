@@ -1,4 +1,5 @@
-import React from "react";
+import { ArrowRight, Battery, ChevronDown, Sun, Zap } from "lucide-react";
+import React, { useState } from "react";
 
 const ProductPage = () => {
   const [heroIndex, setHeroIndex] = useState(0);
@@ -267,3 +268,4 @@ const ProductPage = () => {
 };
 
 export default ProductPage;
+pro;

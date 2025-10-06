@@ -10,8 +10,13 @@ import {
   Star,
   Award,
 } from "lucide-react";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import ProductsList from "../components/ProductsList";
+import AboutSection from "../components/AboutSection";
+import ContactSection from "../components/ContactSection";
 
-const HeroSection = () => {
+const HomePage = () => {
   const [heroIndex, setHeroIndex] = useState(0);
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
 
@@ -62,6 +67,7 @@ const HeroSection = () => {
         id="home"
         className="relative min-h-screen flex items-center justify-center overflow-hidden"
       >
+        <Navbar />
         {/* Background Image */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-all duration-2000"
@@ -241,8 +247,12 @@ const HeroSection = () => {
           }
         `}</style>
       </section>
+      <ProductsList />
+      <AboutSection />
+      <ContactSection />
+      <Footer />
     </div>
   );
 };
 
-export default HeroSection;
+export default HomePage;
