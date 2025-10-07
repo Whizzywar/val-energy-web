@@ -1,50 +1,40 @@
-import { Bell, Menu, Phone, X, Zap } from "lucide-react";
-import React, { useEffect, useState } from "react";
+import { Menu, Phone, X, Zap } from "lucide-react";
+import React, { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState("home");
   const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation();
 
   // Handle scroll effects
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
-
-      // Update active section based on scroll
-      const sections = ["home", "products", "about", "contact"];
-      const current = sections.find((section) => {
-        const element = document.getElementById(section);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          return rect.top <= 100 && rect.bottom >= 100;
-        }
-        return false;
-      });
-      if (current) setActiveSection(current);
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-    setIsMenuOpen(false);
-  };
-
+  // Navigation items with routes
   const navigationItems = [
-    { id: "home", label: "Home" },
-    { id: "products", label: "Products" },
-    { id: "about", label: "About" },
-    { id: "contact", label: "Contact" },
+    { id: "home", label: "Home", path: "/" },
+    { id: "products", label: "Products", path: "/products" },
+    { id: "about", label: "About", path: "/about" },
+    { id: "contact", label: "Contact", path: "/contact" },
   ];
 
+  // Check if a nav item is active based on current route
+  const isActive = (path) => {
+    if (path === "/") {
+      return location.pathname === "/";
+    }
+    return location.pathname.startsWith(path);
+  };
+
   return (
-    <div className=" bg-white dark:bg-gray-900 transition-colors duration-300">
+    <div className="bg-white dark:bg-gray-900 transition-colors duration-300">
       <nav
         className={`fixed top-0 w-full z-50 transition-all duration-300 ${
           isScrolled
@@ -58,10 +48,10 @@ const Navbar = () => {
               isScrolled ? "h-16" : "h-20"
             }`}
           >
-            {/* Brand Logo */}
-            <div
+            {/* Brand Logo - Link to Home */}
+            <Link
+              to="/"
               className="flex items-center space-x-3 cursor-pointer group"
-              onClick={() => scrollToSection("home")}
             >
               <div className="relative">
                 <div
@@ -89,25 +79,25 @@ const Navbar = () => {
                   Clean Energy Solutions
                 </p>
               </div>
-            </div>
+            </Link>
 
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center space-x-8">
               {navigationItems.map((item) => (
-                <button
+                <Link
                   key={item.id}
-                  onClick={() => scrollToSection(item.id)}
+                  to={item.path}
                   className={`relative px-4 py-2 font-semibold transition-all duration-300 ${
-                    activeSection === item.id
+                    isActive(item.path)
                       ? "text-blue-600 dark:text-blue-400"
                       : "text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
                   }`}
                 >
                   {item.label}
-                  {activeSection === item.id && (
+                  {isActive(item.path) && (
                     <div className="absolute -bottom-1 left-0 w-full h-1 bg-gradient-to-r from-blue-600 to-green-500 rounded-full"></div>
                   )}
-                </button>
+                </Link>
               ))}
             </div>
 
@@ -138,17 +128,18 @@ const Navbar = () => {
             <div className="md:hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 shadow-2xl">
               <div className="px-4 py-6 space-y-4">
                 {navigationItems.map((item) => (
-                  <button
+                  <Link
                     key={item.id}
-                    onClick={() => scrollToSection(item.id)}
+                    to={item.path}
+                    onClick={() => setIsMenuOpen(false)}
                     className={`block w-full text-left px-4 py-3 font-medium rounded-xl transition-all duration-300 ${
-                      activeSection === item.id
+                      isActive(item.path)
                         ? "text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30"
                         : "text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-gray-800"
                     }`}
                   >
                     {item.label}
-                  </button>
+                  </Link>
                 ))}
               </div>
             </div>
