@@ -22,7 +22,7 @@ const ContactSection = () => {
     setStatus("loading");
     setIsDisabled(true);
 
-    // Simulate form submission
+    // Simulate form submis
     try {
       await new Promise((resolve) => setTimeout(resolve, 2000));
       setStatus("success");

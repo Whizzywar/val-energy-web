@@ -1,9 +1,11 @@
 import { Award, Clock, Shield, Users } from "lucide-react";
 import React from "react";
+import Navbar from "../components/Navbar";
 
 const AboutSection = () => {
   return (
     <div>
+      <Navbar />
       <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 pt-20">
         <div className="max-w-4xl mx-auto px-4 py-16">
           <h1 className="text-4xl font-bold text-gray-800 mb-8">

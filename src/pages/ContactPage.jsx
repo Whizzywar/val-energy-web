@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { PhoneCall, Mail, MapPin } from "lucide-react";
+import Navbar from "../components/Navbar";
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -36,6 +37,7 @@ const ContactSection = () => {
 
   return (
     <div>
+      <Navbar />
       {/* Contact Section */}
       <section
         id="contact"

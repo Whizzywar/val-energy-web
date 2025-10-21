@@ -1,15 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {
-  Leaf,
-  ArrowRight,
-  Zap,
-  ChevronDown,
-  Battery,
-  Sun,
-  Play,
-  Star,
-  Award,
-} from "lucide-react";
+import { Leaf, ArrowRight, ChevronDown, Play, Star, Award } from "lucide-react";
 
 const HeroSection = () => {
   const [heroIndex, setHeroIndex] = useState(0);
@@ -70,112 +60,120 @@ const HeroSection = () => {
           }}
         >
           <div className="absolute inset-0 bg-black/50"></div>
-        </div>
 
-        {/* Main Content Container - Fully Centered */}
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-          <div className="flex items-center justify-center min-h-screen py-20">
-            {/* Hero Content - Centered */}
-            <div className="text-white space-y-8 text-center max-w-4xl">
-              {/* Brand Badge */}
-              <div className="inline-flex items-center bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-6 py-3">
-                <Leaf className="w-5 h-5 mr-3 text-green-300" />
-                <span className="font-semibold text-sm">
-                  Leading Clean Energy Provider
-                </span>
-              </div>
-
-              {/* Main Headline - Enhanced and Centered */}
-              <div className="space-y-6">
-                <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-tight">
-                  <span className="block animate-fade-in">
-                    {heroContent[heroIndex].title}
+          {/* Main Content Container - Fully Centered */}
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+            <div className="flex items-center justify-center min-h-screen py-20">
+              {/* Hero Content - Centered */}
+              <div className="text-white space-y-8 text-center max-w-4xl">
+                {/* Brand Badge */}
+                <div className="inline-flex items-center bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-6 py-3">
+                  <Leaf className="w-5 h-5 mr-3 text-green-300" />
+                  <span className="font-semibold text-sm">
+                    Leading Clean Energy Provider
                   </span>
-                  <span className="block bg-gradient-to-r from-yellow-300 via-green-300 to-blue-300 bg-clip-text text-transparent animate-fade-in-delay">
-                    {heroContent[heroIndex].subtitle}
-                  </span>
-                </h1>
+                </div>
 
-                <p className="text-xl md:text-2xl lg:text-3xl text-gray-100 max-w-4xl leading-relaxed mx-auto">
-                  {heroContent[heroIndex].description}
-                </p>
+                {/* Main Headline - Enhanced and Centered */}
+                <div className="space-y-6">
+                  <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-tight">
+                    <span className="block animate-fade-in">
+                      {heroContent[heroIndex].title}
+                    </span>
+                    <span className="block bg-gradient-to-r from-yellow-300 via-green-300 to-blue-300 bg-clip-text text-transparent animate-fade-in-delay">
+                      {heroContent[heroIndex].subtitle}
+                    </span>
+                  </h1>
 
-                {/* Trust Indicators */}
-                <div className="flex items-center justify-center space-x-8 pt-4">
-                  <div className="flex items-center space-x-2">
-                    <div className="flex">
-                      {[...Array(5)].map((_, i) => (
-                        <Star
-                          key={i}
-                          className="w-5 h-5 text-yellow-400 fill-current"
-                        />
-                      ))}
+                  <p className="text-xl md:text-2xl lg:text-3xl text-gray-100 max-w-4xl leading-relaxed mx-auto">
+                    {heroContent[heroIndex].description}
+                  </p>
+
+                  {/* Trust Indicators */}
+                  <div className="flex items-center justify-center space-x-8 pt-4">
+                    <div className="flex items-center space-x-2">
+                      <div className="flex">
+                        {[...Array(5)].map((_, i) => (
+                          <Star
+                            key={i}
+                            className="w-5 h-5 text-yellow-400 fill-current"
+                          />
+                        ))}
+                      </div>
+                      <span className="text-sm font-medium">4.9/5 Rating</span>
                     </div>
-                    <span className="text-sm font-medium">4.9/5 Rating</span>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <Award className="w-5 h-5 text-blue-300" />
-                    <span className="text-sm font-medium">Industry Leader</span>
+                    <div className="flex items-center space-x-2">
+                      <Award className="w-5 h-5 text-blue-300" />
+                      <span className="text-sm font-medium">
+                        Industry Leader
+                      </span>
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              {/* Enhanced CTA Buttons - Centered */}
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
-                <button
-                  onClick={() => scrollToSection("products")}
-                  className="group bg-white text-gray-900 px-10 py-5 rounded-full text-lg font-bold hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center justify-center"
-                >
-                  Explore Products
-                  <ArrowRight className="w-5 h-5 ml-3 group-hover:translate-x-1 transition-transform duration-300" />
-                </button>
-              </div>
+                {/* Enhanced CTA Buttons - Centered */}
+                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
+                  <button
+                    onClick={() => scrollToSection("products")}
+                    className="group bg-white text-gray-900 px-10 py-5 rounded-full text-lg font-bold hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center justify-center"
+                  >
+                    Explore Products
+                    <ArrowRight className="w-5 h-5 ml-3 group-hover:translate-x-1 transition-transform duration-300" />
+                  </button>
+                </div>
 
-              {/* Enhanced Stats - Centered */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 pt-12 border-t border-white/20 max-w-2xl mx-auto">
-                <div className="text-center">
-                  <div className="text-4xl lg:text-5xl font-bold text-yellow-300 mb-2">
-                    2000+
+                {/* Enhanced Stats - Centered */}
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 pt-12 border-t border-white/20 max-w-2xl mx-auto">
+                  <div className="text-center">
+                    <div className="text-4xl lg:text-5xl font-bold text-yellow-300 mb-2">
+                      2000+
+                    </div>
+                    <div className="text-sm lg:text-base text-gray-300 font-medium">
+                      Happy Customers
+                    </div>
                   </div>
-                  <div className="text-sm lg:text-base text-gray-300 font-medium">
-                    Happy Customers
+                  <div className="text-center">
+                    <div className="text-4xl lg:text-5xl font-bold text-green-300 mb-2">
+                      50MW+
+                    </div>
+                    <div className="text-sm lg:text-base text-gray-300 font-medium">
+                      Power Generated
+                    </div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-4xl lg:text-5xl font-bold text-blue-300 mb-2">
+                      15+
+                    </div>
+                    <div className="text-sm lg:text-base text-gray-300 font-medium">
+                      Years Experience
+                    </div>
                   </div>
                 </div>
-                <div className="text-center">
-                  <div className="text-4xl lg:text-5xl font-bold text-green-300 mb-2">
-                    50MW+
-                  </div>
-                  <div className="text-sm lg:text-base text-gray-300 font-medium">
-                    Power Generated
-                  </div>
-                </div>
-                <div className="text-center">
-                  <div className="text-4xl lg:text-5xl font-bold text-blue-300 mb-2">
-                    15+
-                  </div>
-                  <div className="text-sm lg:text-base text-gray-300 font-medium">
-                    Years Experience
-                  </div>
-                </div>
-              </div>
 
-              {/* Additional Company Highlights */}
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-8 max-w-3xl mx-auto">
-                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 text-center border border-white/20">
-                  <div className="text-2xl font-bold text-white mb-1">25</div>
-                  <div className="text-xs text-gray-300">Year Warranty</div>
-                </div>
-                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 text-center border border-white/20">
-                  <div className="text-2xl font-bold text-white mb-1">24/7</div>
-                  <div className="text-xs text-gray-300">Support</div>
-                </div>
-                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 text-center border border-white/20">
-                  <div className="text-2xl font-bold text-white mb-1">100%</div>
-                  <div className="text-xs text-gray-300">Clean Energy</div>
-                </div>
-                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 text-center border border-white/20">
-                  <div className="text-2xl font-bold text-white mb-1">Free</div>
-                  <div className="text-xs text-gray-300">Installation</div>
+                {/* Additional Company Highlights */}
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-8 max-w-3xl mx-auto">
+                  <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 text-center border border-white/20">
+                    <div className="text-2xl font-bold text-white mb-1">25</div>
+                    <div className="text-xs text-gray-300">Year Warranty</div>
+                  </div>
+                  <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 text-center border border-white/20">
+                    <div className="text-2xl font-bold text-white mb-1">
+                      24/7
+                    </div>
+                    <div className="text-xs text-gray-300">Support</div>
+                  </div>
+                  <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 text-center border border-white/20">
+                    <div className="text-2xl font-bold text-white mb-1">
+                      100%
+                    </div>
+                    <div className="text-xs text-gray-300">Clean Energy</div>
+                  </div>
+                  <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 text-center border border-white/20">
+                    <div className="text-2xl font-bold text-white mb-1">
+                      Free
+                    </div>
+                    <div className="text-xs text-gray-300">Installation</div>
+                  </div>
                 </div>
               </div>
             </div>
