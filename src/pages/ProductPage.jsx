@@ -173,7 +173,7 @@ const ProductPage = () => {
       <Navbar />
       {/* Header Section */}
       <div className="max-w-7xl mx-auto text-center mb-16">
-        <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium mb-6">
+        <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium mt-4 mb-5">
           <span>⚡</span>
           <span>Clean Energy Solutions</span>
         </div>
@@ -400,25 +400,6 @@ const ProductPage = () => {
           </div>
         </div>
       )}
-
-      {/* CTA Section */}
-      <div className="max-w-7xl mx-auto mt-20 bg-gradient-to-r from-blue-600 to-blue-800 rounded-2xl p-8 text-center text-white">
-        <h2 className="text-3xl font-bold mb-4">
-          Ready to Start Your Energy Journey?
-        </h2>
-        <p className="text-xl mb-8 max-w-2xl mx-auto">
-          Get a personalized quote and discover how much you can save with our
-          energy solutions
-        </p>
-        <div className="flex flex-wrap justify-center gap-4">
-          <button className="px-8 py-4 bg-white text-blue-600 rounded-lg hover:bg-blue-50 transition-colors duration-200 font-bold text-lg">
-            Get Free Quote
-          </button>
-          <button className="px-8 py-4 border border-white text-white rounded-lg hover:bg-white/10 transition-colors duration-200 font-bold text-lg">
-            Schedule Demo
-          </button>
-        </div>
-      </div>
     </div>
   );
 };

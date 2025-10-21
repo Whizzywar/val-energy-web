@@ -10,28 +10,27 @@ const HomePage = () => {
   const [heroIndex, setHeroIndex] = useState(0);
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
 
-  // Hero content data
   const heroContent = [
     {
-      title: "EnergyFlow",
+      title: "Valtech Energy",
       subtitle: "Powering Tomorrow",
       description:
-        "Revolutionary lithium batteries and solar solutions for a sustainable future",
-      image: "src/images/VirtualSolar.jpg", // Replace with your image path
+        "Premium lithium batteries and solar solutions for a sustainable future",
+      image: "src/images/VirtualSolar.jpg",
     },
     {
       title: "Clean Energy",
       subtitle: "Smart Solutions",
       description:
         "Advanced solar technology and energy storage systems for modern living",
-      image: "src/images/SolarBattery.jpg", // Replace with your image path
+      image: "src/images/SolarBattery.jpg",
     },
     {
       title: "Sustainable",
       subtitle: "Energy Systems",
       description:
         "Premium lithium batteries and solar equipment for residential & commercial use",
-      image: "src/images/SolarPanel.jpg", // Replace with your image path
+      image: "src/images/SolarPanel.jpg",
     },
   ];
 
@@ -42,8 +41,6 @@ const HomePage = () => {
     }, 5000);
     return () => clearInterval(timer);
   }, [heroContent.length]);
-
-  // Scroll to section function
 
   return (
     <div>
