@@ -122,22 +122,13 @@ const AboutSection = () => {
                     </div>
                   </div>
                 </div>
-
-                <div className="mt-10 text-center">
-                  <button
-                    onClick={() => scrollToSection("about")}
-                    className="bg-gradient-to-r from-blue-600 to-green-500 text-white px-8 py-4 rounded-full font-bold hover:shadow-xl transition-all duration-300"
-                  >
-                    Join Our Success Story
-                  </button>
-                </div>
               </div>
 
               {/* Decorative Elements */}
               <div className="absolute -top-6 -left-6 w-24 h-24 bg-blue-200/50 rounded-full animate-pulse"></div>
               <div
                 className="absolute -bottom-6 -right-6 w-20 h-20 bg-green-200/50 rounded-full animate-pulse"
-                style={{ animationDelay: "1s" }}
+                style={{ animationDelay: "2s" }}
               ></div>
             </div>
           </div>
