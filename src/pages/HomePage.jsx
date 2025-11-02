@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Leaf, ChevronDown, Play, Star, Award, Zap } from "lucide-react";
+import { Leaf, Star, Award, Zap } from "lucide-react";
 import Navbar from "../components/Navbar";
 import ProductsList from "../components/ProductsList";
 import AboutSection from "../components/AboutSection";
@@ -15,7 +15,7 @@ const HomePage = () => {
       title: "Valtech Energy",
       subtitle: "Powering Tomorrow",
       description:
-        "Premium lithium batteries and solar solutions for a sustainable future",
+        "Your trusted partner for high-perfomance lithium batteries and solar solutions for a sustainable future",
       image: "src/images/VirtualSolar.jpg",
     },
     {
@@ -140,7 +140,7 @@ const HomePage = () => {
                     to="/products"
                     className="bg-gradient-to-r from-blue-500 to-green-500 text-white px-8 py-4 rounded-2xl font-bold hover:shadow-xl transition-all duration-300 inline-flex items-center hover:scale-105"
                   >
-                    View Our Products
+                    Explore Products
                     <Zap className="w-5 h-5 ml-2" />
                   </Link>
                 </div>
@@ -212,24 +212,7 @@ const HomePage = () => {
             <div
               className="bg-white rounded-2xl p-6 max-w-2xl w-full"
               onClick={(e) => e.stopPropagation()}
-            >
-              <div className="flex justify-between items-center mb-4">
-                <h3 className="text-xl font-bold text-gray-900">
-                  EnergyFlow Demo
-                </h3>
-                <button
-                  onClick={() => setIsVideoPlaying(false)}
-                  className="text-gray-500 hover:text-gray-700 transition-colors"
-                >
-                  <ChevronDown className="w-6 h-6" />
-                </button>
-              </div>
-              <div className="aspect-video bg-gray-100 rounded-lg flex items-center justify-center">
-                <Play className="w-16 h-16 text-gray-400" />
-                {/* Replace with actual video component */}
-                <span className="ml-2 text-gray-600">Video Player</span>
-              </div>
-            </div>
+            ></div>
           </div>
         )}
 

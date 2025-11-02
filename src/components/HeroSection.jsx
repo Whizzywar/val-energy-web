@@ -5,32 +5,30 @@ const HeroSection = () => {
   const [heroIndex, setHeroIndex] = useState(0);
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
 
-  // Hero content data
   const heroContent = [
     {
       title: "EnergyFlow",
       subtitle: "Powering Tomorrow",
       description:
         "Revolutionary lithium batteries and solar solutions for a sustainable future",
-      image: "src/images/VirtualSolar.jpg", // Replace with your image path
+      image: "src/images/VirtualSolar.jpg",
     },
     {
       title: "Clean Energy",
       subtitle: "Smart Solutions",
       description:
         "Advanced solar technology and energy storage systems for modern living",
-      image: "src/images/SolarBattery.jpg", // Replace with your image path
+      image: "src/images/SolarBattery.jpg",
     },
     {
       title: "Sustainable",
       subtitle: "Energy Systems",
       description:
         "Premium lithium batteries and solar equipment for residential & commercial use",
-      image: "src/images/SolarPanel.jpg", // Replace with your image path
+      image: "src/images/SolarPanel.jpg",
     },
   ];
 
-  // Auto-rotate hero content
   useEffect(() => {
     const timer = setInterval(() => {
       setHeroIndex((prev) => (prev + 1) % heroContent.length);
@@ -52,7 +50,6 @@ const HeroSection = () => {
         id="home"
         className="relative min-h-screen flex items-center justify-center overflow-hidden"
       >
-        {/* Background Image */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-all duration-2000"
           style={{
@@ -189,20 +186,7 @@ const HeroSection = () => {
             <div
               className="bg-white rounded-2xl p-6 max-w-2xl w-full"
               onClick={(e) => e.stopPropagation()}
-            >
-              <div className="flex justify-between items-center mb-4">
-                <h3 className="text-xl font-bold">EnergyFlow Demo</h3>
-                <button
-                  onClick={() => setIsVideoPlaying(false)}
-                  className="text-gray-500 hover:text-gray-700"
-                >
-                  <ChevronDown className="w-6 h-6 rotate-45" />
-                </button>
-              </div>
-              <div className="aspect-video bg-gray-100 rounded-lg flex items-center justify-center">
-                <Play className="w-16 h-16 text-gray-400" />
-              </div>
-            </div>
+            ></div>
           </div>
         )}
 

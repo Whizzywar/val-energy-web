@@ -17,7 +17,6 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Navigation items with routes
   const navigationItems = [
     { id: "home", label: "Home", path: "/" },
     { id: "products", label: "Products", path: "/products" },

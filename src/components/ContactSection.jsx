@@ -41,11 +41,10 @@ const ContactSection = () => {
         id="contact"
         className="relative py-12 sm:py-16 md:py-20 lg:py-24 text-white"
       >
-        {/* Background Image */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: "url('src/images/InverterBattery.jpg')", // Replace with your image path
+            backgroundImage: "url('src/images/InverterBattery.jpg')",
           }}
         >
           <div className="absolute inset-0 bg-black/60"></div>
@@ -69,8 +68,8 @@ const ContactSection = () => {
             </h2>
 
             <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 max-w-xs sm:max-w-2xl md:max-w-3xl lg:max-w-4xl mx-auto leading-relaxed px-4 sm:px-0">
-              Transform your energy future with EnergyFlow's premium solar and
-              battery solutions. Get your free consultation and personalized
+              Transform your energy future with Valtech Energy's premium solar
+              and battery solutions. Get your free consultation and personalized
               quote today.
             </p>
           </div>
@@ -251,7 +250,7 @@ const ContactSection = () => {
                       Phone Support
                     </h4>
                     <p className="text-xl sm:text-2xl font-bold text-green-400 mb-2">
-                      +1 (555) 123-ENERGY
+                      +234 802-057-4628
                     </p>
                     <p className="text-sm sm:text-base text-gray-400">
                       Mon-Fri 8AM-8PM, Sat 9AM-5PM, Sun 10AM-4PM

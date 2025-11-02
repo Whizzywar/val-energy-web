@@ -128,9 +128,8 @@ const ProductsList = () => {
             </h2>
 
             <p className="text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-              Discover our premium collection of lithium batteries, solar
-              panels, and complete energy systems engineered for maximum
-              performance and longevity.
+              Discover our range of high-quality, reliable energy solutions
+              designed for performance and sustainability
             </p>
           </div>
 

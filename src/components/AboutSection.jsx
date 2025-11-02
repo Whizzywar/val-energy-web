@@ -25,14 +25,14 @@ const AboutSection = () => {
               <h2 className="text-5xl lg:text-6xl font-bold text-gray-900 mb-8">
                 Why Choose{" "}
                 <span className="bg-gradient-to-r from-blue-600 to-green-500 bg-clip-text text-transparent">
-                  EnergyFlow?
+                  Valtech Energy?
                 </span>
               </h2>
 
               <p className="text-xl text-gray-600 mb-12 leading-relaxed">
-                With over 15 years of expertise in renewable energy, EnergyFlow
-                has established itself as the premier provider of cutting-edge
-                sustainable energy solutions.
+                With over 15 years of expertise in renewable energy, Valtech
+                energy has established itself as the premier provider of
+                cutting-edge sustainable energy solutions.
               </p>
 
               <div className="space-y-8">

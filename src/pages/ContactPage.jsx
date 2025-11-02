@@ -8,10 +8,11 @@ const ContactSection = () => {
     email: "",
     message: "",
   });
-  const [status, setStatus] = useState("idle"); // idle, loading, success, error
+  const [status, setStatus] = useState("idle");
   const [isDisabled, setIsDisabled] = useState(false);
 
   const handleChange = (e) => {
+    n;
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
@@ -43,11 +44,10 @@ const ContactSection = () => {
         id="contact"
         className="relative py-12 sm:py-16 md:py-20 lg:py-24 text-white"
       >
-        {/* Background Image */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: "url('src/images/InverterBattery.jpg')", // Replace with your image path
+            backgroundImage: "url('src/images/InverterBattery.jpg')",
           }}
         >
           <div className="absolute inset-0 bg-black/60"></div>
