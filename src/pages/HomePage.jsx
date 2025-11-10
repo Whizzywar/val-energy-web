@@ -16,21 +16,21 @@ const HomePage = () => {
       subtitle: "Powering Tomorrow",
       description:
         "Your trusted partner for high-perfomance lithium batteries and solar solutions for a sustainable future",
-      image: "src/images/VirtualSolar.jpg",
+      image: "/VirtualSolar.jpg",
     },
     {
       title: "Clean Energy",
       subtitle: "Smart Solutions",
       description:
         "Advanced solar technology and energy storage systems for modern living",
-      image: "src/images/SolarBattery.jpg",
+      image: "/SolarBattery.jpg",
     },
     {
       title: "Sustainable",
       subtitle: "Energy Systems",
       description:
         "Premium lithium batteries and solar equipment for residential & commercial use",
-      image: "src/images/SolarPanel.jpg",
+      image: "/SolarPanel.jpg",
     },
   ];
 

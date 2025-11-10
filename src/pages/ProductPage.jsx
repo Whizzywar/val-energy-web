@@ -1,13 +1,6 @@
 import React, { useState } from "react";
 import Navbar from "../components/Navbar";
 
-import FingerBattery from "../images/FingerBattery.jpg";
-import InverterBox from "../images/InverterBox.jpg";
-import InverterBattery from "../images/InverterBattery.jpg";
-import VirtualSolar from "../images/VirtualSolar.jpg";
-import SolarBattery from "../images/SolarBattery.jpg";
-import SolarPanel from "../images/SolarPanel.jpg";
-
 const ProductPage = () => {
   const [activeCategory, setActiveCategory] = useState("all");
   const [selectedProduct, setSelectedProduct] = useState(null);
@@ -30,7 +23,7 @@ const ProductPage = () => {
       price: "$12,499",
       description:
         "Complete residential solar system with premium efficiency panels",
-      image: FingerBattery,
+      image: "/FingerBattery.jpg",
       features: [
         "25-Year Performance Warranty",
         "95% System Efficiency",
@@ -49,7 +42,7 @@ const ProductPage = () => {
       category: "storage",
       price: "$8,999",
       description: "Advanced home battery storage for energy independence",
-      image: VirtualSolar,
+      image: "/VirtualSolar.jpg",
       features: [
         "13.5 kWh Capacity",
         "10-Year Warranty",
@@ -68,7 +61,7 @@ const ProductPage = () => {
       category: "smart",
       price: "$299",
       description: "AI-powered smart thermostat for optimal energy savings",
-      image: SolarPanel,
+      image: "/SolarPanel.jpg",
       features: [
         "AI Energy Optimization",
         "Voice Control Compatible",
@@ -88,7 +81,7 @@ const ProductPage = () => {
       price: "$299",
       description:
         "Enterprise-grade solar solutions for businesses and organizations",
-      image: SolarBattery,
+      image: "/SolarBattery.jpg",
       features: [
         "Scalable to 1MW+",
         "Commercial Warranty",
@@ -108,7 +101,7 @@ const ProductPage = () => {
       price: "$299",
       description:
         "Enterprise-grade solar solutions for businesses and organizations",
-      image: SolarBattery,
+      image: "/SolarBattery.jpg",
       features: [
         "Scalable to 1MW+",
         "Commercial Warranty",
@@ -128,7 +121,7 @@ const ProductPage = () => {
       price: "$45,000",
       description:
         "Dual-purpose solar structure providing shade and clean energy",
-      image: InverterBattery,
+      image: "/InverterBattery.jpg",
       features: [
         "EV Charging Ready",
         "Weather Protection",
@@ -148,7 +141,7 @@ const ProductPage = () => {
       price: "$199",
       description:
         "Real-time energy monitoring and insights for your entire home",
-      image: InverterBox,
+      image: "/InverterBox.jpg",
       features: [
         "Real-time Monitoring",
         "Circuit-level Insights",

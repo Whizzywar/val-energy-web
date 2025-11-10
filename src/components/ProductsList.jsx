@@ -1,14 +1,6 @@
 import { Award, Battery, CheckCircle, Star, Sun, Zap } from "lucide-react";
 import React from "react";
 
-// Import images from the image directory
-import FingerBattery from "../images/FingerBattery.jpg";
-import InverterBox from "../images/InverterBox.jpg";
-import InverterBattery from "../images/InverterBattery.jpg";
-import VirtualSolar from "../images/VirtualSolar.jpg";
-import SolarBattery from "../images/SolarBattery.jpg";
-import SolarPanel from "../images/SolarPanel.jpg";
-
 const ProductsList = () => {
   // Products data with detailed pricing and local images
   const products = [
@@ -18,7 +10,7 @@ const ProductsList = () => {
       category: "Lithium Battery",
       price: 1299,
       originalPrice: 1499,
-      image: FingerBattery,
+      image: "/FingerBattery.jpg",
       features: [
         "100Ah LiFePO4 Capacity",
         "10-Year Warranty",
@@ -33,7 +25,7 @@ const ProductsList = () => {
       category: "Lithium Battery",
       price: 2199,
       originalPrice: 2499,
-      image: InverterBox,
+      image: "/InverterBox.jpg",
       features: [
         "200Ah High Capacity",
         "15-Year Warranty",
@@ -49,7 +41,7 @@ const ProductsList = () => {
       category: "Solar Panel",
       price: 299,
       originalPrice: 349,
-      image: InverterBattery,
+      image: "/InverterBattery.jpg",
       features: [
         "400W Monocrystalline",
         "25-Year Warranty",
@@ -64,7 +56,7 @@ const ProductsList = () => {
       category: "Solar Panel",
       price: 399,
       originalPrice: 459,
-      image: VirtualSolar,
+      image: "/VirtualSolar.jpg",
       features: [
         "500W High Output",
         "25-Year Warranty",
@@ -79,7 +71,7 @@ const ProductsList = () => {
       category: "Solar Inverter",
       price: 899,
       originalPrice: 999,
-      image: SolarBattery,
+      image: "/SolarBattery.jpg",
       features: [
         "3000W Pure Sine Wave",
         "10-Year Warranty",
@@ -94,7 +86,7 @@ const ProductsList = () => {
       category: "Complete System",
       price: 4999,
       originalPrice: 5999,
-      image: SolarPanel,
+      image: "/SolarPanel.jpg",
       features: [
         "5kW Complete System",
         "25-Year Warranty",
@@ -137,7 +129,7 @@ const ProductsList = () => {
           <div className="grid md:grid-cols-3 gap-8 mb-20">
             {[
               {
-                icon: "/src/images/FingerBattery.jpg",
+                icon: "FingerBattery.jpg",
                 title: "Lithium Batteries",
                 description:
                   "Advanced LiFePO4 batteries with smart BMS technology for reliable energy storage.",
@@ -148,7 +140,7 @@ const ProductsList = () => {
                 ],
               },
               {
-                icon: "/src/images/MiniSolar.jpg",
+                icon: "/MiniSolar.jpg",
                 title: "Solar Panels",
                 description:
                   "High-efficiency monocrystalline panels designed for maximum energy generation.",
@@ -159,7 +151,7 @@ const ProductsList = () => {
                 ],
               },
               {
-                icon: "/src/images/SolarPanel.jpg",
+                icon: "/SolarPanel.jpg",
                 title: "Complete Systems",
                 description:
                   "Turnkey solar and storage solutions with professional installation services.",

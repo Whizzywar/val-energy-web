@@ -44,7 +44,7 @@ const ContactSection = () => {
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: "url('src/images/InverterBattery.jpg')",
+            backgroundImage: "url('/InverterBattery.jpg')",
           }}
         >
           <div className="absolute inset-0 bg-black/60"></div>
