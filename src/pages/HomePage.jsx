@@ -141,7 +141,8 @@ const HomePage = () => {
                     className="bg-gradient-to-r from-blue-500 to-green-500 text-white px-8 py-4 rounded-2xl font-bold hover:shadow-xl transition-all duration-300 inline-flex items-center hover:scale-105"
                   >
                     Explore Products
-                    <Zap className="w-5 h-5 ml-2" />
+                    <Zap className=" animate-pulse w-5 h-5 ml-2" />
+                    <div className="absolute -top-1 -right-1 w-4 h-4 bg-green-400 rounded-full animate-ping"></div>
                   </Link>
                 </div>
 
