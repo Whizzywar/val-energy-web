@@ -1,21 +1,10 @@
 import { Menu, Phone, X, Zap } from "lucide-react";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
-
-  // Handle scroll effects
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   const navigationItems = [
     { id: "home", label: "Home", path: "/" },
@@ -24,126 +13,87 @@ const Navbar = () => {
     { id: "contact", label: "Contact", path: "/contact" },
   ];
 
-  // Check if a nav item is active based on current route
   const isActive = (path) => {
-    if (path === "/") {
-      return location.pathname === "/";
-    }
+    if (path === "/") return location.pathname === "/";
     return location.pathname.startsWith(path);
   };
 
   return (
     <div className="bg-white dark:bg-gray-900 transition-colors duration-300">
-      <nav
-        className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-          isScrolled
-            ? "bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl shadow-2xl py-2"
-            : "bg-white/90 dark:bg-gray-900/90 backdrop-blur-md shadow-lg py-0"
-        } border-b border-gray-100 dark:border-gray-800`}
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div
-            className={`flex items-center justify-between transition-all duration-300 ${
-              isScrolled ? "h-16" : "h-20"
-            }`}
-          >
-            {/* Brand Logo - Link to Home */}
-            <Link
-              to="/"
-              className="flex items-center space-x-3 cursor-pointer group"
-            >
-              <div className="relative">
-                <div
-                  className={`bg-gradient-to-br from-blue-500 via-green-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-xl group-hover:shadow-2xl transition-all duration-300 ${
-                    isScrolled ? "w-12 h-12" : "w-14 h-14"
-                  }`}
-                >
-                  <Zap
-                    className={`text-white animate-pulse transition-all duration-300 ${
-                      isScrolled ? "w-6 h-6" : "w-8 h-8"
-                    }`}
-                  />
-                </div>
-                <div className="absolute -top-1 -right-1 w-4 h-4 bg-green-400 rounded-full animate-ping"></div>
-              </div>
-              <div>
-                <h1
-                  className={`font-bold bg-gradient-to-r from-blue-600 via-green-600 to-purple-600 bg-clip-text text-transparent transition-all duration-300 ${
-                    isScrolled ? "text-2xl" : "text-3xl"
-                  }`}
-                >
-                  Valtech Energy
-                </h1>
-                <p className="text-sm font-medium text-gray-500 dark:text-gray-400 -mt-1">
-                  Clean Energy Solutions
-                </p>
-              </div>
-            </Link>
+      <nav className="fixed top-0 left-0 w-full z-50 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800 shadow-sm">
+        <div className="flex items-center justify-between w-full h-16 px-6 sm:px-10 lg:px-14">
+          {/* Left: Logo */}
+          <Link to="/" className="flex items-center space-x-2 group">
+            <div className="bg-gradient-to-br from-blue-500 via-green-500 to-purple-600 rounded-xl flex items-center justify-center shadow-md w-10 h-10">
+              <Zap className="text-white w-5 h-5 animate-pulse" />
+            </div>
+            <h1 className="font-bold bg-gradient-to-r from-blue-600 via-green-600 to-purple-600 bg-clip-text text-transparent text-2xl tracking-tight">
+              Valtech
+            </h1>
+          </Link>
 
-            {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center space-x-8">
+          {/* Center: Navigation Links */}
+          <div className="hidden lg:flex items-center space-x-6">
+            {navigationItems.map((item) => (
+              <Link
+                key={item.id}
+                to={item.path}
+                className={`relative text-sm font-semibold uppercase tracking-wide transition-all duration-300 ${
+                  isActive(item.path)
+                    ? "text-black dark:text-white"
+                    : "text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white"
+                }`}
+              >
+                {item.label}
+                {isActive(item.path) && (
+                  <span className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-blue-600 to-green-500 rounded-full"></span>
+                )}
+              </Link>
+            ))}
+          </div>
+
+          {/* Right: Contact Info */}
+          <div className="hidden md:flex items-center space-x-4">
+            <div className="hidden lg:flex items-center space-x-2 text-gray-700 dark:text-gray-300 bg-gray-100 dark:bg-gray-800 px-3 py-1.5 rounded-full">
+              <Phone className="w-4 h-4" />
+              <span className="text-xs font-medium">+234 802-057-4628</span>
+            </div>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="lg:hidden p-1.5 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-300"
+          >
+            {isMenuOpen ? (
+              <X className="w-5 h-5 text-gray-700 dark:text-gray-300" />
+            ) : (
+              <Menu className="w-5 h-5 text-gray-700 dark:text-gray-300" />
+            )}
+          </button>
+        </div>
+
+        {/* Mobile Menu */}
+        {isMenuOpen && (
+          <div className="lg:hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700">
+            <div className="px-6 py-4 space-y-2">
               {navigationItems.map((item) => (
                 <Link
                   key={item.id}
                   to={item.path}
-                  className={`relative px-4 py-2 font-semibold transition-all duration-300 ${
+                  onClick={() => setIsMenuOpen(false)}
+                  className={`block text-sm px-3 py-2 font-medium rounded-md transition-all duration-300 ${
                     isActive(item.path)
-                      ? "text-blue-600 dark:text-blue-400"
-                      : "text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
+                      ? "text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30"
+                      : "text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800"
                   }`}
                 >
                   {item.label}
-                  {isActive(item.path) && (
-                    <div className="absolute -bottom-1 left-0 w-full h-1 bg-gradient-to-r from-blue-600 to-green-500 rounded-full"></div>
-                  )}
                 </Link>
               ))}
             </div>
-
-            {/* Desktop Actions */}
-            <div className="hidden md:flex items-center space-x-4">
-              {/* Phone Number */}
-              <div className="hidden lg:flex items-center space-x-2 text-gray-600 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 px-3 py-2 rounded-full">
-                <Phone className="w-4 h-4" />
-                <span className="text-sm font-medium">+234 802-057-4628</span>
-              </div>
-            </div>
-
-            {/* Mobile Menu Button */}
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-300"
-            >
-              {isMenuOpen ? (
-                <X className="w-6 h-6 text-gray-700 dark:text-gray-300" />
-              ) : (
-                <Menu className="w-6 h-6 text-gray-700 dark:text-gray-300" />
-              )}
-            </button>
           </div>
-
-          {/* Mobile Menu */}
-          {isMenuOpen && (
-            <div className="md:hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 shadow-2xl">
-              <div className="px-4 py-6 space-y-4">
-                {navigationItems.map((item) => (
-                  <Link
-                    key={item.id}
-                    to={item.path}
-                    onClick={() => setIsMenuOpen(false)}
-                    className={`block w-full text-left px-4 py-3 font-medium rounded-xl transition-all duration-300 ${
-                      isActive(item.path)
-                        ? "text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30"
-                        : "text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-gray-800"
-                    }`}
-                  >
-                    {item.label}
-                  </Link>
-                ))}
-              </div>
-            </div>
-          )}
-        </div>
+        )}
       </nav>
     </div>
   );

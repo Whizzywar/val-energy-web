@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Leaf, Star, Award, Zap } from "lucide-react";
+import { Leaf, Star, Award, Zap, ArrowRight } from "lucide-react";
 import Navbar from "../components/Navbar";
 import ProductsList from "../components/ProductsList";
 import AboutSection from "../components/AboutSection";
@@ -12,247 +12,162 @@ const HomePage = () => {
 
   const heroContent = [
     {
-      title: "Valtech Energy",
+      title: "Valtech energy",
       subtitle: "Powering Tomorrow",
       description:
-        "Your trusted partner for high-perfomance lithium batteries and solar solutions for a sustainable future",
+        "Your trusted partner for high-performance lithium batteries and solar solutions for a sustainable future.",
       image: "/VirtualSolar.jpg",
     },
     {
       title: "Clean Energy",
       subtitle: "Smart Solutions",
       description:
-        "Advanced solar technology and energy storage systems for modern living",
+        "Advanced solar technology and energy storage systems for modern living.",
       image: "/SolarBattery.jpg",
     },
     {
       title: "Sustainable",
       subtitle: "Energy Systems",
       description:
-        "Premium lithium batteries and solar equipment for residential & commercial use",
+        "Premium lithium batteries and solar equipment for residential & commercial use.",
       image: "/SolarPanel.jpg",
     },
   ];
 
-  // Auto-rotate hero content
+  // rotate hero
   useEffect(() => {
-    const timer = setInterval(() => {
-      setHeroIndex((prev) => (prev + 1) % heroContent.length);
+    const t = setInterval(() => {
+      setHeroIndex((p) => (p + 1) % heroContent.length);
     }, 5000);
-    return () => clearInterval(timer);
+    return () => clearInterval(t);
   }, [heroContent.length]);
 
   return (
-    <div>
+    <div className="w-full min-h-screen overflow-hidden bg-white">
+      {/* fixed navbar (already fixed inside component) */}
       <Navbar />
-      <div className="relative flex items-center justify-center overflow-hidden">
-        <Link
-          to="/"
-          className="text-white/80 hover:text-white transition-colors duration-300"
-        >
-          Home
-        </Link>
-        <Link
-          to="/products"
-          className="text-white/80 hover:text-white transition-colors duration-300 font-semibold"
-        >
-          Products
-        </Link>
-        <Link
-          to="/about"
-          className="text-white/80 hover:text-white transition-colors duration-300"
-        >
-          About
-        </Link>
-        <Link
-          to="/contact"
-          className="text-white/80 hover:text-white transition-colors duration-300"
-        >
-          Contact
-        </Link>
-      </div>
 
-      <div className="relative min-h-screen overflow-hidden">
-        {/* Background Image with Overlay */}
+      {/* spacer so hero begins below navbar (Navbar: A) */}
+      <div className="h-5"></div>
+
+      {/* HERO */}
+      <main className="relative w-full flex items-center justify-center">
+        {/* background image */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: `url(${heroContent[heroIndex].image})`,
-          }}
+          style={{ backgroundImage: `url(${heroContent[heroIndex].image})` }}
+          aria-hidden
         >
-          <div className="absolute inset-0 bg-black/60"></div>
+          <div className="absolute inset-0 bg-black/65" />
         </div>
 
-        {/* Main Content - Directly on Background */}
-        <div className="relative z-10 flex items-center justify-center">
-          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-            <div className="flex items-center justify-center py-20">
-              {/* Hero Content - Centered */}
-              <div className="text-white space-y-8 text-center max-w-4xl">
-                {/* Brand Badge */}
-                <div className="inline-flex items-center bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-6 py-3">
-                  <Leaf className="w-5 h-5 mr-3 text-green-300" />
-                  <span className="font-semibold text-sm">
-                    Leading Clean Energy Provider
-                  </span>
-                </div>
+        {/* content container */}
+        <section className="relative z-10 w-full max-w-6xl px-4 sm:px-6 lg:px-8 py-28 flex flex-col items-center text-center">
+          {/* Brand badge */}
+          <div className="inline-flex items-center bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-6 py-3 mb-6">
+            <Leaf className="w-5 h-5 mr-3 text-green-300" />
+            <span className="font-semibold text-sm text-white">
+              Leading Clean Energy Provider
+            </span>
+          </div>
 
-                {/* Main Headline - Enhanced and Centered */}
-                <div className="space-y-6">
-                  <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-tight">
-                    <span className="block animate-fade-in">
-                      {heroContent[heroIndex].title}
-                    </span>
-                    <span className="block bg-gradient-to-r from-yellow-300 via-green-300 to-blue-300 bg-clip-text text-transparent animate-fade-in-delay">
-                      {heroContent[heroIndex].subtitle}
-                    </span>
-                  </h1>
+          {/* Headline (Hero layout 1: centered, large) */}
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold leading-tight text-white max-w-4xl">
+            <span className="block animate-fade-in">
+              {heroContent[heroIndex].title}
+            </span>
+            <span className="block bg-gradient-to-r from-yellow-300 via-green-300 to-blue-300 bg-clip-text text-transparent animate-fade-in-delay">
+              {heroContent[heroIndex].subtitle}
+            </span>
+          </h1>
 
-                  <p className="text-xl md:text-2xl lg:text-3xl text-gray-100 max-w-4xl leading-relaxed mx-auto">
-                    {heroContent[heroIndex].description}
-                  </p>
+          <p className="mt-6 text-base sm:text-lg md:text-xl text-gray-100 max-w-3xl leading-relaxed mx-auto">
+            {heroContent[heroIndex].description}
+          </p>
 
-                  {/* Trust Indicators */}
-                  <div className="flex items-center justify-center space-x-8 pt-4">
-                    <div className="flex items-center space-x-2">
-                      <div className="flex">
-                        {[...Array(5)].map((_, i) => (
-                          <Star
-                            key={i}
-                            className="w-5 h-5 text-yellow-400 fill-current"
-                          />
-                        ))}
-                      </div>
-                      <span className="text-sm font-medium">4.9/5 Rating</span>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <Award className="w-5 h-5 text-blue-300" />
-                      <span className="text-sm font-medium">
-                        Industry Leader
-                      </span>
-                    </div>
-                  </div>
-                </div>
+          {/* CTA */}
+          <div className="mt-8 flex items-center gap-4">
+            <Link
+              to="/products"
+              className="relative inline-flex items-center gap-3 bg-gradient-to-r from-blue-500 to-green-500 text-white px-6 py-3 rounded-full font-semibold text-sm sm:text-base shadow-lg transform transition-all duration-300 hover:scale-105"
+            >
+              Explore Products
+              <Zap className="w-4 h-4 ml-1 animate-pulse" />
+              <ArrowRight className="w-5 h-5 ml-3 group-hover:translate-x-1 transition-transform duration-300" />
+            </Link>
+          </div>
+        </section>
+      </main>
 
-                {/* Navigation to Products */}
-                <div className="space-x-4 pt-6">
-                  <Link
-                    to="/products"
-                    className="bg-gradient-to-r from-blue-500 to-green-500 text-white px-8 py-4 rounded-2xl font-bold hover:shadow-xl transition-all duration-300 inline-flex items-center hover:scale-105"
-                  >
-                    Explore Products
-                    <Zap className=" animate-pulse w-5 h-5 ml-2" />
-                    <div className="absolute -top-1 -right-1 w-4 h-4 bg-green-400 rounded-full animate-ping"></div>
-                  </Link>
-                </div>
-
-                {/* Enhanced Stats - Centered */}
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 pt-12 border-t border-white/20 max-w-2xl mx-auto">
-                  <div className="text-center">
-                    <div className="text-4xl lg:text-5xl font-bold text-yellow-300 mb-2">
-                      2000+
-                    </div>
-                    <div className="text-sm lg:text-base text-gray-300 font-medium">
-                      Happy Customers
-                    </div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-4xl lg:text-5xl font-bold text-green-300 mb-2">
-                      50MW+
-                    </div>
-                    <div className="text-sm lg:text-base text-gray-300 font-medium">
-                      Power Generated
-                    </div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-4xl lg:text-5xl font-bold text-blue-300 mb-2">
-                      15+
-                    </div>
-                    <div className="text-sm lg:text-base text-gray-300 font-medium">
-                      Years Experience
-                    </div>
-                  </div>
-                </div>
-
-                {/* Additional Company Highlights */}
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-8 max-w-3xl mx-auto">
-                  <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 text-center border border-white/20 hover:bg-white/15 transition-all duration-300">
-                    <div className="text-2xl font-bold text-white mb-1">25</div>
-                    <div className="text-xs text-gray-300">Year Warranty</div>
-                  </div>
-                  <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 text-center border border-white/20 hover:bg-white/15 transition-all duration-300">
-                    <div className="text-2xl font-bold text-white mb-1">
-                      24/7
-                    </div>
-                    <div className="text-xs text-gray-300">Support</div>
-                  </div>
-                  <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 text-center border border-white/20 hover:bg-white/15 transition-all duration-300">
-                    <div className="text-2xl font-bold text-white mb-1">
-                      100%
-                    </div>
-                    <div className="text-xs text-gray-300">Clean Energy</div>
-                  </div>
-                  <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 text-center border border-white/20 hover:bg-white/15 transition-all duration-300">
-                    <div className="text-2xl font-bold text-white mb-1">
-                      Free
-                    </div>
-                    <div className="text-xs text-gray-300">Installation</div>
-                  </div>
-                </div>
-              </div>
+      {/* Video modal */}
+      {isVideoPlaying && (
+        <div
+          className="fixed inset-0 z-50 grid place-items-center bg-black/70 p-4"
+          onClick={() => setIsVideoPlaying(false)}
+        >
+          <div
+            className="bg-white rounded-2xl p-4 max-w-3xl w-full"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* imitate video iframe or element - replace with real player */}
+            <div className="aspect-video bg-black rounded">
+              <p className="text-white text-center mt-8">Video player here</p>
+            </div>
+            <div className="mt-3 text-right">
+              <button
+                onClick={() => setIsVideoPlaying(false)}
+                className="px-4 py-2 rounded bg-gray-100"
+              >
+                Close
+              </button>
             </div>
           </div>
         </div>
+      )}
 
-        {/* Video Modal */}
-        {isVideoPlaying && (
-          <div
-            className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4"
-            onClick={() => setIsVideoPlaying(false)}
-          >
-            <div
-              className="bg-white rounded-2xl p-6 max-w-2xl w-full"
-              onClick={(e) => e.stopPropagation()}
-            ></div>
-          </div>
-        )}
+      {/* main site sections */}
+      <section className="px-4 sm:px-6 lg:px-8 py-16">
+        <ProductsList />
+      </section>
 
-        {/* Custom Animations */}
-        <style jsx>{`
-          @keyframes fade-in {
-            from {
-              opacity: 0;
-              transform: translateY(20px);
-            }
-            to {
-              opacity: 1;
-              transform: translateY(0);
-            }
+      <section className="px-4 sm:px-6 lg:px-8 py-16 bg-gray-50">
+        <AboutSection />
+      </section>
+
+      <section className="px-4 sm:px-6 lg:px-8 py-16">
+        <ContactSection />
+      </section>
+
+      {/* small custom animations (scoped) */}
+      <style jsx>{`
+        @keyframes fade-in {
+          from {
+            opacity: 0;
+            transform: translateY(18px);
           }
-
-          @keyframes fade-in-delay {
-            from {
-              opacity: 0;
-              transform: translateY(20px);
-            }
-            to {
-              opacity: 1;
-              transform: translateY(0);
-            }
+          to {
+            opacity: 1;
+            transform: translateY(0);
           }
-
-          .animate-fade-in {
-            animation: fade-in 1s ease-out;
+        }
+        @keyframes fade-in-delay {
+          from {
+            opacity: 0;
+            transform: translateY(18px);
           }
-
-          .animate-fade-in-delay {
-            animation: fade-in-delay 1s ease-out 0.3s both;
+          to {
+            opacity: 1;
+            transform: translateY(0);
           }
-        `}</style>
-      </div>
-      <ProductsList />
-      <AboutSection />
-      <ContactSection />
+        }
+        .animate-fade-in {
+          animation: fade-in 900ms cubic-bezier(0.2, 0.9, 0.2, 1) both;
+        }
+        .animate-fade-in-delay {
+          animation: fade-in-delay 900ms cubic-bezier(0.2, 0.9, 0.2, 1) 250ms
+            both;
+        }
+      `}</style>
     </div>
   );
 };
