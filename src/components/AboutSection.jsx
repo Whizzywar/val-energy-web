@@ -84,7 +84,7 @@ const AboutSection = () => {
 
           {/* RIGHT COLUMN */}
           <div className="order-1 lg:order-2 relative">
-            <div className="bg-gradient-to-br from-blue-50 via-green-50 to-purple-50 rounded-3xl p-8 sm:p-10 border border-gray-200 shadow-md hover:shadow-lg transition-shadow duration-500">
+            <div className="bg-gradient-to-br from-blue-50 via-green-50 to-purple-50 rounded-3xl p-6 sm:p-10 border border-gray-200 shadow-md hover:shadow-lg transition-shadow duration-500">
               <div className="text-center mb-8 sm:mb-10">
                 <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2 sm:mb-4">
                   Our Impact
@@ -94,11 +94,11 @@ const AboutSection = () => {
                 </p>
               </div>
 
-              <div className="grid grid-cols-2 gap-6 sm:gap-8">
+              <div className="grid grid-cols-2  gap-6 sm:gap-8">
                 {[
                   {
                     value: "3000+",
-                    label: "Customer's satisfaction",
+                    label: "Customer satisfaction",
                     color: "text-blue-600",
                   },
                   {
@@ -112,21 +112,21 @@ const AboutSection = () => {
                     color: "text-purple-600",
                   },
                   {
-                    value: "4.9★",
+                    value: "5.9★",
                     label: "Customer Rating",
                     color: "text-orange-600",
                   },
                 ].map((stat, i) => (
                   <div
                     key={i}
-                    className="text-center bg-white/80 rounded-2xl p-4 sm:p-6 shadow-sm hover:shadow-md hover:scale-[1.02] transition-all duration-300"
+                    className="text-center bg-white/80 rounded-2xl p-1 sm:p-3 shadow-sm hover:shadow-md hover:scale-[1.02] transition-all duration-300"
                   >
                     <div
-                      className={`text-3xl sm:text-4xl font-bold mb-1 ${stat.color}`}
+                      className={`text-xl sm:text-2xl font-bold mb-1 ${stat.color}`}
                     >
                       {stat.value}
                     </div>
-                    <div className="text-xs sm:text-sm font-semibold text-gray-700">
+                    <div className="text-xs sm:text-xs font-semibold text-gray-700">
                       {stat.label}
                     </div>
                   </div>
