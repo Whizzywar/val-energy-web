@@ -62,9 +62,10 @@ const HomePage = () => {
         </div>
 
         {/* content container */}
-        <section className="relative z-10 w-full max-w-6xl px-4 sm:px-6 lg:px-8 py-28 flex flex-col items-center text-center">
+        <section className="relative z-10 w-full max-w-6xl px-4 sm:px-6 lg:px-8 py-10 flex flex-col items-center text-center">
           {/* Brand badge */}
-          <div className="inline-flex items-center bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-3 py-3  mb-6">
+
+          <div className="inline-flex items-center bg-white/10 backdrop-blur-sm border border-white/20 rounded-full  text-sm font-medium  mt-4 mb-5 px-3 py-3">
             <Leaf className="w-5 h-5 mr-2 text-green-300" />
             <span className="font-semibold text-sm text-white">
               Leading Clean Energy Provider
