@@ -47,33 +47,31 @@ const HomePage = () => {
       {/* fixed navbar (already fixed inside component) */}
       <Navbar />
 
-      {/* spacer so hero begins below navbar (Navbar: A) */}
-      <div className="h-5"></div>
-
-      {/* HERO */}
-      <main className="relative w-full flex items-center justify-center">
-        {/* background image */}
+      <main className="relative w-full min-h-screen flex flex-col justify-center items-center">
+        {/* Full background image */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url(${heroContent[heroIndex].image})` }}
+          style={{
+            backgroundImage: `url(${heroContent[heroIndex].image})`,
+          }}
           aria-hidden
         >
-          <div className="absolute inset-0 bg-black/65" />
+          {/* dark overlay */}
+          <div className="absolute inset-0 bg-black/60" />
         </div>
 
-        {/* content container */}
-        <section className="relative z-10 w-full max-w-6xl px-4 sm:px-6 lg:px-8 py-10 flex flex-col items-center text-center">
+        {/* Centered hero content */}
+        <section className="relative z-10 w-full px-4 sm:px-6 md:px-10 lg:px-16 xl:px-20 flex flex-col items-center justify-center text-center py-10 sm:py-12 md:py-20">
           {/* Brand badge */}
-
-          <div className="inline-flex items-center bg-white/10 backdrop-blur-sm border border-white/20 rounded-full  text-sm font-medium  mt-4 mb-5 px-3 py-3">
+          <div className="inline-flex items-center bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-sm font-medium mt-4 mb-5 px-4 py-2.5">
             <Leaf className="w-5 h-5 mr-2 text-green-300" />
             <span className="font-semibold text-sm text-white">
               Leading Clean Energy Provider
             </span>
           </div>
 
-          {/* Headline (Hero layout 1: centered, large) */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold leading-tight text-white max-w-4xl">
+          {/* Headline */}
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold leading-tight text-white max-w-[90%] sm:max-w-[80%] md:max-w-[70%] mx-auto">
             <span className="block animate-fade-in">
               {heroContent[heroIndex].title}
             </span>
@@ -82,49 +80,24 @@ const HomePage = () => {
             </span>
           </h1>
 
-          <p className="mt-6 text-base sm:text-lg md:text-xl text-gray-100 max-w-3xl leading-relaxed mx-auto">
+          {/* Description */}
+          <p className="mt-6 text-base sm:text-lg md:text-xl text-gray-100 max-w-2xl sm:max-w-3xl leading-relaxed mx-auto px-4">
             {heroContent[heroIndex].description}
           </p>
 
           {/* CTA */}
-          <div className="mt-8 flex items-center gap-4">
+          <div className="mt-8 flex flex-wrap justify-center items-center gap-4">
             <Link
               to="/products"
-              className="relative inline-flex items-center gap-3 bg-gradient-to-r from-blue-500 to-green-500 text-white px-6 py-3 rounded-full font-semibold text-sm sm:text-base shadow-lg transform transition-all duration-300 hover:scale-105"
+              className="inline-flex items-center gap-3 bg-gradient-to-r from-blue-500 to-green-500 text-white px-4 py-3 rounded-full font-semibold text-sm sm:text-base shadow-lg transform transition-all duration-300 hover:scale-105"
             >
               Explore Products
               <Zap className="w-4 h-4 ml-1 animate-pulse" />
-              <ArrowRight className="w-5 h-5 ml-3 group-hover:translate-x-1 transition-transform duration-300" />
+              <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
             </Link>
           </div>
         </section>
       </main>
-
-      {/* Video modal */}
-      {isVideoPlaying && (
-        <div
-          className="fixed inset-0 z-50 grid place-items-center bg-black/70 p-4"
-          onClick={() => setIsVideoPlaying(false)}
-        >
-          <div
-            className="bg-white rounded-2xl p-4 max-w-3xl w-full"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* imitate video iframe or element - replace with real player */}
-            <div className="aspect-video bg-black rounded">
-              <p className="text-white text-center mt-8">Video player here</p>
-            </div>
-            <div className="mt-3 text-right">
-              <button
-                onClick={() => setIsVideoPlaying(false)}
-                className="px-4 py-2 rounded bg-gray-100"
-              >
-                Close
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
 
       {/* main site sections */}
       <section className="px-4 sm:px-6 lg:px-8 py-16">
