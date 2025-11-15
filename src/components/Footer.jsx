@@ -13,29 +13,29 @@ const Footer = () => {
       name: "Facebook",
       icon: FaFacebookF,
       url: "#",
-      color: "hover:bg-blue-600",
+      color: "group-hover:bg-blue-600",
       iconColor: "text-blue-600 group-hover:text-white",
     },
     {
       name: "Twitter",
       icon: FaTwitter,
       url: "#",
-      color: "hover:bg-blue-400",
-      iconColor: "text-blue-400 group-hover:text-white",
+      color: "group-hover:bg-sky-500",
+      iconColor: "text-sky-400 group-hover:text-white",
     },
     {
       name: "Instagram",
       icon: FaInstagram,
       url: "#",
-      color: "hover:bg-gradient-to-r from-purple-500 to-pink-500",
+      color: "group-hover:bg-gradient-to-r from-purple-500 to-pink-500",
       iconColor: "text-pink-600 group-hover:text-white",
     },
     {
       name: "WhatsApp",
       icon: FaWhatsapp,
       url: "https://wa.me/+2348140067333",
-      color: "hover:bg-green-700",
-      iconColor: "text-green-700 group-hover:text-white",
+      color: "group-hover:bg-green-600",
+      iconColor: "text-green-600 group-hover:text-white",
     },
   ];
 
@@ -57,117 +57,110 @@ const Footer = () => {
   };
 
   return (
-    <footer className="w-full bg-black text-white pt-16 pb-10">
-      {/* Main Footer Grid */}
-      <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 px-6 sm:px-10 lg:px-16">
-        {/* Company Info */}
-        <div className="lg:col-span-2">
-          <div className="flex items-center space-x-3 mb-6">
-            <div className="w-14 h-14 bg-gradient-to-br from-blue-500 via-green-500 to-purple-600 rounded-2xl flex items-center justify-center">
-              <Zap className="w-8 h-8 text-white animate-pulse transition-all duration-300" />
+    <footer className="w-full bg-black text-white pt-20 pb-10">
+      {/* Main Container */}
+      <div className="max-w-7xl mx-auto px-6 sm:px-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-14">
+          {/* Company Info */}
+          <div className="lg:col-span-2">
+            <div className="flex items-center space-x-4 mb-6">
+              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500 via-green-500 to-purple-600 flex items-center justify-center shadow-lg">
+                <Zap className="w-8 h-8 text-white" />
+              </div>
+              <div>
+                <h3 className="text-3xl font-bold">Valtech Energy</h3>
+                <p className="text-gray-400 text-sm">Clean Energy Solutions</p>
+              </div>
             </div>
-            <div>
-              <h3 className="text-2xl sm:text-3xl font-bold">Valtech Energy</h3>
-              <p className="text-gray-400 text-sm sm:text-base">
-                Clean Energy Solutions
-              </p>
+
+            {/* Social Icons */}
+            <div className="flex flex-wrap gap-4 mt-8">
+              {socialMedia.map((social, index) => {
+                const IconComponent = social.icon;
+                return (
+                  <a
+                    key={index}
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={
+                      social.name === "WhatsApp"
+                        ? handleWhatsAppClick
+                        : undefined
+                    }
+                    className={`group w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center
+                      transition-all duration-300 hover:scale-110 cursor-pointer ${social.color}`}
+                  >
+                    <IconComponent
+                      className={`w-5 h-5 transition-colors duration-300 ${social.iconColor}`}
+                    />
+                  </a>
+                );
+              })}
             </div>
           </div>
 
-          <p className="text-gray-400 mb-8 leading-relaxed max-w-xl text-sm sm:text-base">
-            Leading provider of premium lithium batteries, solar panels, and
-            complete renewable energy systems. Empowering homes and businesses
-            with sustainable energy solutions for over 15 years.
-          </p>
-
-          {/* Social Media Links */}
-          <div className="flex flex-wrap gap-3 sm:gap-4">
-            {socialMedia.map((social, index) => {
-              const IconComponent = social.icon;
-              return (
-                <a
-                  key={index}
-                  href={social.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`group w-10 h-10 sm:w-12 sm:h-12 bg-gray-800 rounded-lg flex items-center justify-center transition-all duration-300 cursor-pointer transform hover:scale-110 ${social.color}`}
-                  aria-label={`Follow us on ${social.name}`}
-                  title={`Connect with us on ${social.name}`}
-                  onClick={
-                    social.name === "WhatsApp" ? handleWhatsAppClick : undefined
-                  }
-                >
-                  <IconComponent
-                    className={`w-4 h-4 sm:w-5 sm:h-5 transition-colors duration-300 ${social.iconColor}`}
-                  />
-                </a>
-              );
-            })}
+          {/* Products */}
+          <div>
+            <h4 className="text-xl font-semibold mb-5 border-b-2 border-white/10 pb-2">
+              Our Products
+            </h4>
+            <ul className="space-y-3">
+              {[
+                "Lithium Batteries",
+                "Solar Panels",
+                "Solar Inverters",
+                "Complete Systems",
+                "Installation Services",
+              ].map((item, index) => (
+                <li key={index}>
+                  <a className="text-blue-400 hover:text-white transition-colors text-sm sm:text-base cursor-pointer">
+                    {item}
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
-        </div>
 
-        {/* Products */}
-        <div>
-          <h4 className="text-lg sm:text-xl font-bold mb-6">Our Products</h4>
-          <ul className="space-y-3 sm:space-y-4">
-            {[
-              "Lithium Batteries",
-              "Solar Panels",
-              "Solar Inverters",
-              "Complete Systems",
-              "Installation Services",
-            ].map((product, index) => (
-              <li key={index}>
-                <a
-                  href="#"
-                  className="text-gray-400 hover:text-white transition-colors duration-300 text-sm sm:text-base block py-1"
-                >
-                  {product}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Services */}
-        <div>
-          <h4 className="text-lg sm:text-xl font-bold mb-6">Our Services</h4>
-          <ul className="space-y-3 sm:space-y-4">
-            {[
-              "Free Consultation",
-              "System Design",
-              "Professional Installation",
-              "Maintenance & Support",
-              "24/7 Monitoring",
-            ].map((service, index) => (
-              <li key={index}>
-                <a
-                  href="#"
-                  className="text-gray-400 hover:text-white transition-colors duration-300 text-sm sm:text-base block py-1"
-                >
-                  {service}
-                </a>
-              </li>
-            ))}
-          </ul>
+          {/* Services */}
+          <div>
+            <h4 className="text-xl font-semibold mb-5 border-b-2 border-white/10 pb-2 ">
+              Our Services
+            </h4>
+            <ul className="space-y-3">
+              {[
+                "Free Consultation",
+                "System Design",
+                "Professional Installation",
+                "Maintenance & Support",
+                "24/7 Monitoring",
+              ].map((service, index) => (
+                <li key={index}>
+                  <a className="text-blue-400 hover:text-white transition-colors text-sm sm:text-base cursor-pointer">
+                    {service}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
 
-      {/* Divider + Bottom Links */}
-      <div className="w-full border-t border-gray-800 mt-14 pt-8 px-6 sm:px-10 lg:px-16">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-gray-500 text-sm text-center md:text-left">
+      {/* Bottom Section */}
+      <div className="w-full border-t border-white/10 mt-16 pt-6">
+        <div className="max-w-7xl mx-auto px-6 sm:px-10 flex flex-col md:flex-row justify-between items-center gap-4 text-gray-500 text-sm">
+          <p className="text-center md:text-left">
             © 2025 Valtech Energy. All rights reserved.
           </p>
-          <div className="flex flex-wrap justify-center gap-4 sm:gap-6 text-sm">
+
+          <div className="flex gap-6 justify-center">
             {["Privacy Policy", "Terms of Service", "Warranty Information"].map(
-              (link, index) => (
+              (item, index) => (
                 <a
                   key={index}
-                  href="#"
-                  className="text-gray-400 hover:text-white transition-colors duration-300 whitespace-nowrap"
+                  className="hover:text-white transition-colors cursor-pointer"
                 >
-                  {link}
+                  {item}
                 </a>
               )
             )}
