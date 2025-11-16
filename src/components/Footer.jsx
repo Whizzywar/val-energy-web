@@ -57,10 +57,10 @@ const Footer = () => {
   };
 
   return (
-    <footer className="w-full bg-black text-white pt-20 pb-10">
-      {/* Main Container */}
-      <div className="max-w-7xl mx-auto px-6 sm:px-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-14">
+    <footer className="w-full bg-black text-white pt-10 pb-8">
+      {/* Main Container - Remove max-width constraint */}
+      <div className="w-full">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-14 px-6 sm:px-10 lg:px-20">
           {/* Company Info */}
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-4 mb-6">
@@ -114,7 +114,7 @@ const Footer = () => {
                 "Installation Services",
               ].map((item, index) => (
                 <li key={index}>
-                  <a className="text-blue-400 hover:text-white transition-colors text-sm sm:text-base cursor-pointer">
+                  <a className="text-blue-400  transition-colors text-sm sm:text-base ">
                     {item}
                   </a>
                 </li>
@@ -136,7 +136,7 @@ const Footer = () => {
                 "24/7 Monitoring",
               ].map((service, index) => (
                 <li key={index}>
-                  <a className="text-blue-400 hover:text-white transition-colors text-sm sm:text-base cursor-pointer">
+                  <a className="text-blue-400  transition-colors text-sm sm:text-base ">
                     {service}
                   </a>
                 </li>
@@ -146,9 +146,9 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Bottom Section */}
+      {/* Bottom Section - Remove max-width constraint */}
       <div className="w-full border-t border-white/10 mt-16 pt-6">
-        <div className="max-w-7xl mx-auto px-6 sm:px-10 flex flex-col md:flex-row justify-between items-center gap-4 text-gray-500 text-sm">
+        <div className="w-full flex flex-col md:flex-row justify-between items-center gap-4 text-gray-500 text-sm px-6 sm:px-10 lg:px-20">
           <p className="text-center md:text-left">
             © 2025 Valtech Energy. All rights reserved.
           </p>
