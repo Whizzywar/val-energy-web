@@ -1,11 +1,12 @@
 import { Award, CheckCircle } from "lucide-react";
 import React from "react";
+import { Link } from "react-router-dom";
 
 const ProductsList = () => {
   const products = [
     {
       id: 1,
-      name: "EnergyFlow Pro 100Ah",
+      name: "EnergyFlow Pro ",
       category: "Lithium Battery",
       price: 1299,
       originalPrice: 1499,
@@ -19,7 +20,7 @@ const ProductsList = () => {
     },
     {
       id: 2,
-      name: "EnergyFlow Elite 200Ah",
+      name: "EnergyFlow Elite ",
       category: "Lithium Battery",
       price: 2199,
       originalPrice: 2499,
@@ -33,7 +34,7 @@ const ProductsList = () => {
     },
     {
       id: 3,
-      name: "SolarMax 400W Panel",
+      name: "SolarMax 400W ",
       category: "Solar Panel",
       price: 299,
       originalPrice: 349,
@@ -47,7 +48,7 @@ const ProductsList = () => {
     },
     {
       id: 4,
-      name: "SolarMax 500W Panel",
+      name: "SolarMax 500W ",
       category: "Solar Panel",
       price: 399,
       originalPrice: 459,
@@ -61,7 +62,7 @@ const ProductsList = () => {
     },
     {
       id: 5,
-      name: "PowerInverter 3000W",
+      name: "PowerInverter ",
       category: "Solar Inverter",
       price: 899,
       originalPrice: 999,
@@ -75,7 +76,7 @@ const ProductsList = () => {
     },
     {
       id: 6,
-      name: "Complete Solar Kit 5kW",
+      name: "Complete Solar Kit",
       category: "Complete System",
       price: 4999,
       originalPrice: 5999,
@@ -90,12 +91,12 @@ const ProductsList = () => {
   ];
 
   return (
-    <section id="products" className="py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="products" className="py-15 bg-white">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-20">
-          <div className="inline-flex items-center bg-blue-100 text-blue-800 rounded-full px-6 py-3 mb-6">
-            <Award className="w-5 h-5 mr-2" />
+          <div className="inline-flex items-center bg-blue-100 text-blue-800 rounded-full px-6 py-3 mb-5">
+            <Award className="w-7 h-7 mr-3" />
             <span className="font-bold">Premium Energy Solutions</span>
           </div>
 
@@ -143,7 +144,7 @@ const ProductsList = () => {
                 <div className="space-y-3 mb-6">
                   {product.features.map((feature, i) => (
                     <div key={i} className="flex items-center text-gray-700">
-                      <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
+                      <CheckCircle className="w-5 h-5 text-blue-500 mr-3" />
                       <span className="text-sm">{feature}</span>
                     </div>
                   ))}
@@ -152,17 +153,19 @@ const ProductsList = () => {
                 {/* Price */}
                 <div className="border-t pt-6 flex items-center justify-between">
                   <div>
-                    <p className="text-green-600 font-bold text-2xl">
+                    <p className="text-black-600 font-bold text-2xl">
                       ${product.price}
                     </p>
                     <p className="text-gray-400 line-through text-sm">
                       ${product.originalPrice}
                     </p>
                   </div>
-
-                  <button className="px-5 py-2 rounded-full bg-blue-600 text-white font-semibold hover:bg-blue-700 transition-all">
+                  <Link
+                    to="/products"
+                    className="inline-flex items-center gap-3 bg-blue-600 text-white px-4 py-3 rounded-full font-semibold text-sm sm:text-base shadow-lg transform transition-all duration-300 hover:scale-105"
+                  >
                     Learn More
-                  </button>
+                  </Link>
                 </div>
               </div>
             </div>

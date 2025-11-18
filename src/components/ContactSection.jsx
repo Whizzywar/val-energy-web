@@ -114,7 +114,7 @@ const ContactSection = () => {
             <button
               type="submit"
               disabled={isDisabled}
-              className="w-full py-3 px-6 rounded-lg font-semibold bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 transition-all shadow-lg shadow-green-500/20 text-white transform hover:scale-[1.02] active:scale-[0.97]"
+              className="w-full py-3 px-6 rounded-lg font-semibold  bg-blue-600  transition-all shadow-lg shadow-green-500/20 text-white transform hover:scale-[1.02] active:scale-[0.97]"
             >
               {status === "loading" ? "Sending..." : "Send Message"}
             </button>
@@ -136,15 +136,6 @@ const ContactSection = () => {
               🔒 Your message is secure and encrypted.
             </p>
           </form>
-
-          {/* IMAGE AREA */}
-          <div className="relative w-full h-[420px] lg:h-[520px] overflow-hidden rounded-2xl shadow-lg">
-            <img
-              src="/SolarPanel.jpg"
-              alt="Clean Energy"
-              className="w-full h-full object-cover object-center hover:scale-105 transition-all duration-700"
-            />
-          </div>
         </div>
       </div>
     </section>
