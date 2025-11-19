@@ -57,7 +57,7 @@ const HomePage = () => {
 
         <section className="relative z-10 w-full  flex flex-col items-center justify-center text-center py-10 sm:py-14 md:py-18 lg:py-22  ">
           <div className="inline-flex items-center bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-sm font-medium mt-4 mb-5 px-4 py-2">
-            <Leaf className="w-5 h-5 mr-2 text-blue-600" />
+            <Leaf className="w-5 h-5 mr-2 text-blue-400" />
             <span className="font-semibold text-sm text-white">
               Leading Clean Energy Provider
             </span>
@@ -67,7 +67,7 @@ const HomePage = () => {
             <span className="block animate-fade-in">
               {heroContent[heroIndex].title}
             </span>
-            <span className="block bg-gradient-to-r from-yellow-300 via-green-300 to-blue-300 bg-clip-text text-transparent animate-fade-in-delay">
+            <span className="block bg-blue-400 bg-clip-text text-transparent animate-fade-in-delay">
               {heroContent[heroIndex].subtitle}
             </span>
           </h1>

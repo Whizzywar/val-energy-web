@@ -59,10 +59,8 @@ const Footer = () => {
 
   return (
     <footer className="w-full bg-black text-white pt-14 pb-10">
-      {/* Main Container */}
       <div className="w-full px-6 sm:px-12 lg:px-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-14">
-          {/* Company Info */}
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-4 mb-6">
               <div>
@@ -75,7 +73,6 @@ const Footer = () => {
               </div>
             </div>
 
-            {/* Social Icons */}
             <div className="flex flex-wrap gap-4 mt-8">
               {socialMedia.map((social, index) => {
                 const IconComponent = social.icon;
@@ -102,7 +99,6 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Products */}
           <div>
             <h4 className="text-lg font-semibold mb-5 border-b border-white/10 pb-2">
               Our Products
@@ -148,22 +144,19 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Bottom Section */}
       <div className="w-full border-t border-white/10 mt-16 pt-6">
         <div className="w-full px-6 sm:px-12 lg:px-20 flex flex-col md:flex-row justify-between items-center gap-4 text-white/50 text-sm">
           <p>© 2025 Valtech Energy. All rights reserved.</p>
 
           <div className="flex gap-6">
-            {["Privacy Policy", "Terms of Service", "Warranty Information"].map(
-              (item, index) => (
-                <a
-                  key={index}
-                  className="hover:text-white transition-colors cursor-pointer"
-                >
-                  {item}
-                </a>
-              )
-            )}
+            {["Privacy Policy", "Terms of Service"].map((item, index) => (
+              <a
+                key={index}
+                className="hover:text-white transition-colors cursor-pointer"
+              >
+                {item}
+              </a>
+            ))}
           </div>
         </div>
       </div>

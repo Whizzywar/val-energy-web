@@ -27,7 +27,7 @@ const Navbar = () => {
             <div className="bg-gradient-to-br from-blue-500 via-green-500 to-purple-600 rounded-xl flex items-center justify-center shadow-md w-10 h-10">
               <Zap className="text-white w-5 h-5 animate-pulse" />
             </div>
-            <h1 className="font-bold bg-gradient-to-r from-blue-600 via-green-600 to-purple-600 bg-clip-text text-transparent text-2xl tracking-tight">
+            <h1 className="font-bold bg-blue-400 bg-clip-text text-transparent text-2xl tracking-tight">
               Valtech
             </h1>
           </Link>
@@ -46,7 +46,7 @@ const Navbar = () => {
               >
                 {item.label}
                 {isActive(item.path) && (
-                  <span className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-blue-600 to-green-500 rounded-full"></span>
+                  <span className="absolute bottom-0 left-0 w-full h-[2px] bg-blue-600 rounded-full"></span>
                 )}
               </Link>
             ))}

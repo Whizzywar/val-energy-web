@@ -52,11 +52,10 @@ const ContactSection = () => {
             Fill out the form and our team will reach out shortly.
           </p>
         </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-center">
+        <div className="flex justify-center items-center">
           <form
             onSubmit={handleSubmit}
-            className="bg-white/5 border border-white/10 backdrop-blur-xl rounded-2xl p-8 md:p-10 shadow-xl space-y-6"
+            className="bg-white/5 border border-white/10 backdrop-blur-xl rounded-2xl p-8 md:p-10 shadow-xl space-y-6 w-full max-w-xl"
           >
             <div>
               <label className="text-sm font-medium text-gray-200 mb-2 block">
@@ -68,7 +67,7 @@ const ContactSection = () => {
                 disabled={isDisabled}
                 value={formData.name}
                 onChange={handleChange}
-                className="w-full bg-white/5 border border-white/10 px-4 py-3 rounded-lg focus:ring-2 focus:ring-green-400 focus:border-transparent outline-none transition-all"
+                className="w-full bg-white/5 border border-white/10 px-4 py-3 rounded-lg focus:ring-1 focus:ring-white-300 focus:border-transparent outline-none transition-all"
                 placeholder="John Doe"
                 required
               />
@@ -84,7 +83,7 @@ const ContactSection = () => {
                 disabled={isDisabled}
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full bg-white/5 border border-white/10 px-4 py-3 rounded-lg focus:ring-2 focus:ring-green-400 focus:border-transparent outline-none transition-all"
+                className="w-full bg-white/5 border border-white/10 px-4 py-3 rounded-lg focus:ring-1 focus:ring-white-600 focus:border-transparent outline-none transition-all"
                 placeholder="you@example.com"
                 required
               />
@@ -100,7 +99,7 @@ const ContactSection = () => {
                 value={formData.message}
                 onChange={handleChange}
                 rows="5"
-                className="w-full bg-white/5 border border-white/10 px-4 py-3 rounded-lg focus:ring-2 focus:ring-green-400 focus:border-transparent outline-none transition-all resize-none"
+                className="w-full bg-white/5 border border-white/10 px-4 py-3 rounded-lg focus:ring-1 focus:ring-white-300 focus:border-transparent outline-none transition-all resize-none"
                 placeholder="How can we help you?"
                 required
               />
@@ -109,7 +108,7 @@ const ContactSection = () => {
             <button
               type="submit"
               disabled={isDisabled}
-              className="w-full py-3 px-6 rounded-lg font-semibold  bg-blue-600  transition-all shadow-lg shadow-green-500/20 text-white transform hover:scale-[1.02] active:scale-[0.97]"
+              className="w-full py-3 px-6 rounded-lg font-semibold bg-blue-600 transition-all shadow-lg shadow-green-500/20 text-white transform hover:scale-[1.02] active:scale-[0.97]"
             >
               {status === "loading" ? "Sending..." : "Send Message"}
             </button>
