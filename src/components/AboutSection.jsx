@@ -17,7 +17,7 @@ const AboutSection = () => {
             {/* Heading */}
             <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-gray-900 leading-tight mb-5">
               Why{" "}
-              <span className="bg-gradient-to-r from-blue-600 to-green-500 text-transparent bg-clip-text">
+              <span className="bg-blue-600 text-transparent bg-clip-text">
                 Valtech Energy?
               </span>
             </h2>

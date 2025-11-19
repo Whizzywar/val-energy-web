@@ -93,7 +93,6 @@ const ProductsList = () => {
   return (
     <section id="products" className="py-15 bg-white">
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
-        {/* Header */}
         <div className="text-center mb-20">
           <div className="inline-flex items-center bg-blue-100 text-blue-800 rounded-full px-6 py-3 mb-5">
             <Award className="w-7 h-7 mr-3" />
@@ -102,7 +101,7 @@ const ProductsList = () => {
 
           <h2 className="text-4xl md:text-6xl font-bold text-gray-900">
             Explore Our
-            <span className="bg-gradient-to-r from-blue-600 to-green-500 bg-clip-text text-transparent">
+            <span className="bg-blue-600 bg-clip-text text-transparent">
               {" "}
               Products
             </span>
@@ -114,14 +113,12 @@ const ProductsList = () => {
           </p>
         </div>
 
-        {/* Responsive Grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
           {products.map((product) => (
             <div
               key={product.id}
               className="group bg-white border border-gray-200 rounded-3xl shadow-sm hover:shadow-2xl transition-all duration-300 overflow-hidden"
             >
-              {/* Image */}
               <div className="w-full h-56 bg-gray-100 overflow-hidden">
                 <img
                   src={product.image}
@@ -130,7 +127,6 @@ const ProductsList = () => {
                 />
               </div>
 
-              {/* Content */}
               <div className="p-8">
                 <p className="text-blue-600 font-semibold text-sm uppercase tracking-wide">
                   {product.category}
@@ -140,7 +136,6 @@ const ProductsList = () => {
                   {product.name}
                 </h3>
 
-                {/* Features */}
                 <div className="space-y-3 mb-6">
                   {product.features.map((feature, i) => (
                     <div key={i} className="flex items-center text-gray-700">
@@ -150,7 +145,6 @@ const ProductsList = () => {
                   ))}
                 </div>
 
-                {/* Price */}
                 <div className="border-t pt-6 flex items-center justify-between">
                   <div>
                     <p className="text-black-600 font-bold text-2xl">

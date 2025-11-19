@@ -33,7 +33,6 @@ const HomePage = () => {
     },
   ];
 
-  // rotate hero
   useEffect(() => {
     const t = setInterval(() => {
       setHeroIndex((p) => (p + 1) % heroContent.length);
@@ -43,11 +42,9 @@ const HomePage = () => {
 
   return (
     <div className="w-full min-h-screen overflow-hidden bg-white">
-      {/* fixed navbar (already fixed inside component) */}
       <Navbar />
 
       <main className="relative w-full min-h-screen flex flex-col justify-center items-center">
-        {/* Full background image */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
@@ -55,21 +52,17 @@ const HomePage = () => {
           }}
           aria-hidden
         >
-          {/* dark overlay */}
           <div className="absolute inset-0 bg-black/60" />
         </div>
 
-        {/* Centered hero content */}
         <section className="relative z-10 w-full  flex flex-col items-center justify-center text-center py-10 sm:py-14 md:py-18 lg:py-22  ">
-          {/* Brand badge */}
           <div className="inline-flex items-center bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-sm font-medium mt-4 mb-5 px-4 py-2">
-            <Leaf className="w-5 h-5 mr-2 text-green-300" />
+            <Leaf className="w-5 h-5 mr-2 text-blue-600" />
             <span className="font-semibold text-sm text-white">
               Leading Clean Energy Provider
             </span>
           </div>
 
-          {/* Headline */}
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold leading-tight text-white max-w-[90%] sm:max-w-[80%] md:max-w-[70%] mx-auto">
             <span className="block animate-fade-in">
               {heroContent[heroIndex].title}
@@ -79,7 +72,6 @@ const HomePage = () => {
             </span>
           </h1>
 
-          {/* Description */}
           <p className="mt-6 text-base sm:text-lg md:text-xl text-gray-100 max-w-2xl sm:max-w-3xl leading-relaxed mx-auto px-4">
             {heroContent[heroIndex].description}
           </p>
@@ -88,7 +80,7 @@ const HomePage = () => {
           <div className="mt-8 flex flex-wrap justify-center items-center gap-4">
             <Link
               to="/products"
-              className="inline-flex items-center gap-3 bg-gradient-to-r from-blue-500 to-green-500 text-white px-4 py-3 rounded-full font-semibold text-sm sm:text-base shadow-lg transform transition-all duration-300 hover:scale-105"
+              className="inline-flex items-center gap-3 bg-blue-600 text-white px-4 py-3 rounded-full font-semibold text-sm sm:text-base shadow-lg transform transition-all duration-300 hover:scale-105"
             >
               Explore Products
               <Zap className="w-4 h-4 ml-1 animate-pulse" />
@@ -98,7 +90,6 @@ const HomePage = () => {
         </section>
       </main>
 
-      {/* main site sections */}
       <section className="px-4 sm:px-6 lg:px-8 py-16">
         <ProductsList />
       </section>
@@ -111,7 +102,6 @@ const HomePage = () => {
         <ContactSection />
       </section>
 
-      {/* small custom animations (scoped) */}
       <style jsx>{`
         @keyframes fade-in {
           from {

@@ -34,17 +34,15 @@ const ContactSection = () => {
       id="contact"
       className="relative w-full text-white bg-gradient-to-b from-black to-[#0a0a0a] py-20 lg:py-28 overflow-hidden"
     >
-      {/* Glow */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-20 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-green-500/10 rounded-full blur-[200px]" />
       </div>
 
       <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
-        {/* Header */}
         <div className="text-center mb-20">
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
             Let's Bring Your{" "}
-            <span className="bg-gradient-to-r from-yellow-300 to-green-300 text-transparent bg-clip-text">
+            <span className="bg-blue-600 text-transparent bg-clip-text">
               Energy Vision
             </span>{" "}
             to Life
@@ -55,9 +53,7 @@ const ContactSection = () => {
           </p>
         </div>
 
-        {/* Layout → Form + Image */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-center">
-          {/* Contact Form */}
           <form
             onSubmit={handleSubmit}
             className="bg-white/5 border border-white/10 backdrop-blur-xl rounded-2xl p-8 md:p-10 shadow-xl space-y-6"
@@ -110,7 +106,6 @@ const ContactSection = () => {
               />
             </div>
 
-            {/* Button */}
             <button
               type="submit"
               disabled={isDisabled}
@@ -119,7 +114,6 @@ const ContactSection = () => {
               {status === "loading" ? "Sending..." : "Send Message"}
             </button>
 
-            {/* Status */}
             {status === "success" && (
               <p className="text-green-400 font-medium text-center">
                 Message sent successfully!
