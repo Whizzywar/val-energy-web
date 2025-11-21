@@ -5,7 +5,6 @@ const ProductPage = () => {
   const [activeCategory, setActiveCategory] = useState("all");
   const [selectedProduct, setSelectedProduct] = useState(null);
 
-  // Product categories
   const categories = [
     { id: "all", name: "All Products", icon: "🔋" },
     { id: "solar", name: "Solar Solutions", icon: "☀️" },
@@ -14,7 +13,6 @@ const ProductPage = () => {
     { id: "commercial", name: "Commercial", icon: "🏢" },
   ];
 
-  // Product data
   const products = [
     {
       id: 1,
@@ -164,7 +162,6 @@ const ProductPage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 py-12 px-4 sm:px-6 lg:px-8">
       <Navbar />
-      {/* Header Section */}
 
       <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium mt-4 mb-5">
         <span>⚡</span>
@@ -179,7 +176,6 @@ const ProductPage = () => {
         efficiency, sustainability, and cost savings for homes and businesses.
       </p>
 
-      {/* Category Filter */}
       <div className="max-w-7xl mx-auto mb-12">
         <div className="flex flex-wrap justify-center gap-3">
           {categories.map((category) => (
@@ -199,7 +195,6 @@ const ProductPage = () => {
         </div>
       </div>
 
-      {/* Products Grid */}
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProducts.map((product) => (
@@ -207,7 +202,6 @@ const ProductPage = () => {
               key={product.id}
               className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100"
             >
-              {/* Product Image */}
               <div className="relative h-48 overflow-hidden">
                 <img
                   src={product.image}
@@ -216,14 +210,13 @@ const ProductPage = () => {
                 />
               </div>
 
-              {/* Product Content */}
               <div className="p-6">
                 <div className="flex justify-between items-start mb-3">
-                  <h3 className="text-xl font-bold text-gray-900">
+                  <h3 className="text-xl font-bold text-blue-600">
                     {product.name}
                   </h3>
                   <div className="text-right">
-                    <div className="text-2xl font-bold text-blue-600">
+                    <div className="text-2xl font-bold text-black-600">
                       {product.price}
                     </div>
                   </div>
@@ -231,7 +224,6 @@ const ProductPage = () => {
 
                 <p className="text-gray-600 mb-4">{product.description}</p>
 
-                {/* Key Features */}
                 <div className="mb-4">
                   <h4 className="font-semibold text-gray-900 mb-2">
                     Key Features:
@@ -249,7 +241,6 @@ const ProductPage = () => {
                   </ul>
                 </div>
 
-                {/* Specifications */}
                 <div className="grid grid-cols-2 gap-2 text-sm mb-6">
                   {Object.entries(product.specifications)
                     .slice(0, 4)
@@ -321,7 +312,7 @@ const ProductPage = () => {
             <div className="p-8">
               <div className="flex justify-between items-start mb-6">
                 <div>
-                  <h2 className="text-3xl font-bold text-gray-900 mb-2">
+                  <h2 className="text-3xl font-bold text-blue-600 mb-2">
                     {selectedProduct.name}
                   </h2>
                   <p className="text-xl text-gray-600">
@@ -329,7 +320,7 @@ const ProductPage = () => {
                   </p>
                 </div>
                 <div className="text-right">
-                  <div className="text-3xl font-bold text-blue-600">
+                  <div className="text-3xl font-bold text-black-600">
                     {selectedProduct.price}
                   </div>
                   <div className="text-gray-500">

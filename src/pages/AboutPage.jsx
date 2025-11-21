@@ -40,10 +40,8 @@ const AboutSection = () => {
     setIsCertificateModalOpen(true);
   };
 
-  // Certificate Image Component (Simulated)
   const CertificateImage = () => (
     <div className="bg-gradient-to-br from-yellow-50 to-amber-50 border-2 sm:border-4 border-amber-200 rounded-xl sm:rounded-2xl p-4 sm:p-6 lg:p-8 max-w-2xl mx-auto">
-      {/* Certificate Header */}
       <div className="text-center mb-6 sm:mb-8 border-b-2 border-amber-300 pb-4 sm:pb-6">
         <div className="flex justify-center mb-3 sm:mb-4">
           <div className="bg-amber-100 rounded-full p-2 sm:p-3 lg:p-4">
@@ -148,7 +146,6 @@ const AboutSection = () => {
       <Navbar />
       <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 pt-16 sm:pt-20">
         <div className="max-w-4xl mx-auto px-3 sm:px-4 py-8 sm:py-12 lg:py-16">
-          {/* Main Header */}
           <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-800 mb-6 sm:mb-8 text-center sm:text-left">
             About Valtech Energy
           </h1>
@@ -163,14 +160,14 @@ const AboutSection = () => {
               <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-start">
                 {/* Left Column - Main Content */}
                 <div className="space-y-6 sm:space-y-8">
-                  <div className="inline-flex items-center bg-green-100 text-green-800 rounded-full px-4 py-2 sm:px-6 sm:py-3 text-sm sm:text-base mb-6 sm:mb-8 mx-auto lg:mx-0">
+                  <div className="inline-flex items-center bg-green-100 text-blue-600 rounded-full px-4 py-2 sm:px-6 sm:py-3 text-sm sm:text-base mb-6 sm:mb-8 mx-auto lg:mx-0">
                     <Shield className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
                     <span className="font-bold">Trusted by Thousands</span>
                   </div>
 
                   <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 mb-6 sm:mb-8 text-center lg:text-left">
                     Why Choose{" "}
-                    <span className="bg-gradient-to-r from-blue-600 to-green-500 bg-clip-text text-transparent block sm:inline">
+                    <span className="bg-blue-600 bg-clip-text text-transparent block sm:inline">
                       Valtech Energy?
                     </span>
                   </h2>
@@ -232,7 +229,7 @@ const AboutSection = () => {
                 <div className="relative">
                   <div className="bg-gradient-to-br from-blue-50 via-green-50 to-purple-50 rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-10 border border-gray-200 sm:border-2">
                     <div className="text-center mb-6 sm:mb-8 lg:mb-10">
-                      <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3 sm:mb-4">
+                      <h3 className="text-2xl sm:text-3xl font-bold text-blue-600 mb-3 sm:mb-4">
                         Our Impact
                       </h3>
                       <p className="text-gray-600 text-base sm:text-lg">
@@ -265,7 +262,7 @@ const AboutSection = () => {
                       ].map((stat, index) => (
                         <div
                           key={index}
-                          className="text-center bg-white/80 rounded-xl sm:rounded-2xl p-3 sm:p-4 lg:p-6 hover:bg-white transition-all duration-300 shadow-sm"
+                          className="text-center bg-white/80 rounded-xl sm:rounded-2xl p-2 sm:p-3 lg:p-3 hover:bg-white transition-all duration-300 shadow-sm"
                         >
                           <div
                             className={`text-2xl sm:text-3xl lg:text-4xl font-bold text-${stat.color}-600 mb-1 sm:mb-2`}
@@ -310,7 +307,7 @@ const AboutSection = () => {
             {/* Single Partner Card with Certificate Badge */}
             <div className="max-w-sm sm:max-w-md mx-auto relative mb-6 sm:mb-8">
               <div className="absolute -top-3 -right-3 sm:-top-4 sm:-right-4 z-10">
-                <div className="bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-full px-3 py-1 sm:px-4 sm:py-2 text-xs sm:text-sm font-bold shadow-lg flex items-center space-x-1 sm:space-x-2">
+                <div className="bg-blue-600 text-white rounded-full px-3 py-1 sm:px-4 sm:py-2 text-xs sm:text-sm font-bold shadow-lg flex items-center space-x-1 sm:space-x-2">
                   <BadgeCheck className="w-3 h-3 sm:w-4 sm:h-4" />
                   <span>Certified Partner</span>
                 </div>
@@ -332,7 +329,7 @@ const AboutSection = () => {
 
                 {/* Certificate Info with Actions */}
                 <div className="bg-white/80 rounded-lg sm:rounded-xl p-3 sm:p-4 w-full mb-3 sm:mb-4 border border-green-200">
-                  <div className="flex items-center space-x-2 text-green-700 mb-2 sm:mb-3">
+                  <div className="flex items-center space-x-2 text-black-700 mb-2 sm:mb-3">
                     <FileText className="w-3 h-3 sm:w-4 sm:h-4" />
                     <span className="text-xs sm:text-sm font-semibold">
                       Partnership Certificate
@@ -344,7 +341,7 @@ const AboutSection = () => {
                     </div>
                     <div>
                       Status:{" "}
-                      <span className="text-green-600 font-semibold">
+                      <span className="text-black-600 font-semibold">
                         {partner.partnershipCertificate.status}
                       </span>
                     </div>
@@ -363,8 +360,8 @@ const AboutSection = () => {
                   </div>
                 </div>
 
-                <p className="text-gray-600 text-center text-sm sm:text-base">
-                  {partner.years} • {partner.projects}
+                <p className="text-black-600 text-center text-sm sm:text-base">
+                  {partner.years} {partner.projects}
                 </p>
               </div>
             </div>
@@ -373,24 +370,24 @@ const AboutSection = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
               <div className="bg-gradient-to-r from-blue-50 to-green-50 rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-gray-200">
                 <h4 className="text-base sm:text-lg font-semibold text-gray-800 mb-2 sm:mb-3 flex items-center">
-                  <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 mr-2" />
+                  <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-blue-600 mr-2" />
                   Partnership Benefits
                 </h4>
                 <ul className="text-gray-600 space-y-1 sm:space-y-2 text-sm sm:text-base">
                   <li className="flex items-start">
-                    <span className="text-green-500 mr-2">•</span>
+                    <span className="text-blue-600 mr-2">•</span>
                     Access to premium solar technology
                   </li>
                   <li className="flex items-start">
-                    <span className="text-green-500 mr-2">•</span>
+                    <span className="text-blue-600 mr-2">•</span>
                     Enhanced efficiency and performance
                   </li>
                   <li className="flex items-start">
-                    <span className="text-green-500 mr-2">•</span>
+                    <span className="text-blue-600 mr-2">•</span>
                     Extended 25-year warranties
                   </li>
                   <li className="flex items-start">
-                    <span className="text-green-500 mr-2">•</span>
+                    <span className="text-blue-600 mr-2">•</span>
                     Certified quality assurance
                   </li>
                 </ul>
