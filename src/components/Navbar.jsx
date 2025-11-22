@@ -22,17 +22,17 @@ const Navbar = () => {
     <div className="bg-white dark:bg-gray-900 transition-colors duration-300">
       <nav className="fixed top-0 left-0 w-full z-50 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800 shadow-sm">
         <div className="flex items-center justify-between w-full h-16 px-6 sm:px-10 lg:px-14">
-          {/* Left: Logo */}
+          {/* Logo */}
           <Link to="/" className="flex items-center space-x-2 group">
-            <div className="bg-gradient-to-br from-blue-500 via-green-500 to-purple-600 rounded-xl flex items-center justify-center shadow-md w-10 h-10">
+            <div className="bg-gradient-to-br from-blue-500 via-white-500 to-blue-600 rounded-xl flex items-center justify-center shadow-md w-10 h-10">
               <Zap className="text-white w-5 h-5 animate-pulse" />
             </div>
             <h1 className="font-bold bg-blue-400 bg-clip-text text-transparent text-2xl tracking-tight">
-              Valtech
+              Valto Valtech Solar Energy
             </h1>
           </Link>
 
-          {/* Center: Navigation Links */}
+          {/* Navigation Links */}
           <div className="hidden lg:flex items-center space-x-6">
             {navigationItems.map((item) => (
               <Link

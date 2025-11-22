@@ -64,7 +64,7 @@ const AboutSection = () => {
 
         <div className="mb-4 sm:mb-6">
           <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 mb-2">
-            Valtech Energy
+            Valto Valtech Solar Energy
           </h3>
           <p className="text-gray-600 text-sm">and</p>
           <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 mt-1 sm:mt-2">
@@ -119,7 +119,7 @@ const AboutSection = () => {
         <div className="grid grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
           <div className="text-center">
             <div className="font-semibold text-gray-800 text-sm sm:text-base mb-1 sm:mb-2">
-              Valtech Energy
+              Valto Valtech Solar Energy
             </div>
             <div className="text-xs text-gray-600">Authorized Signature</div>
           </div>
@@ -147,7 +147,7 @@ const AboutSection = () => {
       <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 pt-16 sm:pt-20">
         <div className="max-w-4xl mx-auto px-3 sm:px-4 py-8 sm:py-12 lg:py-16">
           <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-800 mb-6 sm:mb-8 text-center sm:text-left">
-            About Valtech Energy
+            Valto Valtech Solar Energy
           </h1>
 
           <div className="bg-white rounded-xl sm:rounded-2xl shadow-lg sm:shadow-xl p-4 sm:p-6 lg:p-8">
@@ -160,15 +160,15 @@ const AboutSection = () => {
               <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-start">
                 {/* Left Column - Main Content */}
                 <div className="space-y-6 sm:space-y-8">
-                  <div className="inline-flex items-center bg-green-100 text-blue-600 rounded-full px-4 py-2 sm:px-6 sm:py-3 text-sm sm:text-base mb-6 sm:mb-8 mx-auto lg:mx-0">
+                  <div className="inline-flex items-center bg-blue-100 text-blue-600 rounded-full px-4 py-2 sm:px-6 sm:py-3 text-sm sm:text-base mb-6 sm:mb-8 mx-auto lg:mx-0">
                     <Shield className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
-                    <span className="font-bold">Trusted by Thousands</span>
+                    <span className="font-semibold">Trusted by Thousands</span>
                   </div>
 
                   <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 mb-6 sm:mb-8 text-center lg:text-left">
                     Why Choose{" "}
                     <span className="bg-blue-600 bg-clip-text text-transparent block sm:inline">
-                      Valtech Energy?
+                      Valto Valtech Solar Energy
                     </span>
                   </h2>
 
@@ -242,22 +242,22 @@ const AboutSection = () => {
                         {
                           value: "2000+",
                           label: "Systems Installed",
-                          color: "blue",
+                          color: "",
                         },
                         {
                           value: "50MW",
                           label: "Clean Energy Generated",
-                          color: "green",
+                          color: "",
                         },
                         {
                           value: "99.9%",
                           label: "System Reliability",
-                          color: "purple",
+                          color: "",
                         },
                         {
                           value: "4.9★",
                           label: "Customer Rating",
-                          color: "orange",
+                          color: "",
                         },
                       ].map((stat, index) => (
                         <div
@@ -366,7 +366,6 @@ const AboutSection = () => {
               </div>
             </div>
 
-            {/* Partnership Benefits */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
               <div className="bg-gradient-to-r from-blue-50 to-green-50 rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-gray-200">
                 <h4 className="text-base sm:text-lg font-semibold text-gray-800 mb-2 sm:mb-3 flex items-center">
@@ -434,7 +433,6 @@ const AboutSection = () => {
           {/* Slide Panel - Responsive */}
           <div className="absolute inset-0 sm:inset-y-0 sm:right-0 sm:max-w-lg w-full bg-white shadow-xl transform transition-transform duration-300 ease-in-out sm:translate-x-0">
             <div className="h-full flex flex-col">
-              {/* Header */}
               <div className="flex items-center justify-between p-4 sm:p-6 border-b border-gray-200">
                 <h3 className="text-xl sm:text-2xl font-bold text-gray-900">
                   Partnership Details
@@ -447,7 +445,6 @@ const AboutSection = () => {
                 </button>
               </div>
 
-              {/* Content */}
               <div className="flex-1 overflow-y-auto p-4 sm:p-6">
                 <div className="text-center mb-4 sm:mb-6">
                   <div className="text-4xl sm:text-5xl lg:text-6xl mb-3 sm:mb-4">
@@ -480,15 +477,12 @@ const AboutSection = () => {
       {isCertificateModalOpen && (
         <div className="fixed inset-0 z-[60] overflow-y-auto">
           <div className="flex items-center justify-center min-h-screen p-2 sm:p-4 text-center">
-            {/* Backdrop */}
             <div
               className="fixed inset-0 bg-black bg-opacity-50 transition-opacity"
               onClick={() => setIsCertificateModalOpen(false)}
             ></div>
 
-            {/* Modal Content - Responsive */}
             <div className="relative inline-block align-bottom bg-white rounded-lg sm:rounded-2xl text-left overflow-hidden shadow-xl transform transition-all w-full max-w-xs sm:max-w-sm md:max-w-2xl lg:max-w-4xl mx-auto my-2 sm:my-8">
-              {/* Header */}
               <div className="flex items-center justify-between p-4 sm:p-6 border-b border-gray-200">
                 <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900">
                   Partnership Certificate
@@ -501,7 +495,6 @@ const AboutSection = () => {
                 </button>
               </div>
 
-              {/* Certificate Content */}
               <div className="p-2 sm:p-4 lg:p-6 max-h-[80vh] overflow-y-auto">
                 <CertificateImage />
               </div>

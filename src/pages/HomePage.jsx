@@ -11,7 +11,7 @@ const HomePage = () => {
 
   const heroContent = [
     {
-      title: "Valtech energy",
+      title: "Valto Valtech Solar Energy",
       subtitle: "Powering Tomorrow",
       description:
         "Your trusted partner for high-performance lithium batteries and solar solutions for a sustainable future.",

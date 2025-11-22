@@ -93,7 +93,6 @@ const ProductsList = () => {
   return (
     <section id="products" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* HEADER */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center bg-blue-50 text-blue-700 rounded-full px-6 py-3 mb-6 shadow-sm">
             <Award className="w-6 h-6 mr-2" />
@@ -113,14 +112,13 @@ const ProductsList = () => {
           </p>
         </div>
 
-        {/* PRODUCT GRID */}
+       
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10">
           {products.map((product) => (
             <div
               key={product.id}
               className="group bg-white border border-gray-200 rounded-3xl shadow-sm hover:shadow-xl hover:border-blue-500/40 transition-all duration-300 overflow-hidden"
             >
-              {/* IMAGE */}
               <div className="w-full h-56 bg-gray-100 overflow-hidden">
                 <img
                   src={product.image}
@@ -129,7 +127,7 @@ const ProductsList = () => {
                 />
               </div>
 
-              {/* CONTENT */}
+             
               <div className="p-6">
                 <p className="text-blue-600 font-medium text-xs uppercase tracking-wide">
                   {product.category}

@@ -64,7 +64,9 @@ const Footer = () => {
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-4 mb-6">
               <div>
-                <h3 className="text-3xl font-bold">Valtech Energy</h3>
+                <h3 className="text-3xl font-bold">
+                  Valto Valtech Solar Energy
+                </h3>
                 <p className="text-white text-base mt-1 leading-relaxed">
                   Premium lithium batteries, solar panels, and complete
                   renewable energy systems powering homes and businesses with
@@ -146,7 +148,7 @@ const Footer = () => {
 
       <div className="w-full border-t border-white/10 mt-16 pt-6">
         <div className="w-full px-6 sm:px-12 lg:px-20 flex flex-col md:flex-row justify-between items-center gap-4 text-white/50 text-sm">
-          <p>© 2025 Valtech Energy. All rights reserved.</p>
+          <p>© 2025 Valto Valtech Solar Energy. All rights reserved.</p>
 
           <div className="flex gap-6">
             {["Privacy Policy", "Terms of Service"].map((item, index) => (

@@ -15,7 +15,7 @@ const AboutSection = () => {
             <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-gray-900 leading-tight mb-5">
               Why{" "}
               <span className="bg-blue-600 text-transparent bg-clip-text">
-                Valtech Energy?
+                Valto Valtech Solar Energy?
               </span>
             </h2>
 

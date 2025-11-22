@@ -59,7 +59,7 @@ const ContactSection = () => {
           >
             <div>
               <label className="text-sm font-medium text-gray-200 mb-2 block">
-                Full Name
+                Name
               </label>
               <input
                 type="text"
@@ -68,14 +68,14 @@ const ContactSection = () => {
                 value={formData.name}
                 onChange={handleChange}
                 className="w-full bg-white/5 border border-white/10 px-4 py-3 rounded-lg focus:ring-1 focus:ring-white-300 focus:border-transparent outline-none transition-all"
-                placeholder="John Doe"
+                placeholder=""
                 required
               />
             </div>
 
             <div>
               <label className="text-sm font-medium text-gray-200 mb-2 block">
-                Email Address
+                Email
               </label>
               <input
                 type="email"
@@ -84,7 +84,7 @@ const ContactSection = () => {
                 value={formData.email}
                 onChange={handleChange}
                 className="w-full bg-white/5 border border-white/10 px-4 py-3 rounded-lg focus:ring-1 focus:ring-white-600 focus:border-transparent outline-none transition-all"
-                placeholder="you@example.com"
+                placeholder=""
                 required
               />
             </div>
@@ -100,7 +100,7 @@ const ContactSection = () => {
                 onChange={handleChange}
                 rows="5"
                 className="w-full bg-white/5 border border-white/10 px-4 py-3 rounded-lg focus:ring-1 focus:ring-white-300 focus:border-transparent outline-none transition-all resize-none"
-                placeholder="How can we help you?"
+                placeholder=""
                 required
               />
             </div>
@@ -124,10 +124,6 @@ const ContactSection = () => {
                 Something went wrong. Try again.
               </p>
             )}
-
-            <p className="text-xs text-gray-400 text-center">
-              🔒 Your message is secure and encrypted.
-            </p>
           </form>
         </div>
       </div>
