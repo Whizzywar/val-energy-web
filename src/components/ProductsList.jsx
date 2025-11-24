@@ -112,7 +112,6 @@ const ProductsList = () => {
           </p>
         </div>
 
-       
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10">
           {products.map((product) => (
             <div
@@ -127,7 +126,6 @@ const ProductsList = () => {
                 />
               </div>
 
-             
               <div className="p-6">
                 <p className="text-blue-600 font-medium text-xs uppercase tracking-wide">
                   {product.category}
@@ -161,7 +159,7 @@ const ProductsList = () => {
                     to="/products"
                     className="inline-flex items-center bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-medium shadow-md hover:shadow-lg hover:scale-105 transform transition-all duration-300"
                   >
-                    Learn More
+                    Learn More...
                   </Link>
                 </div>
               </div>

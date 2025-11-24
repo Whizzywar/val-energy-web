@@ -44,7 +44,7 @@ const HomePage = () => {
     <div className="w-full min-h-screen overflow-hidden bg-white">
       <Navbar />
 
-      <main className="relative w-full min-h-screen flex flex-col justify-center items-center">
+      <main className="relative w-full min-h-[80vh] flex flex-col justify-start items-center pt-20">
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
@@ -55,7 +55,7 @@ const HomePage = () => {
           <div className="absolute inset-0 bg-black/60" />
         </div>
 
-        <section className="relative z-10 w-full  flex flex-col items-center justify-center text-center py-10 sm:py-14 md:py-18 lg:py-22  ">
+        <section className="relative z-10 w-full flex flex-col items-center justify-center text-center pt-6 pb-10 sm:pt-14 sm:pb-14">
           <div className="inline-flex items-center bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-sm font-medium mt-4 mb-5 px-4 py-2">
             <Leaf className="w-5 h-5 mr-2 text-blue-400" />
             <span className="font-semibold text-sm text-white">

@@ -41,17 +41,17 @@ const AboutSection = () => {
   };
 
   const CertificateImage = () => (
-    <div className="bg-gradient-to-br from-yellow-50 to-amber-50 border-2 sm:border-4 border-amber-200 rounded-xl sm:rounded-2xl p-4 sm:p-6 lg:p-8 max-w-2xl mx-auto">
-      <div className="text-center mb-6 sm:mb-8 border-b-2 border-amber-300 pb-4 sm:pb-6">
+    <div className="bg-black-600 border-2 sm:border-3 border-black-200 rounded-xl sm:rounded-2xl p-4 sm:p-6 lg:p-8 max-w-2xl mx-auto">
+      <div className="text-center mb-6 sm:mb-8 border-b-2 border-black-300 pb-4 sm:pb-6">
         <div className="flex justify-center mb-3 sm:mb-4">
-          <div className="bg-amber-100 rounded-full p-2 sm:p-3 lg:p-4">
-            <BadgeCheck className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-amber-600" />
+          <div className="bg-gray-100 rounded-full p-2 sm:p-3 lg:p-4">
+            <BadgeCheck className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-black-600" />
           </div>
         </div>
-        <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-amber-800 mb-2">
+        <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-black-800 mb-2">
           Certificate of Partnership
         </h2>
-        <p className="text-amber-600 text-sm sm:text-base lg:text-lg">
+        <p className="text-black-600 text-sm sm:text-base lg:text-lg">
           Official Collaboration Agreement
         </p>
       </div>
@@ -75,8 +75,8 @@ const AboutSection = () => {
         <p className="text-gray-700 text-sm sm:text-base mb-4 sm:mb-6">
           have entered into a strategic partnership for
         </p>
-        <div className="bg-amber-100 border border-amber-200 rounded-lg p-3 sm:p-4 mb-4 sm:mb-6">
-          <p className="text-amber-800 font-semibold text-base sm:text-lg">
+        <div className="bg-gray-100 border border-black-200 rounded-lg p-3 sm:p-4 mb-4 sm:mb-6">
+          <p className="text-black-800 font-semibold text-base sm:text-lg">
             {partner.partnershipCertificate.scope}
           </p>
         </div>
@@ -115,16 +115,16 @@ const AboutSection = () => {
       </div>
 
       {/* Certificate Footer */}
-      <div className="border-t-2 border-amber-300 pt-4 sm:pt-6">
+      <div className="border-t-2 border-black-300 pt-4 sm:pt-6">
         <div className="grid grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
           <div className="text-center">
-            <div className="font-semibold text-gray-800 text-sm sm:text-base mb-1 sm:mb-2">
+            <div className="font-semibold text-black-800 text-sm sm:text-base mb-1 sm:mb-2">
               Valto Valtech Solar Energy
             </div>
             <div className="text-xs text-gray-600">Authorized Signature</div>
           </div>
           <div className="text-center">
-            <div className="font-semibold text-gray-800 text-sm sm:text-base mb-1 sm:mb-2">
+            <div className="font-semibold text-black-800 text-sm sm:text-base mb-1 sm:mb-2">
               {partner.name}
             </div>
             <div className="text-xs text-gray-600">Authorized Signature</div>
@@ -134,7 +134,7 @@ const AboutSection = () => {
 
       {/* Watermark */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-5">
-        <div className="text-amber-800 text-4xl sm:text-6xl lg:text-8xl font-bold transform -rotate-45">
+        <div className="text-black-800 text-4xl sm:text-6xl lg:text-8xl font-bold transform -rotate-45">
           CERTIFIED
         </div>
       </div>
@@ -341,7 +341,7 @@ const AboutSection = () => {
                     </div>
                     <div>
                       Status:{" "}
-                      <span className="text-black-600 font-semibold">
+                      <span className="text-green-600 font-semibold">
                         {partner.partnershipCertificate.status}
                       </span>
                     </div>
@@ -491,7 +491,7 @@ const AboutSection = () => {
                   onClick={() => setIsCertificateModalOpen(false)}
                   className="p-1 sm:p-2 hover:bg-gray-100 rounded-lg transition-colors duration-200"
                 >
-                  <X className="w-5 h-5 sm:w-6 sm:h-6 text-gray-500" />
+                  <X className="w-5 h-5 sm:w-6 sm:h-6 text-black-600" />
                 </button>
               </div>
 

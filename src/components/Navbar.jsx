@@ -22,7 +22,6 @@ const Navbar = () => {
     <div className="bg-white dark:bg-gray-900 transition-colors duration-300">
       <nav className="fixed top-0 left-0 w-full z-50 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800 shadow-sm">
         <div className="flex items-center justify-between w-full h-16 px-6 sm:px-10 lg:px-14">
-          {/* Logo */}
           <Link to="/" className="flex items-center space-x-2 group">
             <div className="bg-gradient-to-br from-blue-500 via-white-500 to-blue-600 rounded-xl flex items-center justify-center shadow-md w-10 h-10">
               <Zap className="text-white w-5 h-5 animate-pulse" />
@@ -52,7 +51,6 @@ const Navbar = () => {
             ))}
           </div>
 
-          {/* Right: Contact Info */}
           <div className="hidden md:flex items-center space-x-4">
             <div className="hidden lg:flex items-center space-x-2 text-gray-700 dark:text-gray-300 bg-gray-100 dark:bg-gray-800 px-3 py-1.5 rounded-full">
               <Phone className="w-4 h-4" />
