@@ -36,17 +36,12 @@ const ContactSection = () => {
       className="relative w-full text-white bg-gradient-to-b from-black to-[#0a0a0a] py-20 lg:py-28"
     >
       <div className="absolute inset-0 -z-10">
-        <div className="absolute top-20 left-1/2 -translate-x-1/2 w-[650px] h-[650px] bg-green-500/10 rounded-full blur-[180px]" />
+        <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[650px] h-[650px] bg-green-500/10 rounded-full blur-[180px]" />
       </div>
 
       <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
-        <div className="text-center mb-20">
-          <div className="inline-flex items-center bg-white/10 border border-white/20 rounded-full px-6 py-2 backdrop-blur-md mb-6">
-            <PhoneCall className="w-5 h-5 mr-2 text-blue-600" />
-            <span className="font-semibold">Get Started</span>
-          </div>
-
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
+        <div className="text-center mb-18">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-5">
             Power Your Future With{" "}
             <span className="bg-blue-600 text-transparent bg-clip-text">
               Clean Energy

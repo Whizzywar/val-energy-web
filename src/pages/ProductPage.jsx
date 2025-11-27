@@ -163,15 +163,11 @@ const ProductPage = () => {
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 py-12 px-4 sm:px-6 lg:px-8">
       <Navbar />
 
-      <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium mt-4 mb-5">
-        <span>⚡</span>
-        <span>Clean Energy Solutions</span>
-      </div>
-      <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+      <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 mt-15">
         Power Your Future with{" "}
         <span className="text-blue-600">Clean Energy</span>
       </h1>
-      <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+      <p className="text-xl text-center text-gray-600 mb-4 max-w-3xl mx-auto">
         Discover our comprehensive range of energy products designed for
         efficiency, sustainability, and cost savings for homes and businesses.
       </p>

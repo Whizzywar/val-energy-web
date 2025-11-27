@@ -56,13 +56,6 @@ const HomePage = () => {
         </div>
 
         <section className="relative z-10 w-full flex flex-col items-center justify-center text-center pt-6 pb-10 sm:pt-14 sm:pb-14">
-          <div className="inline-flex items-center bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-sm font-medium mt-4 mb-5 px-4 py-2">
-            <Leaf className="w-5 h-5 mr-2 text-blue-400" />
-            <span className="font-semibold text-sm text-white">
-              Leading Clean Energy Provider
-            </span>
-          </div>
-
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold leading-tight text-white max-w-[90%] sm:max-w-[80%] md:max-w-[70%] mx-auto">
             <span className="block animate-fade-in">
               {heroContent[heroIndex].title}
