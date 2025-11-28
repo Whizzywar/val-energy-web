@@ -32,14 +32,14 @@ const ContactSection = () => {
   return (
     <section
       id="contact"
-      className="relative w-full text-white bg-gradient-to-b from-black to-[#0a0a0a] py-20 lg:py-28 overflow-hidden"
+      className="relative w-full text-black bg-white py-10 lg:py-19 overflow-hidden"
     >
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-20 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-green-500/10 rounded-full blur-[200px]" />
       </div>
 
       <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
-        <div className="text-center mb-20">
+        <div className="text-center mb-10">
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
             Let's Bring Your{" "}
             <span className="bg-blue-600 text-transparent bg-clip-text">
@@ -48,17 +48,17 @@ const ContactSection = () => {
             to Life
           </h2>
 
-          <p className="text-gray-300 max-w-2xl mx-auto text-lg sm:text-xl leading-relaxed">
+          <p className="text-gray-600 max-w-2xl mx-auto text-lg sm:text-xl leading-relaxed">
             Fill out the form and our team will reach out shortly.
           </p>
         </div>
         <div className="flex justify-center items-center">
           <form
             onSubmit={handleSubmit}
-            className="bg-white/5 border border-white/10 backdrop-blur-xl rounded-2xl p-8 md:p-10 shadow-xl space-y-6 w-full max-w-xl"
+            className="bg-white/5 border border-black/10 backdrop-blur-xl rounded-2xl p-8 md:p-10 shadow-xl space-y-6 w-full max-w-xl"
           >
             <div>
-              <label className="text-sm font-medium text-gray-200 mb-2 block">
+              <label className="text-sm font-medium text-black mb-2 block">
                 Name
               </label>
               <input
@@ -67,14 +67,14 @@ const ContactSection = () => {
                 disabled={isDisabled}
                 value={formData.name}
                 onChange={handleChange}
-                className="w-full bg-white/5 border border-white/10 px-4 py-3 rounded-lg focus:ring-1 focus:ring-white-300 focus:border-transparent outline-none transition-all"
+                className="w-full bg-white/5 border border-black/10 px-4 py-3 rounded-lg focus:ring-1 focus:ring-white-300 focus:border-transparent outline-none transition-all"
                 placeholder=""
                 required
               />
             </div>
 
             <div>
-              <label className="text-sm font-medium text-gray-200 mb-2 block">
+              <label className="text-sm font-medium text-black mb-2 block">
                 Email
               </label>
               <input
@@ -83,14 +83,14 @@ const ContactSection = () => {
                 disabled={isDisabled}
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full bg-white/5 border border-white/10 px-4 py-3 rounded-lg focus:ring-1 focus:ring-white-600 focus:border-transparent outline-none transition-all"
+                className="w-full bg-white/5 border border-black/10 px-4 py-3 rounded-lg focus:ring-1 focus:ring-white-600 focus:border-transparent outline-none transition-all"
                 placeholder=""
                 required
               />
             </div>
 
             <div>
-              <label className="text-sm font-medium text-gray-200 mb-2 block">
+              <label className="text-sm font-medium text-black mb-2 block">
                 Message
               </label>
               <textarea
@@ -99,7 +99,7 @@ const ContactSection = () => {
                 value={formData.message}
                 onChange={handleChange}
                 rows="5"
-                className="w-full bg-white/5 border border-white/10 px-4 py-3 rounded-lg focus:ring-1 focus:ring-white-300 focus:border-transparent outline-none transition-all resize-none"
+                className="w-full bg-white/5 border border-black/10 px-4 py-3 rounded-lg focus:ring-1 focus:ring-white-300 focus:border-transparent outline-none transition-all resize-none"
                 placeholder=""
                 required
               />

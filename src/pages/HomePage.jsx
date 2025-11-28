@@ -11,7 +11,7 @@ const HomePage = () => {
 
   const heroContent = [
     {
-      title: "Valto Valtech Solar Energy",
+      title: "Valtech Solar Energy",
       subtitle: "Powering Tomorrow",
       description:
         "Your trusted partner for high-performance lithium batteries and solar solutions for a sustainable future.",
@@ -83,7 +83,7 @@ const HomePage = () => {
         </section>
       </main>
 
-      <section className="px-4 sm:px-6 lg:px-8 py-16">
+      <section className="px-3 sm:px-5 lg:px-9 py-15">
         <ProductsList />
       </section>
 

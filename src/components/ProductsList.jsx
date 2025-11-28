@@ -91,22 +91,22 @@ const ProductsList = () => {
   ];
 
   return (
-    <section id="products" className="py-20 bg-white">
+    <section id="products" className="py-6 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10">
-          <div className="inline-flex items-center bg-blue-50 text-blue-700 rounded-full px-6 py-3 mb-5 shadow-sm">
+          <div className="inline-flex items-center bg-blue-50 text-blue-700 rounded-full px-4 py-3 mb-5 shadow-sm">
             <Award className="w-6 h-6 mr-2" />
-            <span className="font-semibold">Premium Energy Solutions</span>
+            <span className="font-semibold ">Premium Energy Solutions</span>
           </div>
 
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 leading-tight">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold pt-2  text-black leading-tight">
             Explore Our{" "}
             <span className="bg-blue-600 bg-clip-text text-transparent">
               Products
             </span>
           </h2>
 
-          <p className="text-gray-600 text-lg mt-5 max-w-3xl mx-auto">
+          <p className="text-gray-600 text-lg mt-3 max-w-3xl mx-auto">
             Professionally engineered energy solutions designed for performance,
             durability, and long-term value.
           </p>
@@ -131,7 +131,7 @@ const ProductsList = () => {
                   {product.category}
                 </p>
 
-                <h3 className="text-xl font-bold text-gray-900 mt-2 mb-4 leading-snug">
+                <h3 className="text-xl font-bold text-black mt-2 mb-4 leading-snug">
                   {product.name}
                 </h3>
 
@@ -147,7 +147,7 @@ const ProductsList = () => {
                 {/* PRICE + BUTTON */}
                 <div className="border-t pt-5 flex items-center justify-between">
                   <div>
-                    <p className="text-gray-900 font-bold text-xl">
+                    <p className="text-black font-bold text-xl">
                       ${product.price}
                     </p>
                     <p className="text-gray-400 line-through text-sm">
@@ -159,7 +159,7 @@ const ProductsList = () => {
                     to="/products"
                     className="inline-flex items-center bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-medium shadow-md hover:shadow-lg hover:scale-105 transform transition-all duration-300"
                   >
-                    Learn More...
+                    See More...
                   </Link>
                 </div>
               </div>

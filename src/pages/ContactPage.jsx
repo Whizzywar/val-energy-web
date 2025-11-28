@@ -33,7 +33,7 @@ const ContactSection = () => {
   return (
     <section
       id="contact"
-      className="relative w-full text-white bg-gradient-to-b from-black to-[#0a0a0a] py-20 lg:py-28"
+      className="relative w-full text-gray bg-white py-20 lg:py-28"
     >
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[650px] h-[650px] bg-green-500/10 rounded-full blur-[180px]" />
@@ -48,7 +48,7 @@ const ContactSection = () => {
             </span>
           </h2>
 
-          <p className="text-gray-300 max-w-2xl mx-auto text-lg sm:text-xl leading-relaxed">
+          <p className="text-gray-600 max-w-2xl mx-auto text-lg sm:text-xl leading-relaxed">
             Reach out today and our energy experts will help you design the
             perfect solar or lithium solution for your home or business.
           </p>
@@ -57,10 +57,10 @@ const ContactSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 xl:gap-20">
           <form
             onSubmit={handleSubmit}
-            className="bg-white/5 border border-white/10 backdrop-blur-lg rounded-2xl p-8 md:p-10 shadow-xl space-y-6"
+            className="bg-white/5 border border-black/10 backdrop-blur-lg rounded-2xl p-8 md:p-10 shadow-xl space-y-6"
           >
             <div>
-              <label className="text-sm font-medium text-gray-200 mb-2 block">
+              <label className="text-sm font-medium text-black mb-2 block">
                 Name
               </label>
               <input
@@ -69,14 +69,14 @@ const ContactSection = () => {
                 disabled={isDisabled}
                 value={formData.name}
                 onChange={handleChange}
-                className="w-full bg-white/5 border border-white/10 px-4 py-3 rounded-lg focus:ring-1 focus:ring-white-300 focus:border-transparent outline-none transition-all"
+                className="w-full bg-white/5 border border-black/10 px-4 py-3 rounded-lg focus:ring-1 focus:ring-white-300 focus:border-transparent outline-none transition-all"
                 placeholder=""
                 required
               />
             </div>
 
             <div>
-              <label className="text-sm font-medium text-gray-200 mb-2 block">
+              <label className="text-sm font-medium text-black mb-2 block">
                 Email
               </label>
               <input
@@ -85,14 +85,14 @@ const ContactSection = () => {
                 disabled={isDisabled}
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full bg-white/5 border border-white/10 px-4 py-3 rounded-lg focus:ring-1 focus:ring-white-100 focus:border-transparent outline-none transition-all"
+                className="w-full bg-white/5 border border-black/10 px-4 py-3 rounded-lg focus:ring-1 focus:ring-white-100 focus:border-transparent outline-none transition-all"
                 placeholder=""
                 required
               />
             </div>
 
             <div>
-              <label className="text-sm font-medium text-gray-200 mb-2 block">
+              <label className="text-sm font-medium text-black mb-2 block">
                 Message
               </label>
               <textarea
@@ -101,7 +101,7 @@ const ContactSection = () => {
                 value={formData.message}
                 onChange={handleChange}
                 rows="5"
-                className="w-full bg-white/5 border border-white/10 px-4 py-3 rounded-lg focus:ring-1 focus:ring-white-100 focus:border-transparent outline-none transition-all resize-none"
+                className="w-full bg-white/5 border border-black/10 px-4 py-3 rounded-lg focus:ring-1 focus:ring-white-100 focus:border-transparent outline-none transition-all resize-none"
                 placeholder=""
                 required
               />
@@ -132,7 +132,7 @@ const ContactSection = () => {
               <h3 className="text-3xl sm:text-4xl font-bold mb-4">
                 Contact Information
               </h3>
-              <p className="text-gray-300 text-lg leading-relaxed">
+              <p className="text-gray-600 text-lg leading-relaxed">
                 Our experts are available every day to help you transition to
                 clean energy with confidence.
               </p>
@@ -164,7 +164,7 @@ const ContactSection = () => {
             ].map((info, i) => (
               <div
                 key={i}
-                className=" text-centerflex gap-6 bg-white/5 border border-white/10 p-6 rounded-2xl backdrop-blur-md hover:bg-white/10 transition"
+                className=" text-centerflex gap-4 bg-white/5 border border-black/14 p-6 rounded-2xl backdrop-blur-md hover:bg-white/10 transition"
               >
                 <div
                   className={`w-10 h-10 rounded-xl flex items-center justify-center ${info.color}`}
@@ -174,10 +174,10 @@ const ContactSection = () => {
 
                 <div>
                   <h4 className="text-xl font-semibold mb-1">{info.title}</h4>
-                  <p className="text-sm sm:text-base font-bold text-white mb-1">
+                  <p className="text-sm sm:text-base font-bold text-black mb-1">
                     {info.value}
                   </p>
-                  <p className="text-gray-400 text-sm">{info.sub}</p>
+                  <p className="text-gray-600 text-sm">{info.sub}</p>
                 </div>
               </div>
             ))}

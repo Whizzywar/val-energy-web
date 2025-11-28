@@ -163,7 +163,7 @@ const ProductPage = () => {
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 py-12 px-4 sm:px-6 lg:px-8">
       <Navbar />
 
-      <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 mt-15">
+      <h1 className="text-4xl md:text-5xl font-bold text-black mb-4 mt-15">
         Power Your Future with{" "}
         <span className="text-blue-600">Clean Energy</span>
       </h1>
@@ -181,7 +181,7 @@ const ProductPage = () => {
               className={`flex items-center gap-2 px-6 py-3 rounded-xl font-medium transition-all duration-300 ${
                 activeCategory === category.id
                   ? "bg-blue-600 text-white shadow-lg transform scale-105"
-                  : "bg-white text-gray-700 hover:bg-blue-50 hover:text-blue-600 shadow-md"
+                  : "bg-white text-black hover:bg-blue-50 hover:text-blue-600 shadow-md"
               }`}
             >
               <span className="text-lg">{category.icon}</span>
@@ -212,7 +212,7 @@ const ProductPage = () => {
                     {product.name}
                   </h3>
                   <div className="text-right">
-                    <div className="text-2xl font-bold text-black-600">
+                    <div className="text-2xl font-bold text-black">
                       {product.price}
                     </div>
                   </div>
@@ -221,7 +221,7 @@ const ProductPage = () => {
                 <p className="text-gray-600 mb-4">{product.description}</p>
 
                 <div className="mb-4">
-                  <h4 className="font-semibold text-gray-900 mb-2">
+                  <h4 className="font-semibold text-black mb-2">
                     Key Features:
                   </h4>
                   <ul className="space-y-1">
@@ -246,9 +246,7 @@ const ProductPage = () => {
                         className="flex justify-between border-b border-gray-100 pb-1"
                       >
                         <span className="text-gray-500 capitalize">{key}:</span>
-                        <span className="font-medium text-gray-900">
-                          {value}
-                        </span>
+                        <span className="font-medium text-black">{value}</span>
                       </div>
                     ))}
                 </div>
@@ -327,7 +325,7 @@ const ProductPage = () => {
 
               <div className="grid md:grid-cols-2 gap-8 mb-8">
                 <div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                  <h3 className="text-xl font-semibold text-black mb-4">
                     Key Features
                   </h3>
                   <ul className="space-y-3">
@@ -353,7 +351,7 @@ const ProductPage = () => {
                 </div>
 
                 <div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                  <h3 className="text-xl font-semibold text-black mb-4">
                     Specifications
                   </h3>
                   <div className="bg-gray-50 rounded-lg p-4">
@@ -366,7 +364,7 @@ const ProductPage = () => {
                           <span className="text-gray-600 capitalize">
                             {key}:
                           </span>
-                          <span className="font-medium text-gray-900">
+                          <span className="font-medium text-black">
                             {value}
                           </span>
                         </div>

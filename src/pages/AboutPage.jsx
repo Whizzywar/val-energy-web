@@ -48,10 +48,10 @@ const AboutSection = () => {
             <BadgeCheck className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-black-600" />
           </div>
         </div>
-        <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-black-800 mb-2">
+        <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-black mb-2">
           Certificate of Partnership
         </h2>
-        <p className="text-black-600 text-sm sm:text-base lg:text-lg">
+        <p className="text-black-700 text-sm sm:text-base lg:text-lg">
           Official Collaboration Agreement
         </p>
       </div>
@@ -63,16 +63,16 @@ const AboutSection = () => {
         </p>
 
         <div className="mb-4 sm:mb-6">
-          <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 mb-2">
-            Valto Valtech Solar Energy
+          <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-black mb-2">
+            Valtech Solar Energy
           </h3>
           <p className="text-gray-600 text-sm">and</p>
-          <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 mt-1 sm:mt-2">
+          <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-black mt-1 sm:mt-2">
             {partner.name}
           </h3>
         </div>
 
-        <p className="text-gray-700 text-sm sm:text-base mb-4 sm:mb-6">
+        <p className="text-black text-sm sm:text-base mb-4 sm:mb-6">
           have entered into a strategic partnership for
         </p>
         <div className="bg-gray-100 border border-black-200 rounded-lg p-3 sm:p-4 mb-4 sm:mb-6">
@@ -86,13 +86,13 @@ const AboutSection = () => {
             <div className="text-xs sm:text-sm text-gray-600">
               Certificate ID
             </div>
-            <div className="font-bold text-gray-800 text-sm sm:text-base">
+            <div className="font-bold text-black text-sm sm:text-base">
               {partner.partnershipCertificate.certificateId}
             </div>
           </div>
           <div className="text-center">
             <div className="text-xs sm:text-sm text-gray-600">Issued Date</div>
-            <div className="font-bold text-gray-800 text-sm sm:text-base">
+            <div className="font-bold text-black text-sm sm:text-base">
               {partner.partnershipCertificate.issued}
             </div>
           </div>
@@ -101,7 +101,7 @@ const AboutSection = () => {
         <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:gap-6">
           <div className="text-center">
             <div className="text-xs sm:text-sm text-gray-600">Valid Until</div>
-            <div className="font-bold text-gray-800 text-sm sm:text-base">
+            <div className="font-bold text-black text-sm sm:text-base">
               {partner.partnershipCertificate.validUntil}
             </div>
           </div>
@@ -114,17 +114,16 @@ const AboutSection = () => {
         </div>
       </div>
 
-      {/* Certificate Footer */}
       <div className="border-t-2 border-black-300 pt-4 sm:pt-6">
         <div className="grid grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
           <div className="text-center">
-            <div className="font-semibold text-black-800 text-sm sm:text-base mb-1 sm:mb-2">
-              Valto Valtech Solar Energy
+            <div className="font-semibold text-black text-sm sm:text-base mb-1 sm:mb-2">
+              Valtech Solar Energy
             </div>
             <div className="text-xs text-gray-600">Authorized Signature</div>
           </div>
           <div className="text-center">
-            <div className="font-semibold text-black-800 text-sm sm:text-base mb-1 sm:mb-2">
+            <div className="font-semibold text-black text-sm sm:text-base mb-1 sm:mb-2">
               {partner.name}
             </div>
             <div className="text-xs text-gray-600">Authorized Signature</div>
@@ -134,7 +133,7 @@ const AboutSection = () => {
 
       {/* Watermark */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-5">
-        <div className="text-black-800 text-4xl sm:text-6xl lg:text-8xl font-bold transform -rotate-45">
+        <div className="text-black text-4xl sm:text-6xl lg:text-8xl font-bold transform -rotate-45">
           CERTIFIED
         </div>
       </div>
@@ -146,8 +145,8 @@ const AboutSection = () => {
       <Navbar />
       <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 pt-16 sm:pt-20">
         <div className="max-w-4xl mx-auto px-3 sm:px-4 py-8 sm:py-12 lg:py-16">
-          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-800 mb-6 sm:mb-8 text-center sm:text-left">
-            Valto Valtech Solar Energy
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-black mb-6 sm:mb-8 text-center sm:text-left">
+            Valtech Solar Energy
           </h1>
 
           <div className="bg-white rounded-xl sm:rounded-2xl shadow-lg sm:shadow-xl p-4 sm:p-6 lg:p-8">
@@ -165,10 +164,10 @@ const AboutSection = () => {
                     <span className="font-semibold">Trusted by Thousands</span>
                   </div>
 
-                  <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 mb-6 sm:mb-8 text-center lg:text-left">
+                  <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-black mb-6 sm:mb-8 text-center lg:text-left">
                     Why Choose{" "}
                     <span className="bg-blue-600 bg-clip-text text-transparent block sm:inline">
-                      Valto Valtech Solar Energy
+                      Valtech Solar Energy
                     </span>
                   </h2>
 
@@ -213,7 +212,7 @@ const AboutSection = () => {
                           {item.icon}
                         </div>
                         <div className="text-center sm:text-left flex-1">
-                          <h4 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3">
+                          <h4 className="text-lg sm:text-xl font-bold text-black mb-2 sm:mb-3">
                             {item.title}
                           </h4>
                           <p className="text-gray-600 leading-relaxed text-sm sm:text-base">
@@ -295,7 +294,7 @@ const AboutSection = () => {
                 <Users className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
                 <span className="font-bold">Certified Partnership</span>
               </div>
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-black mb-3 sm:mb-4">
                 Official Technology Partner
               </h2>
               <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto">
@@ -320,7 +319,7 @@ const AboutSection = () => {
                 <div className="text-4xl sm:text-5xl lg:text-6xl mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300">
                   {partner.logo}
                 </div>
-                <h3 className="text-xl sm:text-2xl font-bold text-gray-800 text-center mb-2">
+                <h3 className="text-xl sm:text-2xl font-bold text-black text-center mb-2">
                   {partner.name}
                 </h3>
                 <div className="inline-flex items-center bg-white text-blue-600 rounded-full px-3 py-1 sm:px-4 sm:py-2 text-xs sm:text-sm font-semibold mb-3 sm:mb-4 shadow-sm">
@@ -329,13 +328,13 @@ const AboutSection = () => {
 
                 {/* Certificate Info with Actions */}
                 <div className="bg-white/80 rounded-lg sm:rounded-xl p-3 sm:p-4 w-full mb-3 sm:mb-4 border border-green-200">
-                  <div className="flex items-center space-x-2 text-black-700 mb-2 sm:mb-3">
+                  <div className="flex items-center space-x-2 text-black mb-2 sm:mb-3">
                     <FileText className="w-3 h-3 sm:w-4 sm:h-4" />
                     <span className="text-xs sm:text-sm font-semibold">
                       Partnership Certificate
                     </span>
                   </div>
-                  <div className="text-xs text-gray-600 space-y-1 mb-2 sm:mb-3">
+                  <div className="text-xs text-black space-y-1 mb-2 sm:mb-3">
                     <div>
                       ID: {partner.partnershipCertificate.certificateId}
                     </div>
@@ -368,7 +367,7 @@ const AboutSection = () => {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
               <div className="bg-gradient-to-r from-blue-50 to-green-50 rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-gray-200">
-                <h4 className="text-base sm:text-lg font-semibold text-gray-800 mb-2 sm:mb-3 flex items-center">
+                <h4 className="text-base sm:text-lg font-semibold text-black mb-2 sm:mb-3 flex items-center">
                   <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-blue-600 mr-2" />
                   Partnership Benefits
                 </h4>
@@ -393,7 +392,7 @@ const AboutSection = () => {
               </div>
 
               <div className="bg-gray-50 rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-gray-200">
-                <h4 className="text-base sm:text-lg font-semibold text-gray-800 mb-2 sm:mb-3 flex items-center">
+                <h4 className="text-base sm:text-lg font-semibold text-black mb-2 sm:mb-3 flex items-center">
                   <Shield className="w-4 h-4 sm:w-5 sm:h-5 text-blue-500 mr-2" />
                   Quality Assurance
                 </h4>
@@ -484,14 +483,14 @@ const AboutSection = () => {
 
             <div className="relative inline-block align-bottom bg-white rounded-lg sm:rounded-2xl text-left overflow-hidden shadow-xl transform transition-all w-full max-w-xs sm:max-w-sm md:max-w-2xl lg:max-w-4xl mx-auto my-2 sm:my-8">
               <div className="flex items-center justify-between p-4 sm:p-6 border-b border-gray-200">
-                <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900">
+                <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-black">
                   Partnership Certificate
                 </h3>
                 <button
                   onClick={() => setIsCertificateModalOpen(false)}
                   className="p-1 sm:p-2 hover:bg-gray-100 rounded-lg transition-colors duration-200"
                 >
-                  <X className="w-5 h-5 sm:w-6 sm:h-6 text-black-600" />
+                  <X className="w-5 h-5 sm:w-6 sm:h-6 text-black" />
                 </button>
               </div>
 

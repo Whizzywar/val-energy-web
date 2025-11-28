@@ -3,7 +3,7 @@ import { Shield } from "lucide-react";
 
 const AboutSection = () => {
   return (
-    <section id="about" className="relative w-full bg-white py-15 md:py-26">
+    <section id="about" className="relative w-full bg-white py-10 md:py-21">
       <div className="max-w-7xl mx-auto px-5 sm:px-10 lg:px-12 xl:px-16">
         <div className="grid lg:grid-cols-2 gap-20 items-center">
           <div className="order-2 lg:order-1">
@@ -12,10 +12,10 @@ const AboutSection = () => {
               <span className="font-semibold">Trusted by Thousands</span>
             </div>
 
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-gray-900 leading-tight mb-5">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-black leading-tight mb-5">
               Why{" "}
               <span className="bg-blue-600 text-transparent bg-clip-text">
-                Valto Valtech Solar Energy?
+                Valtech Solar Energy?
               </span>
             </h2>
 
