@@ -241,22 +241,22 @@ const AboutSection = () => {
                         {
                           value: "2000+",
                           label: "Systems Installed",
-                          color: "",
+                          color: "green",
                         },
                         {
                           value: "50MW",
                           label: "Clean Energy Generated",
-                          color: "",
+                          color: "blue",
                         },
                         {
                           value: "99.9%",
                           label: "System Reliability",
-                          color: "",
+                          color: "orange",
                         },
                         {
                           value: "4.9★",
                           label: "Customer Rating",
-                          color: "",
+                          color: "orange",
                         },
                       ].map((stat, index) => (
                         <div

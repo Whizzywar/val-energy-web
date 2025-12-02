@@ -8,7 +8,7 @@ const ProductPage = () => {
   const categories = [
     { id: "all", name: "All Products", icon: "🔋" },
     { id: "solar", name: "Solar Solutions", icon: "☀️" },
-    { id: "storage", name: "Energy Storage", icon: "⚡" },
+    { id: "storage", name: "Lithium batteries", icon: "⚡" },
     { id: "smart", name: "Smart Solutions", icon: "🏠" },
     { id: "commercial", name: "Commercial", icon: "🏢" },
   ];
@@ -18,7 +18,7 @@ const ProductPage = () => {
       id: 1,
       name: "SolarHome",
       category: "solar",
-      price: "$12,499",
+      price: "10,000",
       description:
         "Complete residential solar system with premium efficiency panels",
       image: "/FingerBattery.jpg",
@@ -167,7 +167,7 @@ const ProductPage = () => {
         Power Your Future with{" "}
         <span className="text-blue-600">Clean Energy</span>
       </h1>
-      <p className="text-xl text-center text-gray-600 mb-4 max-w-3xl mx-auto">
+      <p className="text-lg text-center text-gray-600 mb-4 max-w-3xl mx-auto">
         Discover our comprehensive range of energy products designed for
         efficiency, sustainability, and cost savings for homes and businesses.
       </p>
@@ -192,7 +192,7 @@ const ProductPage = () => {
       </div>
 
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 text-lg sm:text-sm md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProducts.map((product) => (
             <div
               key={product.id}
@@ -208,17 +208,19 @@ const ProductPage = () => {
 
               <div className="p-6">
                 <div className="flex justify-between items-start mb-3">
-                  <h3 className="text-xl font-bold text-blue-600">
+                  <h3 className="text-3xl font-bold text-blue-600">
                     {product.name}
                   </h3>
                   <div className="text-right">
-                    <div className="text-2xl font-bold text-black">
+                    <div className="text-lg font-bold text-black">
                       {product.price}
                     </div>
                   </div>
                 </div>
 
-                <p className="text-gray-600 mb-4">{product.description}</p>
+                <p className="text-gray-600 mb-4 text-lg">
+                  {product.description}
+                </p>
 
                 <div className="mb-4">
                   <h4 className="font-semibold text-black mb-2">
@@ -275,7 +277,7 @@ const ProductPage = () => {
 
       {/* Product Detail Modal */}
       {selectedProduct && (
-        <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4">
+        <div className="fixed inset-0 bg-black/80 flex items-center justify-center  z-50 p-4">
           <div className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
             <div className="relative">
               <button
@@ -304,17 +306,17 @@ const ProductPage = () => {
             </div>
 
             <div className="p-8">
-              <div className="flex justify-between items-start mb-6">
+              <div className=" text-xl sm:text-lg  flex justify-between items-start mb-6">
                 <div>
-                  <h2 className="text-3xl font-bold text-blue-600 mb-2">
+                  <h2 className=" text-3xl font-bold text-blue-600 mb-2">
                     {selectedProduct.name}
                   </h2>
-                  <p className="text-xl text-gray-600">
+                  <p className=" text-lg text-gray-600">
                     {selectedProduct.description}
                   </p>
                 </div>
                 <div className="text-right">
-                  <div className="text-3xl font-bold text-black-600">
+                  <div className=" text-2xl font-bold text-black-600">
                     {selectedProduct.price}
                   </div>
                   <div className="text-gray-500">
@@ -328,7 +330,7 @@ const ProductPage = () => {
                   <h3 className="text-xl font-semibold text-black mb-4">
                     Key Features
                   </h3>
-                  <ul className="space-y-3">
+                  <ul className="space-y-1">
                     {selectedProduct.features.map((feature, index) => (
                       <li key={index} className="flex items-start gap-3">
                         <div className="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">

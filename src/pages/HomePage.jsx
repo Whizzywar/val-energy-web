@@ -12,7 +12,7 @@ const HomePage = () => {
   const heroContent = [
     {
       title: "Valtech Solar Energy",
-      subtitle: "Powering Tomorrow",
+      subtitle: "",
       description:
         "Your trusted partner for high-performance lithium batteries and solar solutions for a sustainable future.",
       image: "/VirtualSolar.jpg",
@@ -55,25 +55,25 @@ const HomePage = () => {
           <div className="absolute inset-0 bg-black/60" />
         </div>
 
-        <section className="relative z-10 w-full flex flex-col items-center justify-center text-center pt-6 pb-10 sm:pt-14 sm:pb-14">
+        <section className="relative z-10 w-full flex flex-col items-center justify-center text-center pt-20 pb-10 sm:pt-31 sm:pb-14">
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold leading-tight text-white max-w-[90%] sm:max-w-[80%] md:max-w-[70%] mx-auto">
             <span className="block animate-fade-in">
               {heroContent[heroIndex].title}
             </span>
-            <span className="block bg-blue-400 bg-clip-text text-transparent animate-fade-in-delay">
+            <span className="block text-white bg-clip-text  animate-fade-in-delay">
               {heroContent[heroIndex].subtitle}
             </span>
           </h1>
 
-          <p className="mt-6 text-base sm:text-lg md:text-xl text-gray-100 max-w-2xl sm:max-w-3xl leading-relaxed mx-auto px-4">
+          <p className="mt-4 text-base sm:text-lg md:text-xl text-white max-w-2xl sm:max-w-3xl leading-relaxed mx-auto px-4">
             {heroContent[heroIndex].description}
           </p>
 
           {/* CTA */}
-          <div className="mt-8 flex flex-wrap justify-center items-center gap-4">
+          <div className="mt-7 flex flex-wrap justify-center items-center gap-4">
             <Link
               to="/products"
-              className="inline-flex items-center gap-3 bg-blue-600 text-white px-4 py-3 rounded-full font-semibold text-sm sm:text-base shadow-lg transform transition-all duration-300 hover:scale-105"
+              className="inline-flex items-center gap-2 bg-blue-600 text-white px-4 py-3 rounded-full font-semibold text-sm sm:text-base shadow-lg transform transition-all duration-300 hover:scale-105"
             >
               Explore Products
               <Zap className="w-4 h-4 ml-1 animate-pulse" />

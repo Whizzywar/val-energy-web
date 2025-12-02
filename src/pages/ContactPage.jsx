@@ -33,7 +33,7 @@ const ContactSection = () => {
   return (
     <section
       id="contact"
-      className="relative w-full text-gray bg-white py-20 lg:py-28"
+      className="relative w-full text-gray bg-gradient-to-br from-gray-50 to-blue-50 py-20 lg:py-28"
     >
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[650px] h-[650px] bg-green-500/10 rounded-full blur-[180px]" />
