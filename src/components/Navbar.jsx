@@ -1,10 +1,11 @@
 import { Menu, Phone, X, Zap } from "lucide-react";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeItem, setActiveItem] = useState("home");
+
+  const location = useLocation();
 
   const navigationItems = [
     { id: "home", label: "Home", path: "/" },
@@ -13,30 +14,32 @@ const Navbar = () => {
     { id: "contact", label: "Contact", path: "/contact" },
   ];
 
-  const isActive = (id) => activeItem === id;
-
-  const handleNavClick = (id) => {
-    setActiveItem(id);
-    setIsMenuOpen(false);
+  const isActive = (path) => {
+    if (path === "/") return location.pathname === "/";
+    return location.pathname.startsWith(path);
   };
+
   return (
     <div className="bg-white">
       {/* Fixed Top Navbar */}
       <nav className="fixed top-0 left-0 w-full z-50 bg-black border-b shadow-sm">
         <div className="flex items-center justify-between w-full h-16 px-6 sm:px-10 lg:px-14">
           {/* Logo */}
-          <div className="flex items-center space-x-2 group cursor-pointer">
+          <Link
+            to="/"
+            className="flex items-center space-x-2 group cursor-pointer"
+          >
             <h1 className="font-bold text-white text-2xl tracking-tight">
               Valtech Solar Energy
             </h1>
-          </div>
+          </Link>
 
           {/* Desktop Navigation Links */}
           <div className="hidden lg:flex items-center space-x-6">
             {navigationItems.map((item) => (
-              <button
+              <Link
                 key={item.id}
-                onClick={() => handleNavClick(item.id)}
+                to={item.path}
                 className={`relative text-sm font-semibold uppercase tracking-wide transition-all duration-300 ${
                   isActive(item.id)
                     ? "text-white"
@@ -47,7 +50,7 @@ const Navbar = () => {
                 {isActive(item.id) && (
                   <span className="absolute -bottom-1 left-0 w-full h-[2px] bg-white rounded-full"></span>
                 )}
-              </button>
+              </Link>
             ))}
           </div>
 
@@ -101,29 +104,24 @@ const Navbar = () => {
         {/* Sidebar Navigation */}
         <div className="px-4 py-6 space-y-2">
           {navigationItems.map((item) => (
-            <button
+            <Link
               key={item.id}
-              onClick={() => handleNavClick(item.id)}
-              className={`w-full text-left px-4 py-3 rounded-lg font-medium text-sm uppercase tracking-wide transition-all duration-300 ${
+              to={item.path}
+              onClick={() => setIsMenuOpen(false)}
+              className={` block w-full text-left px-4 py-3 rounded-lg font-medium text-sm uppercase tracking-wide transition-all duration-300 ${
                 isActive(item.id)
                   ? "bg-white text-black"
                   : "text-gray-300 hover:bg-gray-800 hover:text-white"
               }`}
             >
               {item.label}
-            </button>
+            </Link>
           ))}
         </div>
 
         {/* Sidebar Footer */}
-        <div className="absolute bottom-0 left-0 right-0 p-6 border-t border-gray-800">
-          <div className="flex items-center space-x-3 text-white bg-gray-800 px-4 py-3 rounded-lg">
-            <Phone className="w-5 h-5" />
-            <div>
-              <p className="text-xs text-gray-400">Contact Us</p>
-              <p className="text-sm font-medium">+234 802-057-4628</p>
-            </div>
-          </div>
+        <div className="absolute bottom-0 left-0 right-0 p-12 border-t border-gray-800">
+          <div></div>
         </div>
       </div>
     </div>
