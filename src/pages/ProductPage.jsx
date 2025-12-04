@@ -163,11 +163,11 @@ const ProductPage = () => {
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 py-12 px-4 sm:px-6 lg:px-8">
       <Navbar />
 
-      <h1 className="text-4xl md:text-5xl font-bold text-black mb-4 mt-15">
+      <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-black mb-4 mt-15">
         Power Your Future with{" "}
         <span className="text-blue-600">Clean Energy</span>
       </h1>
-      <p className="text-lg text-center text-gray-600 mb-4 max-w-3xl mx-auto">
+      <p className="text-base sm:text-lg lg:text-xl text-center text-gray-600 mb-4 max-w-3xl mx-auto">
         Discover our comprehensive range of energy products designed for
         efficiency, sustainability, and cost savings for homes and businesses.
       </p>
@@ -192,7 +192,7 @@ const ProductPage = () => {
       </div>
 
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 text-lg sm:text-sm md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 text-base sm:text-lg lg:text-xl md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProducts.map((product) => (
             <div
               key={product.id}
@@ -277,7 +277,7 @@ const ProductPage = () => {
 
       {/* Product Detail Modal */}
       {selectedProduct && (
-        <div className="fixed inset-0 bg-black/80 flex items-center justify-center  z-50 p-4">
+        <div className="fixed inset-0 bg-black/80 flex items-center justify-center text-base sm:text-lg lg:text-xl z-50 p-4">
           <div className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
             <div className="relative">
               <button

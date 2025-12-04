@@ -19,7 +19,7 @@ const AboutSection = () => {
               </span>
             </h2>
 
-            <p className="text-lg sm:text-xl text-gray-600 leading-relaxed max-w-xl">
+            <p className="text-base sm:text-lg lg:text-xl text-gray-600 leading-relaxed max-w-xl">
               With over 15 years of expertise in renewable energy, Valtech
               Energy has established itself as a premier provider of sustainable
               power solutions — delivering reliability, innovation, and

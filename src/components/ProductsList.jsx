@@ -91,10 +91,10 @@ const ProductsList = () => {
   ];
 
   return (
-    <section id="products" className="py-6 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-10">
-          <div className="inline-flex items-center bg-blue-50 text-blue-700 rounded-full px-4 py-3 mb-5 shadow-sm">
+    <section id="products" className="py-6 bg-white  ">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8  ">
+        <div className="text-center mb-10 ">
+          <div className="inline-flex items-center text-base sm:text-lg lg:text-xl bg-blue-50 text-blue-700 rounded-full px-4 py-3 mb-5 shadow-sm">
             <Award className="w-6 h-6 mr-2" />
             <span className="font-semibold ">Premium Energy Solutions</span>
           </div>

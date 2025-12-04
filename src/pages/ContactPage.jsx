@@ -14,51 +14,44 @@ const ContactSection = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     setStatus("loading");
     setIsDisabled(true);
 
-    try {
-      await new Promise((resolve) => setTimeout(resolve, 2000));
+    setTimeout(() => {
       setStatus("success");
       setFormData({ name: "", email: "", message: "" });
-    } catch (error) {
-      setStatus("error");
-    } finally {
       setIsDisabled(false);
-    }
+    }, 2000);
   };
 
   return (
     <section
       id="contact"
-      className="relative w-full text-gray bg-gradient-to-br from-gray-50 to-blue-50 py-20 lg:py-28"
+      className="relative w-full text-gray bg-gradient-to-br from-gray-50 to-blue-50 py-23 lg:py-25 overflow-hidden"
     >
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[650px] h-[650px] bg-green-500/10 rounded-full blur-[180px]" />
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
-        <div className="text-center mb-18">
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-5">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12 lg:mb-16">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 lg:mb-5">
             Power Your Future With{" "}
             <span className="bg-blue-600 text-transparent bg-clip-text">
               Clean Energy
             </span>
           </h2>
 
-          <p className="text-gray-600 max-w-2xl mx-auto text-lg sm:text-xl leading-relaxed">
+          <p className="text-gray-600 max-w-2xl mx-auto text-base sm:text-lg lg:text-xl leading-relaxed px-4">
             Reach out today and our energy experts will help you design the
             perfect solar or lithium solution for your home or business.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 xl:gap-20">
-          <form
-            onSubmit={handleSubmit}
-            className="bg-white/5 border border-black/10 backdrop-blur-lg rounded-2xl p-8 md:p-10 shadow-xl space-y-6"
-          >
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16">
+          <div className="bg-white/5 border border-black/10 backdrop-blur-lg rounded-2xl p-6 sm:p-8 lg:p-10 shadow-xl space-y-6">
             <div>
               <label className="text-sm font-medium text-black mb-2 block">
                 Name
@@ -100,7 +93,7 @@ const ContactSection = () => {
                 disabled={isDisabled}
                 value={formData.message}
                 onChange={handleChange}
-                rows="5"
+                rows={5}
                 className="w-full bg-white/5 border border-black/10 px-4 py-3 rounded-lg focus:ring-1 focus:ring-white-100 focus:border-transparent outline-none transition-all resize-none"
                 placeholder=""
                 required
@@ -108,7 +101,7 @@ const ContactSection = () => {
             </div>
 
             <button
-              type="submit"
+              onClick={handleSubmit}
               disabled={isDisabled}
               className="w-full py-3 px-6 rounded-lg font-semibold bg-blue-600 transition-all shadow-lg shadow-green-500/20 text-white transform hover:scale-[1.02] active:scale-[0.97]"
             >
@@ -125,14 +118,14 @@ const ContactSection = () => {
                 Something went wrong. Try again.
               </p>
             )}
-          </form>
+          </div>
 
-          <div className="space-y-10">
+          <div className="space-y-6 lg:space-y-8">
             <div>
-              <h3 className="text-3xl sm:text-4xl font-bold mb-4">
+              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-3 lg:mb-4">
                 Contact Information
               </h3>
-              <p className="text-gray-600 text-lg leading-relaxed">
+              <p className="text-gray-600 text-base sm:text-lg leading-relaxed">
                 Our experts are available every day to help you transition to
                 clean energy with confidence.
               </p>
@@ -143,38 +136,40 @@ const ContactSection = () => {
                 icon: PhoneCall,
                 title: "Phone",
                 value: "+234 802-057-4628",
-                color: "text-blue-600 ",
+                color: "text-blue-600",
                 sub: "Mon–Sat · 7am–5pm",
               },
               {
                 icon: Mail,
                 title: "Email",
                 value: "ValtechSolarEnergy@yahoo.com",
-                color: "text-blue-600 ",
+                color: "text-blue-600",
                 sub: "We'll respond shortly",
               },
               {
                 icon: MapPin,
                 title: "Address",
                 value:
-                  "29 Ibusa Road Isieke, Asaba 320242, Delta State, Nigeria",
-                color: "text-blue-600 ",
+                  "Rivers Joy Park, Koka Junction Asaba, Delta State Nigeria",
+                color: "text-blue-600",
                 sub: "Experience our products firsthand",
               },
             ].map((info, i) => (
               <div
                 key={i}
-                className=" text-centerflex gap-4 bg-white/5 border border-black/14 p-6 rounded-2xl backdrop-blur-md hover:bg-white/10 transition"
+                className="flex gap-4 bg-white/5 border border-black/14 p-5 sm:p-6 rounded-2xl backdrop-blur-md hover:bg-white/10 transition"
               >
                 <div
-                  className={`w-10 h-10 rounded-xl flex items-center justify-center ${info.color}`}
+                  className={`w-10 h-10 flex-shrink-0 rounded-xl flex items-center justify-center ${info.color}`}
                 >
-                  <info.icon className="w-10 h-10" />
+                  <info.icon className="w-6 h-6" />
                 </div>
 
-                <div>
-                  <h4 className="text-xl font-semibold mb-1">{info.title}</h4>
-                  <p className="text-sm sm:text-base font-bold text-black mb-1">
+                <div className="flex-1 min-w-0">
+                  <h4 className="text-lg sm:text-xl font-semibold mb-1">
+                    {info.title}
+                  </h4>
+                  <p className="text-sm sm:text-base font-bold text-black mb-1 break-words">
                     {info.value}
                   </p>
                   <p className="text-gray-600 text-sm">{info.sub}</p>

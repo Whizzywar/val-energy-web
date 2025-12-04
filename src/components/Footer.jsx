@@ -1,11 +1,6 @@
 import { Zap } from "lucide-react";
 import React from "react";
-import {
-  FaFacebookF,
-  FaTwitter,
-  FaInstagram,
-  FaWhatsapp,
-} from "react-icons/fa";
+import { FaFacebookF, FaTwitter, FaInstagram } from "react-icons/fa";
 
 const Footer = () => {
   const socialMedia = [
@@ -31,31 +26,7 @@ const Footer = () => {
         "group-hover:bg-gradient-to-r from-purple-500 to-pink-500 group-hover:via-purple-500 group-hover:to-pink-600",
       iconColor: "text-pink-500 group-hover:text-white",
     },
-    {
-      name: "WhatsApp",
-      icon: FaWhatsapp,
-      url: "https://wa.me/+2348140067333",
-      color: "group-hover:bg-green-600",
-      iconColor: "text-green-500 group-hover:text-white",
-    },
   ];
-
-  const contactInfo = {
-    phone: "+234 814 006 7333",
-    email: "info@energyflow.com",
-    address: "123 Renewable Energy Blvd, Solar City, SC 12345",
-    whatsapp: "+2348140067333",
-  };
-
-  const handleWhatsAppClick = () => {
-    const message = encodeURIComponent(
-      "Hello Valtech! I'm interested in your clean energy solutions."
-    );
-    window.open(
-      `https://wa.me/${contactInfo.whatsapp}?text=${message}`,
-      "_blank"
-    );
-  };
 
   return (
     <footer className="w-full bg-black text-white pt-14 pb-10">
@@ -82,11 +53,7 @@ const Footer = () => {
                     href={social.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    onClick={
-                      social.name === "WhatsApp"
-                        ? handleWhatsAppClick
-                        : undefined
-                    }
+                    onClick={social.name === "WhatsApp"}
                     className={`group w-11 h-11 rounded-xl bg-white/5 flex items-center justify-center
                       border border-white/10 transition-all duration-300 hover:scale-110 cursor-pointer ${social.color}`}
                   >
@@ -120,7 +87,6 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Services */}
           <div>
             <h4 className="text-lg font-semibold mb-5 border-b border-white/10 pb-2">
               Our Services
