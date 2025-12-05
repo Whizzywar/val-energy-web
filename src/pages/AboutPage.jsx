@@ -54,13 +54,15 @@ const ModernAboutSection = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-blue-600 via-blue-700 to-blue-900 text-white py-20 sm:py-32">
+      <section className="relative overflow-hidden text-white py-20 sm:py-32">
+        {/* Background Image with Moderate Dark Overlay */}
         <div className="absolute inset-0">
-          <div className="absolute top-20 left-20 w-72 h-72 bg-blue-400 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse"></div>
-          <div
-            className="absolute bottom-20 right-20 w-72 h-72 bg-green-400 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse"
-            style={{ animationDelay: "2s" }}
-          ></div>
+          <img
+            src="/VirtualSolar.jpg"
+            alt="Solar panels background"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-black/60"></div>
         </div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -72,51 +74,14 @@ const ModernAboutSection = () => {
           </div>
 
           <h1 className="text-4xl sm:text-5xl lg:text-7xl font-extrabold mb-6 leading-tight">
-            Pioneering Clean Energy
-            <span className="block mt-2 bg-gradient-to-r from-green-300 to-yellow-300 bg-clip-text text-transparent">
-              For 15+ Years
-            </span>
+            About Us
           </h1>
 
           <p className="text-xl sm:text-2xl text-blue-100 max-w-3xl mx-auto mb-12 leading-relaxed">
-            Transforming lives through innovative solar solutions and
-            cutting-edge battery technology across Nigeria.
+            Our Vision is to be Africa's most trusted renewable energy partner,
+            leading the continent's transition to clean energy and creating a
+            future where sustainable power is accessible to all.
           </p>
-
-          <div className="flex flex-wrap justify-center gap-12 mt-16">
-            {[
-              {
-                icon: <Users className="w-8 h-8 mb-2" />,
-                value: "2,000+",
-                label: "Happy Customers",
-              },
-              {
-                icon: <Zap className="w-8 h-8 mb-2" />,
-                value: "50MW",
-                label: "Energy Delivered",
-              },
-              {
-                icon: <Clock className="w-8 h-8 mb-2" />,
-                value: "99.9%",
-                label: "Uptime Rate",
-              },
-              {
-                icon: <Star className="w-8 h-8 mb-2" />,
-                value: "4.9/5",
-                label: "Customer Rating",
-              },
-            ].map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className="flex justify-center text-green-300">
-                  {stat.icon}
-                </div>
-                <div className="text-4xl sm:text-5xl font-bold mb-2">
-                  {stat.value}
-                </div>
-                <div className="text-blue-200 text-sm">{stat.label}</div>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
