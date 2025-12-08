@@ -29,18 +29,18 @@ const ContactSection = () => {
   return (
     <section
       id="contact"
-      className="relative w-full text-gray bg-gradient-to-br from-gray-50 to-blue-50 py-23 lg:py-25 overflow-hidden"
+      className="relative w-full text-gray py-23 lg:py-25 overflow-hidden"
     >
       <div className="absolute inset-0 -z-10">
-        <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[650px] h-[650px] bg-green-500/10 rounded-full blur-[180px]" />
+        <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[650px] h-[650px]  rounded-full blur-[180px]" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12 lg:mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 lg:mb-5">
-            Power Your Future With{" "}
+            Send Us a{" "}
             <span className="bg-blue-600 text-transparent bg-clip-text">
-              Clean Energy
+              Message
             </span>
           </h2>
 
@@ -51,7 +51,7 @@ const ContactSection = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16">
-          <div className="bg-white/5 border border-black/10 backdrop-blur-lg rounded-2xl p-6 sm:p-8 lg:p-10 shadow-xl space-y-6">
+          <div className="bg-white/5 border border-black/10 backdrop-blur-lg rounded-2xl p-6 sm:p-8 lg:p-10  space-y-6">
             <div>
               <label className="text-sm font-medium text-black mb-2 block">
                 Name
@@ -122,12 +122,11 @@ const ContactSection = () => {
 
           <div className="space-y-6 lg:space-y-8">
             <div>
-              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-3 lg:mb-4">
+              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-1 lg:mb-2">
                 Contact Information
               </h3>
               <p className="text-gray-600 text-base sm:text-lg leading-relaxed">
-                Our experts are available every day to help you transition to
-                clean energy with confidence.
+                Let's Bring Your Energy Vision to Life
               </p>
             </div>
 

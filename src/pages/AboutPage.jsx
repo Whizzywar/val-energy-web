@@ -15,7 +15,7 @@ import {
 
 const ModernAboutSection = () => {
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-white">
       <section className="relative overflow-hidden text-white py-20 sm:py-32">
         <div className="absolute inset-0">
           <img
@@ -39,24 +39,24 @@ const ModernAboutSection = () => {
         </div>
       </section>
 
-      <section className="py-20 sm:py-28 bg-black">
+      <section className="py-20 sm:py-28 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <div className="inline-block bg-white text-black rounded-full px-4 py-2 mb-6  text-base sm:text-lg lg:text-xl font-semibold">
+              <div className="inline-block bg-blue-100 text-blue-700 rounded-full px-4 py-2 mb-6 font-semibold">
                 Our Story
               </div>
-              <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6">
+              <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
                 Building a Sustainable Future, One Home at a Time
               </h2>
-              <p className="text-lg text-white mb-6 leading-relaxed">
+              <p className="text-lg text-gray-600 mb-6 leading-relaxed">
                 Founded in 2009, Valtech Solar Energy emerged from a simple
                 vision: to make clean, reliable energy accessible to every
                 Nigerian home and business. What started as a small team of
                 passionate engineers has grown into Africa's leading renewable
                 energy provider.
               </p>
-              <p className="text-lg text-white mb-8 leading-relaxed">
+              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
                 Today, we've installed over 2,000 solar systems, generated 50MW
                 of clean energy, and helped thousands reduce their carbon
                 footprint while achieving energy independence. Our commitment to
@@ -66,10 +66,10 @@ const ModernAboutSection = () => {
 
             {/* Image */}
             <div className="relative h-full min-h-[500px]">
-              <div className="absolute -inset-4  rounded-3xl blur-2xl opacity-20"></div>
-              <div className="relative h-full rounded-2xl overflow-hidden shadow-2xl">
+              <div className="absolute -inset-4 rounded-3xl blur-2xl opacity-20"></div>
+              <div className="relative h-full rounded-2xl overflow-hidden ">
                 <img
-                  src="/InverterBox.jpg"
+                  src="/ricardo.jpg"
                   alt="Solar panels installation representing our mission"
                   className="w-full h-full object-cover"
                 />
@@ -84,12 +84,12 @@ const ModernAboutSection = () => {
       <section className="py-20 sm:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4">
+            <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
               Guided by Purpose
             </h2>
-            <p className="text-xl text-white max-w-3xl mx-auto">
-              Our mission drive every decision we make and every customer we
-              serve.
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Our mission and vision drive every decision we make and every
+              customer we serve.
             </p>
           </div>
 
@@ -98,9 +98,9 @@ const ModernAboutSection = () => {
               {/* Image */}
               <div className="relative">
                 <div className="absolute -inset-4  rounded-3xl blur-2xl opacity-20"></div>
-                <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
+                <div className="relative aspect-[4/3] rounded-2xl overflow-hidden ">
                   <img
-                    src="/InverterBox.jpg"
+                    src="/newpowak.jpg"
                     alt="Solar panels installation representing our mission"
                     className="w-full h-full object-cover"
                   />
@@ -109,15 +109,15 @@ const ModernAboutSection = () => {
               </div>
 
               <div className="relative group">
-                <div className="absolute -inset-1 bg-gradient-to-r from-green-600 to-green-400 rounded-3xl blur opacity-25 group-hover:opacity-50 transition duration-300"></div>
-                <div className="relative bg-black rounded-3xl p-10 shadow-xl">
-                  <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-6">
-                    <TrendingUp className="w-8 h-8 text-black" />
+                <div className="absolute -inset-1 rounded-3xl blur opacity-25 group-hover:opacity-50 transition duration-300"></div>
+                <div className="relative bg-white rounded-3xl p-10 shadow-2xl">
+                  <div className="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mb-6">
+                    <TrendingUp className="w-8 h-8 text-blue-600" />
                   </div>
-                  <h3 className="text-2xl font-bold text-white mb-4">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">
                     Our Mission
                   </h3>
-                  <p className="text-white text-lg leading-relaxed">
+                  <p className="text-gray-600 text-lg leading-relaxed">
                     To empower every Nigerian with access to reliable,
                     affordable, and sustainable energy solutions that transform
                     lives, protect the environment, and drive economic growth
@@ -130,19 +130,13 @@ const ModernAboutSection = () => {
         </div>
       </section>
 
-      <section
-        className="py-20 sm:py-28 bg-cover bg-center bg-no-repeat relative"
-        style={{ backgroundImage: "url(/newpowak.jpg)" }}
-      >
-        {/* Optional: Add overlay for better text readability */}
-        <div className="absolute inset-0 bg-black/40"></div>
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <section className="py-20 sm:py-28 bg-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-15">
-            <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4">
+            <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
               Why Thousands Choose Us
             </h2>
-            <p className="text-xl text-white max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Experience the difference of working with Nigeria's premier solar
               energy provider.
             </p>
@@ -173,20 +167,20 @@ const ModernAboutSection = () => {
             ].map((feature, index) => (
               <div
                 key={index}
-                className=" rounded-2xl p-8 shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 group"
+                className="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 group"
               >
                 <div className="flex justify-between items-start mb-6">
-                  <div className="w-16 h-16 bg-white rounded-xl flex items-center justify-center  transition-colors duration-300">
+                  <div className="w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center text-blue-600  transition-colors duration-300">
                     {feature.icon}
                   </div>
-                  <span className="bg-white text-black text-xs font-bold px-3 py-1 rounded-full">
+                  <span className="bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1 rounded-full">
                     {feature.badge}
                   </span>
                 </div>
-                <h3 className="text-xl font-bold text-white mb-3">
+                <h3 className="text-xl font-bold text-gray-900 mb-3">
                   {feature.title}
                 </h3>
-                <p className="text-white leading-relaxed">
+                <p className="text-gray-600 leading-relaxed">
                   {feature.description}
                 </p>
               </div>
@@ -211,7 +205,7 @@ const ModernAboutSection = () => {
             reliable solar power.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="inline-flex items-center justify-center bg-white text-black px-10 py-4 rounded-full font-bold text-lg hover:bg-gray-300 hover:text-black transition-all duration-300">
+            <button className="inline-flex items-center justify-center bg-transparent border-2 border-white text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-black transition-all duration-300">
               Contact Us Today
             </button>
           </div>

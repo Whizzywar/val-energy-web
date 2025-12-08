@@ -85,19 +85,19 @@ const Navbar = () => {
 
       {/* Sliding Sidebar */}
       <div
-        className={`fixed top-0 right-0 h-full w-64 bg-black z-50 transform transition-transform duration-300 ease-in-out lg:hidden ${
+        className={`fixed top-0 right-0 h-full w-64 bg-white z-50 transform transition-transform duration-300 ease-in-out lg:hidden ${
           isMenuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
         {/* Sidebar Header */}
         <div className="flex items-center justify-between p-6 border-b border-gray-800">
-          <h2 className="text-white font-bold text-xl">Menu</h2>
+          <h2 className="text-black font-bold text-xl">Menu</h2>
           <button
             onClick={() => setIsMenuOpen(false)}
-            className="p-1.5 rounded-md hover:bg-gray-800 transition-colors duration-300"
+            className="p-1.5 rounded-md hover:bg-black transition-colors duration-300"
             aria-label="Close menu"
           >
-            <X className="w-5 h-5 text-white" />
+            <X className="w-5 h-5 text-black  hover:text-white" />
           </button>
         </div>
 
@@ -111,7 +111,7 @@ const Navbar = () => {
               className={` block w-full text-left px-4 py-3 rounded-lg font-medium text-sm uppercase tracking-wide transition-all duration-300 ${
                 isActive(item.id)
                   ? "bg-white text-black"
-                  : "text-gray-300 hover:bg-gray-800 hover:text-white"
+                  : "text-gray-900 hover:bg-gray-300 "
               }`}
             >
               {item.label}
