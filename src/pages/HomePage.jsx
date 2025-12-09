@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Leaf, Star, Award, Zap, ArrowRight } from "lucide-react";
+import { ArrowRight, ChevronLeft, ChevronRight, Zap } from "lucide-react";
 import Navbar from "../components/Navbar";
 import ProductsList from "../components/ProductsList";
 import AboutSection from "../components/AboutSection";
@@ -48,6 +48,18 @@ const HomePage = () => {
     window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank");
   };
 
+  const handlePrevious = () => {
+    setHeroIndex((prev) => (prev === 0 ? heroContent.length - 1 : prev - 1));
+  };
+
+  const handleNext = () => {
+    setHeroIndex((prev) => (prev === heroContent.length - 1 ? 0 : prev + 1));
+  };
+
+  const handleIndicatorClick = (index) => {
+    setHeroIndex(index);
+  };
+
   return (
     <div className="w-full min-h-screen overflow-hidden bg-white">
       <Navbar />
@@ -62,6 +74,24 @@ const HomePage = () => {
         >
           <div className="absolute inset-0 bg-black/60" />
         </div>
+
+        {/* Left Arrow */}
+        <button
+          onClick={handlePrevious}
+          className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white p-3 rounded-b-sm transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-white/50"
+          aria-label="Previous slide"
+        >
+          <ChevronLeft className="w-6 h-6" />
+        </button>
+
+        {/* Right Arrow */}
+        <button
+          onClick={handleNext}
+          className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white p-3 rounded-b-sm transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-white/50"
+          aria-label="Next slide"
+        >
+          <ChevronRight className="w-6 h-6" />
+        </button>
 
         <section className="relative z-10 w-full text-base sm:text-lg lg:text-xl flex flex-col items-center justify-center text-center pt-20 pb-10 sm:pt-31 sm:pb-14">
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold leading-tight text-white max-w-[90%] sm:max-w-[80%] md:max-w-[70%] mx-auto">
@@ -87,6 +117,23 @@ const HomePage = () => {
               <Zap className="w-4 h-4 ml-1 animate-pulse" />
               <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
             </Link>
+          </div>
+
+          {/* Indicators */}
+          <div className="mt-8 flex gap-2 justify-center">
+            {heroContent.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => handleIndicatorClick(index)}
+                className={`transition-all duration-300 rounded-full focus:outline-none focus:ring-2 focus:ring-white/50 ${
+                  index === heroIndex
+                    ? "w-3 h-3 bg-white"
+                    : "w-3 h-3 bg-white/40 hover:bg-white/60"
+                }`}
+                aria-label={`Go to slide ${index + 1}`}
+                aria-current={index === heroIndex ? "true" : "false"}
+              />
+            ))}
           </div>
         </section>
       </main>
