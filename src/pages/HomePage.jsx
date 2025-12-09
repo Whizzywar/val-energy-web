@@ -66,7 +66,8 @@ const HomePage = () => {
 
       <main className="relative w-full min-h-[80vh] flex flex-col justify-start items-center pt-20">
         <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          key={heroIndex}
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat animate-fade-in-bg"
           style={{
             backgroundImage: `url(${heroContent[heroIndex].image})`,
           }}
@@ -78,7 +79,7 @@ const HomePage = () => {
         {/* Left Arrow */}
         <button
           onClick={handlePrevious}
-          className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white p-3 rounded-b-sm transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-white/50"
+          className=" hidden md:flex absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white p-3 rounded-b-sm transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-white/50"
           aria-label="Previous slide"
         >
           <ChevronLeft className="w-6 h-6" />
@@ -87,7 +88,7 @@ const HomePage = () => {
         {/* Right Arrow */}
         <button
           onClick={handleNext}
-          className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white p-3 rounded-b-sm transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-white/50"
+          className=" hidden md:flex absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white p-3 rounded-b-sm transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-white/50"
           aria-label="Next slide"
         >
           <ChevronRight className="w-6 h-6" />
@@ -171,29 +172,45 @@ const HomePage = () => {
         @keyframes fade-in {
           from {
             opacity: 0;
-            transform: translateY(18px);
+            transform: translateY(20px);
           }
           to {
             opacity: 1;
             transform: translateY(0);
           }
         }
+
         @keyframes fade-in-delay {
           from {
             opacity: 0;
-            transform: translateY(18px);
+            transform: translateY(20px);
           }
           to {
             opacity: 1;
             transform: translateY(0);
           }
         }
-        .animate-fade-in {
-          animation: fade-in 900ms cubic-bezier(0.2, 0.9, 0.2, 1) both;
+
+        @keyframes fade-in-bg {
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+          }
         }
+
+        .animate-fade-in {
+          animation: fade-in 1.4s ease-out forwards;
+        }
+
         .animate-fade-in-delay {
-          animation: fade-in-delay 900ms cubic-bezier(0.2, 0.9, 0.2, 1) 250ms
-            both;
+          animation: fade-in-delay 1.4s ease-out 0.3s forwards;
+          opacity: 0;
+        }
+
+        .animate-fade-in-bg {
+          animation: fade-in-bg 1.4s ease-in-out;
         }
       `}</style>
     </div>

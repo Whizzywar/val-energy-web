@@ -111,7 +111,7 @@ const Navbar = () => {
               className={` block w-full text-left px-4 py-3 rounded-lg font-medium text-sm uppercase tracking-wide transition-all duration-300 ${
                 isActive(item.id)
                   ? "bg-white text-black"
-                  : "text-gray-900 hover:bg-gray-300 "
+                  : "text-gray-900 hover:bg-gray-400 "
               }`}
             >
               {item.label}
