@@ -1,25 +1,13 @@
 import React from "react";
-import {
-  Shield,
-  Zap,
-  Target,
-  TrendingUp,
-  CheckCircle,
-  Leaf,
-  Battery,
-  Globe,
-  Heart,
-  CarIcon,
-  Bike,
-} from "lucide-react";
+import { TrendingUp, CheckCircle, CarIcon, Bike } from "lucide-react";
 
-const ModernAboutSection = () => {
+const AboutSection = () => {
   return (
     <div className="min-h-screen bg-white">
       <section className="relative overflow-hidden text-white py-20 sm:py-32">
         <div className="absolute inset-0">
           <img
-            src="/VirtualSolar.jpg"
+            src="/kumpan.jpg"
             alt="Solar panels background"
             className="w-full h-full object-cover"
           />
@@ -215,4 +203,4 @@ const ModernAboutSection = () => {
   );
 };
 
-export default ModernAboutSection;
+export default AboutSection;

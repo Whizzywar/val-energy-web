@@ -29,7 +29,7 @@ const ContactSection = () => {
   return (
     <section
       id="contact"
-      className="relative w-full text-gray py-23 lg:py-25 overflow-hidden"
+      className="relative w-full text-gray py-27 lg:py-30 overflow-hidden"
     >
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[650px] h-[650px]  rounded-full blur-[180px]" />
@@ -38,9 +38,9 @@ const ContactSection = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12 lg:mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 lg:mb-5">
-            Send Us a{" "}
+            Get a Free Quote From{" "}
             <span className="bg-blue-600 text-transparent bg-clip-text">
-              Message
+              Valtech Energy
             </span>
           </h2>
 
@@ -156,7 +156,7 @@ const ContactSection = () => {
             ].map((info, i) => (
               <div
                 key={i}
-                className="flex gap-4 bg-white/5 border border-black/14 p-5 sm:p-6 rounded-2xl backdrop-blur-md hover:bg-white/10 transition"
+                className="flex bg-white/5 border border-black/14 p-4 sm:p-6 rounded-2xl backdrop-blur-md hover:bg-white/10 transition"
               >
                 <div
                   className={`w-10 h-10 flex-shrink-0 rounded-xl flex items-center justify-center ${info.color}`}

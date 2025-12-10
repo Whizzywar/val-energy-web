@@ -1,6 +1,6 @@
 import { Menu, Phone, X, Zap } from "lucide-react";
 import React, { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, Links, useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -54,10 +54,15 @@ const Navbar = () => {
             ))}
           </div>
 
-          {/* Phone Number */}
-          <div className="hidden lg:flex items-center space-x-2 text-white bg-gray-800 px-3 py-1.5 rounded-full">
-            <Phone className="w-4 h-4" />
-            <span className="text-xs font-medium">+234 802-057-4628</span>
+          {/* CTA  */}
+          <div className="">
+            <Link
+              to="/contact"
+              className="hidden lg:flex items-center bg-blue-600 text-white  px-3 py-2 rounded-full text-xs font-medium shadow-lg transform transition-all duration-300 hover:scale-105"
+            >
+              FREE QUOTE
+              <div className="w-4 h-5 text-center group-hover:translate transition-transform duration-300" />
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -90,7 +95,7 @@ const Navbar = () => {
         }`}
       >
         {/* Sidebar Header */}
-        <div className="flex items-center justify-between p-6 border-b border-gray-800">
+        <div className="flex items-center justify-between p-2 ">
           <h2 className="text-black font-bold text-xl">Menu</h2>
           <button
             onClick={() => setIsMenuOpen(false)}
@@ -108,10 +113,8 @@ const Navbar = () => {
               key={item.id}
               to={item.path}
               onClick={() => setIsMenuOpen(false)}
-              className={` block w-full text-left px-4 py-3 rounded-lg font-medium text-sm uppercase tracking-wide transition-all duration-300 ${
-                isActive(item.id)
-                  ? "bg-white text-black"
-                  : "text-gray-900 hover:bg-gray-400 "
+              className={` block w-full text-left px-1 py-2.5  font-medium text-sm uppercase tracking-wide border-b border-gray-400 transition-all duration-300 ${
+                isActive(item.id) ? "bg-white text-black" : "text-gray-900 "
               }`}
             >
               {item.label}
