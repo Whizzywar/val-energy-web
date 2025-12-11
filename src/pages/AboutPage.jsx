@@ -1,5 +1,6 @@
 import React from "react";
 import { TrendingUp, CheckCircle, CarIcon, Bike } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const AboutSection = () => {
   return (
@@ -193,9 +194,12 @@ const AboutSection = () => {
             reliable solar power.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="inline-flex items-center justify-center bg-transparent border-2 border-white text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-black transition-all duration-300">
+            <Link
+              to="/contact"
+              className="inline-flex items-center justify-center bg-transparent border-2 border-white text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-black transition-all duration-300"
+            >
               Contact Us Today
-            </button>
+            </Link>
           </div>
         </div>
       </section>
