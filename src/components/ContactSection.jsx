@@ -58,7 +58,7 @@ const ContactSection = () => {
 
       {/* Certificate Body */}
       <div className="text-center mb-6 sm:mb-8">
-        <p className="text-gray-700 text-sm sm:text-base lg:text-lg mb-4 sm:mb-6">
+        <p className="text-white text-sm sm:text-base lg:text-lg mb-4 sm:mb-6">
           This certifies that
         </p>
 
@@ -145,7 +145,7 @@ const ContactSection = () => {
       <Navbar />
       <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 pt-4 sm:pt-8">
         <div className="max-w-4xl mx-auto px-3 sm:px-4 py-8 sm:py-12 lg:py-16">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-black leading-tight mb-5">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-center text-black leading-tight mb-5">
             We Are Committed To Providing Sustainable Energy Solutions For{" "}
             <span className="bg-blue-600 text-transparent bg-clip-text">
               The Future
@@ -171,7 +171,7 @@ const ContactSection = () => {
                       {[
                         {
                           value: "2000+",
-                          label: "Systems Installed",
+                          label: "Product Delivered",
                           color: "green",
                         },
                         {
@@ -181,7 +181,7 @@ const ContactSection = () => {
                         },
                         {
                           value: "99.9%",
-                          label: "System Reliability",
+                          label: "Product Reliability",
                           color: "orange",
                         },
                         {
@@ -295,57 +295,140 @@ const ContactSection = () => {
                 </p>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
-              <div className="bg-gradient-to-r from-blue-50 to-green-50 rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-gray-200">
-                <h4 className="text-base sm:text-lg font-semibold text-black mb-2 sm:mb-3 flex items-center">
-                  <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-blue-600 mr-2" />
+      <div className="w-full min-h-screen relative p-3 xs:p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12">
+        {/* Background Image with Overlay */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: "url(/andrey.jpg)",
+          }}
+        ></div>
+
+        <div className="max-w-[95%] xs:max-w-[90%] sm:max-w-[85%] md:max-w-3xl lg:max-w-5xl xl:max-w-7xl mx-auto relative z-10">
+          {/* Header Section */}
+          <div className="text-center mb-6 xs:mb-8 sm:mb-10 md:mb-12 lg:mb-14">
+            <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-2 xs:mb-3 sm:mb-4 drop-shadow-lg px-2">
+              Discover The Advantages of Partnering With Industry Leaders in
+              Solar Technology
+            </h2>
+          </div>
+
+          {/* 2-Column Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 xs:gap-5 sm:gap-6 md:gap-7 lg:gap-8 xl:gap-10">
+            {/* Partnership Benefits Card */}
+            <div className=" backdrop-blur-sm rounded-xl xs:rounded-2xl sm:rounded-3xl p-4 xs:p-5 sm:p-6 md:p-7 lg:p-8 border border-white/20 shadow-2xl hover:shadow-blue-500/20 transition-all duration-500 transform hover:-translate-y-1 md:hover:-translate-y-2">
+              <div className="flex items-center mb-3 xs:mb-4 sm:mb-5 md:mb-6">
+                <div className=" rounded-full p-2 xs:p-2.5 sm:p-3 mr-2.5 xs:mr-3 sm:mr-4 group-hover:bg-blue-200 transition-colors duration-300 flex-shrink-0">
+                  <CheckCircle className="w-5 h-5 xs:w-6 xs:h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-white" />
+                </div>
+                <h4 className="text-lg xs:text-xl sm:text-2xl md:text-3xl font-bold text-white leading-tight">
                   Partnership Benefits
                 </h4>
-                <ul className="text-gray-600 space-y-1 sm:space-y-2 text-sm sm:text-base">
-                  <li className="flex items-start">
-                    <span className="text-blue-600 mr-2">•</span>
-                    Access to premium solar technology
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-blue-600 mr-2">•</span>
-                    Enhanced efficiency and performance
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-blue-600 mr-2">•</span>
-                    Extended 25-year warranties
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-blue-600 mr-2">•</span>
-                    Certified quality assurance
-                  </li>
-                </ul>
               </div>
 
-              <div className="bg-gray-50 rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-gray-200">
-                <h4 className="text-base sm:text-lg font-semibold text-black mb-2 sm:mb-3 flex items-center">
-                  <Shield className="w-4 h-4 sm:w-5 sm:h-5 text-blue-500 mr-2" />
+              <ul className="space-y-2 xs:space-y-2.5 sm:space-y-3 md:space-y-4">
+                <li className="flex items-start group/item">
+                  <div className="flex-shrink-0 w-1.5 h-1.5 xs:w-2 xs:h-2 rounded-full bg-white  mt-1.5 xs:mt-2 mr-2 xs:mr-2.5 sm:mr-3 group-hover/item:scale-150 transition-transform duration-300"></div>
+                  <span className="text-white text-sm xs:text-base sm:text-lg md:text-xl leading-relaxed">
+                    Access to premium solar technology
+                  </span>
+                </li>
+                <li className="flex items-start group/item">
+                  <div className="flex-shrink-0 w-1.5 h-1.5 xs:w-2 xs:h-2 rounded-full bg-white  mt-1.5 xs:mt-2 mr-2 xs:mr-2.5 sm:mr-3 group-hover/item:scale-150 transition-transform duration-300"></div>
+                  <span className="text-white text-sm xs:text-base sm:text-lg md:text-xl leading-relaxed">
+                    Enhanced efficiency and performance
+                  </span>
+                </li>
+                <li className="flex items-start group/item">
+                  <div className="flex-shrink-0 w-1.5 h-1.5 xs:w-2 xs:h-2 rounded-full bg-white  mt-1.5 xs:mt-2 mr-2 xs:mr-2.5 sm:mr-3 group-hover/item:scale-150 transition-transform duration-300"></div>
+                  <span className="text-white text-sm xs:text-base sm:text-lg md:text-xl leading-relaxed">
+                    Extended 25-year warranties
+                  </span>
+                </li>
+                <li className="flex items-start group/item">
+                  <div className="flex-shrink-0 w-1.5 h-1.5 xs:w-2 xs:h-2 rounded-full bg-white  mt-1.5 xs:mt-2 mr-2 xs:mr-2.5 sm:mr-3 group-hover/item:scale-150 transition-transform duration-300"></div>
+                  <span className="text-white text-sm xs:text-base sm:text-lg md:text-xl leading-relaxed">
+                    Certified quality assurance
+                  </span>
+                </li>
+              </ul>
+
+              {/* Decorative element */}
+              <div className="mt-4 xs:mt-5 sm:mt-6 pt-4 xs:pt-5 sm:pt-6 border-t border-blue-200">
+                <div className="flex items-center justify-between text-xs xs:text-sm text-white">
+                  <span className="font-semibold">Premium Access</span>
+                  <div className="flex gap-1">
+                    <div className="w-1.5 h-1.5 xs:w-2 xs:h-2 rounded-full bg-white"></div>
+                    <div className="w-1.5 h-1.5 xs:w-2 xs:h-2 rounded-full bg-white"></div>
+                    <div className="w-1.5 h-1.5 xs:w-2 xs:h-2 rounded-full bg-white"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Quality Assurance Card */}
+            <div className="backdrop-blur-sm rounded-xl xs:rounded-2xl sm:rounded-3xl p-4 xs:p-5 sm:p-6 md:p-7 lg:p-8 border border-white/20 shadow-2xl hover:shadow-blue-500/20 transition-all duration-500 transform hover:-translate-y-1 md:hover:-translate-y-2">
+              <div className="flex items-center mb-3 xs:mb-4 sm:mb-5 md:mb-6">
+                <div className=" rounded-full p-2 xs:p-2.5 sm:p-3 mr-2.5 xs:mr-3 sm:mr-4 group-hover:bg-blue-200 transition-colors duration-300 flex-shrink-0">
+                  <Shield className="w-5 h-5 xs:w-6 xs:h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-white" />
+                </div>
+                <h4 className="text-lg xs:text-xl sm:text-2xl md:text-3xl font-bold text-white leading-tight">
                   Quality Assurance
                 </h4>
-                <ul className="text-gray-600 space-y-1 sm:space-y-2 text-sm sm:text-base">
-                  <li className="flex items-start">
-                    <span className="text-blue-500 mr-2">•</span>
-                    International certifications
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-blue-500 mr-2">•</span>
-                    Rigorous testing standards
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-blue-500 mr-2">•</span>
-                    Continuous quality monitoring
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-blue-500 mr-2">•</span>
-                    Performance guarantees
-                  </li>
-                </ul>
               </div>
+
+              <ul className="space-y-2 xs:space-y-2.5 sm:space-y-3 md:space-y-4">
+                <li className="flex items-start group/item">
+                  <div className="flex-shrink-0 w-1.5 h-1.5 xs:w-2 xs:h-2 rounded-full bg-white mt-1.5 xs:mt-2 mr-2 xs:mr-2.5 sm:mr-3 group-hover/item:scale-150 transition-transform duration-300"></div>
+                  <span className="text-white text-sm xs:text-base sm:text-lg md:text-xl leading-relaxed">
+                    International certifications
+                  </span>
+                </li>
+                <li className="flex items-start group/item">
+                  <div className="flex-shrink-0 w-1.5 h-1.5 xs:w-2 xs:h-2 rounded-full bg-white  mt-1.5 xs:mt-2 mr-2 xs:mr-2.5 sm:mr-3 group-hover/item:scale-150 transition-transform duration-300"></div>
+                  <span className="text-white text-sm xs:text-base sm:text-lg md:text-xl leading-relaxed">
+                    Rigorous testing standards
+                  </span>
+                </li>
+                <li className="flex items-start group/item">
+                  <div className="flex-shrink-0 w-1.5 h-1.5 xs:w-2 xs:h-2 rounded-full bg-white  mt-1.5 xs:mt-2 mr-2 xs:mr-2.5 sm:mr-3 group-hover/item:scale-150 transition-transform duration-300"></div>
+                  <span className="text-white text-sm xs:text-base sm:text-lg md:text-xl leading-relaxed">
+                    Continuous quality monitoring
+                  </span>
+                </li>
+                <li className="flex items-start group/item">
+                  <div className="flex-shrink-0 w-1.5 h-1.5 xs:w-2 xs:h-2 rounded-full bg-white  mt-1.5 xs:mt-2 mr-2 xs:mr-2.5 sm:mr-3 group-hover/item:scale-150 transition-transform duration-300"></div>
+                  <span className="text-white text-sm xs:text-base sm:text-lg md:text-xl leading-relaxed">
+                    Performance guarantees
+                  </span>
+                </li>
+              </ul>
+
+              {/* Decorative element */}
+              <div className="mt-4 xs:mt-5 sm:mt-6 pt-4 xs:pt-5 sm:pt-6 border-t border-gray-200">
+                <div className="flex items-center justify-between text-xs xs:text-sm text-white">
+                  <span className="font-semibold">Certified Protection</span>
+                  <div className="flex gap-1">
+                    <div className="w-1.5 h-1.5 xs:w-2 xs:h-2 rounded-full bg-white"></div>
+                    <div className="w-1.5 h-1.5 xs:w-2 xs:h-2 rounded-full bg-white"></div>
+                    <div className="w-1.5 h-1.5 xs:w-2 xs:h-2 rounded-full bg-white"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Additional Info Section */}
+          <div className="mt-6 xs:mt-8 sm:mt-10 md:mt-12 text-center">
+            <div className="inline-flex items-center gap-1.5 xs:gap-2 bg-white rounded-full px-4 xs:px-5 sm:px-6 py-2 xs:py-2.5 sm:py-3">
+              <div className="w-2 h-2 xs:w-3 xs:h-3 rounded-full bg-blue-500 animate-pulse flex-shrink-0"></div>
+              <span className="text-xs xs:text-sm sm:text-base text-gray-700 font-medium">
+                Trusted by 10,000+ customers worldwide
+              </span>
             </div>
           </div>
         </div>
