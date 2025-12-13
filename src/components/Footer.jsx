@@ -29,7 +29,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="w-full bg-black text-white pt-14 pb-10">
+    <footer className="w-full bg-black text-white pt-10 pb-10">
       <div className="w-full px-6 sm:px-12 lg:px-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-14">
           <div className="lg:col-span-2">

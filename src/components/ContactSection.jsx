@@ -1,6 +1,4 @@
 import {
-  Award,
-  Clock,
   Shield,
   Users,
   X,
@@ -11,6 +9,7 @@ import {
 } from "lucide-react";
 import React, { useState } from "react";
 import Navbar from "../components/Navbar";
+import { Link } from "react-router-dom";
 
 const ContactSection = () => {
   const [isSlideOverOpen, setIsSlideOverOpen] = useState(false);
@@ -143,77 +142,122 @@ const ContactSection = () => {
   return (
     <div>
       <Navbar />
-      <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 pt-4 sm:pt-8">
-        <div className="max-w-4xl mx-auto px-3 sm:px-4 py-8 sm:py-12 lg:py-16">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-center text-black leading-tight mb-5">
+      <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 pt-3 sm:pt-7">
+        <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6 py-8 sm:py-12 lg:py-16">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-center text-black leading-tight mb-6 sm:mb-8 lg:mb-12 px-2">
             We Are Committed To Providing Sustainable Energy Solutions For{" "}
-            <span className="bg-blue-600 text-transparent bg-clip-text">
+            <span className="bg-gradient-to-r from-blue-600 to-blue-500 text-transparent bg-clip-text">
               The Future
             </span>
           </h1>
 
-          <div className="bg-white rounded-xl sm:rounded-2xl shadow-lg sm:shadow-xl p-4 sm:p-6 lg:p-8">
-            <div className="max-w-7xl mx-auto">
-              <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-start">
-                {/* Right Column - Company Achievements */}
-                <div className="relative">
-                  <div className="bg-gradient-to-br from-blue-50 via-green-50 to-purple-50 rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-10 border border-gray-200 sm:border-2">
-                    <div className="text-center mb-6 sm:mb-8 lg:mb-10">
-                      <h3 className="text-2xl sm:text-3xl font-bold text-blue-600 mb-3 sm:mb-4">
-                        Our Impact
-                      </h3>
-                      <p className="text-gray-600 text-base sm:text-lg">
-                        Transforming energy consumption across the nation
-                      </p>
-                    </div>
+          <div className="bg-white rounded-xl sm:rounded-2xl shadow-lg sm:shadow-xl p-4 sm:p-6 lg:p-10">
+            <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
+              {/* Left Column - Image */}
+              <div className="order-2 lg:order-1">
+                <div className="relative group overflow-hidden rounded-2xl shadow-lg">
+                  <img
+                    src="/siwawut.jpg"
+                    alt="Solar panels and sustainable energy infrastructure"
+                    className="w-full h-64 sm:h-80 lg:h-96 object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
 
-                    <div className="grid grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
-                      {[
-                        {
-                          value: "2000+",
-                          label: "Product Delivered",
-                          color: "green",
-                        },
-                        {
-                          value: "50MW",
-                          label: "Clean Energy Generated",
-                          color: "blue",
-                        },
-                        {
-                          value: "99.9%",
-                          label: "Product Reliability",
-                          color: "orange",
-                        },
-                        {
-                          value: "4.9★",
-                          label: "Customer Rating",
-                          color: "orange",
-                        },
-                      ].map((stat, index) => (
-                        <div
-                          key={index}
-                          className="text-center bg-white/80 rounded-xl sm:rounded-2xl p-2 sm:p-3 lg:p-3 hover:bg-white transition-all duration-300 shadow-sm"
-                        >
-                          <div
-                            className={`text-2xl sm:text-3xl lg:text-4xl font-bold text-${stat.color}-600 mb-1 sm:mb-2`}
-                          >
-                            {stat.value}
-                          </div>
-                          <div className="text-xs sm:text-sm font-semibold text-gray-700 leading-tight">
-                            {stat.label}
-                          </div>
-                        </div>
-                      ))}
+                {/* Additional Info Cards Below Image */}
+                <div className="grid grid-cols-2 gap-3 sm:gap-4 mt-4 sm:mt-6">
+                  <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-3 sm:p-4 text-center">
+                    <div className="text-xl sm:text-2xl font-bold text-blue-600 mb-1">
+                      15+
+                    </div>
+                    <div className="text-xs sm:text-sm text-gray-700 font-medium">
+                      Years Experience
                     </div>
                   </div>
-
-                  {/* Decorative Elements */}
-                  <div className="absolute -top-3 -left-3 sm:-top-4 sm:-left-4 lg:-top-6 lg:-left-6 w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 bg-blue-200/50 rounded-full animate-pulse"></div>
-                  <div
-                    className="absolute -bottom-3 -right-3 sm:-bottom-4 sm:-right-4 lg:-bottom-6 lg:-right-6 w-10 h-10 sm:w-12 sm:h-12 lg:w-16 lg:h-16 bg-green-200/50 rounded-full animate-pulse"
-                    style={{ animationDelay: "1s" }}
-                  ></div>
+                  <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-3 sm:p-4 text-center">
+                    <div className="text-xl sm:text-2xl font-bold text-green-600 mb-1">
+                      100%
+                    </div>
+                    <div className="text-xs sm:text-sm text-gray-700 font-medium">
+                      Renewable Focus
+                    </div>
+                  </div>
                 </div>
+              </div>
+
+              {/* Right Column - Company Achievements */}
+              <div className="relative order-1 lg:order-2">
+                <div className="bg-gradient-to-br from-blue-50 via-green-50 to-purple-50 rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-10 border-2 border-gray-200">
+                  <div className="text-center mb-6 sm:mb-8 lg:mb-10">
+                    <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-blue-600 mb-3 sm:mb-4">
+                      Our Impact
+                    </h3>
+                    <p className="text-gray-600 text-sm sm:text-base lg:text-lg">
+                      Transforming energy consumption across the nation
+                    </p>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-4 sm:gap-5 lg:gap-6">
+                    {[
+                      {
+                        value: "2000+",
+                        label: "Product Delivered",
+                        color: "text-green-600",
+                        bg: "bg-green-50",
+                      },
+                      {
+                        value: "50MW",
+                        label: "Clean Energy Generated",
+                        color: "text-blue-600",
+                        bg: "bg-blue-50",
+                      },
+                      {
+                        value: "99.9%",
+                        label: "Product Reliability",
+                        color: "text-black",
+                        bg: "bg-purple-50",
+                      },
+                      {
+                        value: "4.9★",
+                        label: "Customer Rating",
+                        color: "text-orange-600",
+                        bg: "bg-orange-50",
+                      },
+                    ].map((stat, index) => (
+                      <div
+                        key={index}
+                        className={`text-center ${stat.bg} rounded-xl sm:rounded-2xl p-4 sm:p-5 lg:p-6 hover:shadow-lg hover:scale-105 transition-all duration-300 border border-white/50`}
+                      >
+                        <div
+                          className={`text-2xl sm:text-3xl lg:text-4xl font-bold ${stat.color} mb-2`}
+                        >
+                          {stat.value}
+                        </div>
+                        <div className="text-xs sm:text-sm lg:text-base font-semibold text-gray-700 leading-tight">
+                          {stat.label}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Call to Action Button */}
+                  <div className="mt-6 sm:mt-8 text-center">
+                    <Link
+                      to="/about"
+                      className="inline-flex items-center gap-2 bg-blue-600 text-white px-4 py-3 rounded-full font-semibold text-sm sm:text-base shadow-lg transform transition-all duration-300 hover:scale-105"
+                    >
+                      {" "}
+                      Learn More About Us
+                    </Link>
+                  </div>
+                </div>
+
+                {/* Decorative Elements */}
+                <div className="absolute -top-3 -left-3 sm:-top-4 sm:-left-4 lg:-top-6 lg:-left-6 w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 bg-blue-200/50 rounded-full animate-pulse"></div>
+                <div
+                  className="absolute -bottom-3 -right-3 sm:-bottom-4 sm:-right-4 lg:-bottom-6 lg:-right-6 w-10 h-10 sm:w-12 sm:h-12 lg:w-16 lg:h-16 bg-green-200/50 rounded-full animate-pulse"
+                  style={{ animationDelay: "1s" }}
+                ></div>
               </div>
             </div>
           </div>
@@ -239,7 +283,7 @@ const ContactSection = () => {
               <div className="absolute -top-3 -right-3 sm:-top-4 sm:-right-4 z-10">
                 <div className="bg-blue-600 text-white rounded-full px-3 py-1 sm:px-4 sm:py-2 text-xs sm:text-sm font-bold shadow-lg flex items-center space-x-1 sm:space-x-2">
                   <BadgeCheck className="w-3 h-3 sm:w-4 sm:h-4" />
-                  <span>Certified Partner</span>
+                  <span>Authorized Partner</span>
                 </div>
               </div>
 
@@ -299,12 +343,12 @@ const ContactSection = () => {
         </div>
       </div>
 
-      <div className="w-full min-h-screen relative p-3 xs:p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12">
+      <div className="w-full min-h-screen relative p-0 pt-3 xs:pt-4 sm:pt-6 md:pt-8 lg:pt-10 xl:pt-12">
         {/* Background Image with Overlay */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: "url(/andrey.jpg)",
+            backgroundImage: "url(/aminaAtar.jpg)",
           }}
         ></div>
 
@@ -320,9 +364,9 @@ const ContactSection = () => {
           {/* 2-Column Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 xs:gap-5 sm:gap-6 md:gap-7 lg:gap-8 xl:gap-10">
             {/* Partnership Benefits Card */}
-            <div className=" backdrop-blur-sm rounded-xl xs:rounded-2xl sm:rounded-3xl p-4 xs:p-5 sm:p-6 md:p-7 lg:p-8 border border-white/20 shadow-2xl hover:shadow-blue-500/20 transition-all duration-500 transform hover:-translate-y-1 md:hover:-translate-y-2">
+            <div className="backdrop-blur-sm rounded-xl xs:rounded-2xl sm:rounded-3xl p-4 xs:p-5 sm:p-6 md:p-7 lg:p-8 border border-white/20 shadow-2xl hover:shadow-blue-500/20 transition-all duration-500 transform hover:-translate-y-1 md:hover:-translate-y-2">
               <div className="flex items-center mb-3 xs:mb-4 sm:mb-5 md:mb-6">
-                <div className=" rounded-full p-2 xs:p-2.5 sm:p-3 mr-2.5 xs:mr-3 sm:mr-4 group-hover:bg-blue-200 transition-colors duration-300 flex-shrink-0">
+                <div className="rounded-full p-2 xs:p-2.5 sm:p-3 mr-2.5 xs:mr-3 sm:mr-4 group-hover:bg-blue-200 transition-colors duration-300 flex-shrink-0">
                   <CheckCircle className="w-5 h-5 xs:w-6 xs:h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-white" />
                 </div>
                 <h4 className="text-lg xs:text-xl sm:text-2xl md:text-3xl font-bold text-white leading-tight">
@@ -332,25 +376,25 @@ const ContactSection = () => {
 
               <ul className="space-y-2 xs:space-y-2.5 sm:space-y-3 md:space-y-4">
                 <li className="flex items-start group/item">
-                  <div className="flex-shrink-0 w-1.5 h-1.5 xs:w-2 xs:h-2 rounded-full bg-white  mt-1.5 xs:mt-2 mr-2 xs:mr-2.5 sm:mr-3 group-hover/item:scale-150 transition-transform duration-300"></div>
+                  <div className="flex-shrink-0 w-1.5 h-1.5 xs:w-2 xs:h-2 rounded-full bg-white mt-1.5 xs:mt-2 mr-2 xs:mr-2.5 sm:mr-3 group-hover/item:scale-150 transition-transform duration-300"></div>
                   <span className="text-white text-sm xs:text-base sm:text-lg md:text-xl leading-relaxed">
                     Access to premium solar technology
                   </span>
                 </li>
                 <li className="flex items-start group/item">
-                  <div className="flex-shrink-0 w-1.5 h-1.5 xs:w-2 xs:h-2 rounded-full bg-white  mt-1.5 xs:mt-2 mr-2 xs:mr-2.5 sm:mr-3 group-hover/item:scale-150 transition-transform duration-300"></div>
+                  <div className="flex-shrink-0 w-1.5 h-1.5 xs:w-2 xs:h-2 rounded-full bg-white mt-1.5 xs:mt-2 mr-2 xs:mr-2.5 sm:mr-3 group-hover/item:scale-150 transition-transform duration-300"></div>
                   <span className="text-white text-sm xs:text-base sm:text-lg md:text-xl leading-relaxed">
                     Enhanced efficiency and performance
                   </span>
                 </li>
                 <li className="flex items-start group/item">
-                  <div className="flex-shrink-0 w-1.5 h-1.5 xs:w-2 xs:h-2 rounded-full bg-white  mt-1.5 xs:mt-2 mr-2 xs:mr-2.5 sm:mr-3 group-hover/item:scale-150 transition-transform duration-300"></div>
+                  <div className="flex-shrink-0 w-1.5 h-1.5 xs:w-2 xs:h-2 rounded-full bg-white mt-1.5 xs:mt-2 mr-2 xs:mr-2.5 sm:mr-3 group-hover/item:scale-150 transition-transform duration-300"></div>
                   <span className="text-white text-sm xs:text-base sm:text-lg md:text-xl leading-relaxed">
                     Extended 25-year warranties
                   </span>
                 </li>
                 <li className="flex items-start group/item">
-                  <div className="flex-shrink-0 w-1.5 h-1.5 xs:w-2 xs:h-2 rounded-full bg-white  mt-1.5 xs:mt-2 mr-2 xs:mr-2.5 sm:mr-3 group-hover/item:scale-150 transition-transform duration-300"></div>
+                  <div className="flex-shrink-0 w-1.5 h-1.5 xs:w-2 xs:h-2 rounded-full bg-white mt-1.5 xs:mt-2 mr-2 xs:mr-2.5 sm:mr-3 group-hover/item:scale-150 transition-transform duration-300"></div>
                   <span className="text-white text-sm xs:text-base sm:text-lg md:text-xl leading-relaxed">
                     Certified quality assurance
                   </span>
@@ -373,7 +417,7 @@ const ContactSection = () => {
             {/* Quality Assurance Card */}
             <div className="backdrop-blur-sm rounded-xl xs:rounded-2xl sm:rounded-3xl p-4 xs:p-5 sm:p-6 md:p-7 lg:p-8 border border-white/20 shadow-2xl hover:shadow-blue-500/20 transition-all duration-500 transform hover:-translate-y-1 md:hover:-translate-y-2">
               <div className="flex items-center mb-3 xs:mb-4 sm:mb-5 md:mb-6">
-                <div className=" rounded-full p-2 xs:p-2.5 sm:p-3 mr-2.5 xs:mr-3 sm:mr-4 group-hover:bg-blue-200 transition-colors duration-300 flex-shrink-0">
+                <div className="rounded-full p-2 xs:p-2.5 sm:p-3 mr-2.5 xs:mr-3 sm:mr-4 group-hover:bg-blue-200 transition-colors duration-300 flex-shrink-0">
                   <Shield className="w-5 h-5 xs:w-6 xs:h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-white" />
                 </div>
                 <h4 className="text-lg xs:text-xl sm:text-2xl md:text-3xl font-bold text-white leading-tight">
@@ -389,19 +433,19 @@ const ContactSection = () => {
                   </span>
                 </li>
                 <li className="flex items-start group/item">
-                  <div className="flex-shrink-0 w-1.5 h-1.5 xs:w-2 xs:h-2 rounded-full bg-white  mt-1.5 xs:mt-2 mr-2 xs:mr-2.5 sm:mr-3 group-hover/item:scale-150 transition-transform duration-300"></div>
+                  <div className="flex-shrink-0 w-1.5 h-1.5 xs:w-2 xs:h-2 rounded-full bg-white mt-1.5 xs:mt-2 mr-2 xs:mr-2.5 sm:mr-3 group-hover/item:scale-150 transition-transform duration-300"></div>
                   <span className="text-white text-sm xs:text-base sm:text-lg md:text-xl leading-relaxed">
                     Rigorous testing standards
                   </span>
                 </li>
                 <li className="flex items-start group/item">
-                  <div className="flex-shrink-0 w-1.5 h-1.5 xs:w-2 xs:h-2 rounded-full bg-white  mt-1.5 xs:mt-2 mr-2 xs:mr-2.5 sm:mr-3 group-hover/item:scale-150 transition-transform duration-300"></div>
+                  <div className="flex-shrink-0 w-1.5 h-1.5 xs:w-2 xs:h-2 rounded-full bg-white mt-1.5 xs:mt-2 mr-2 xs:mr-2.5 sm:mr-3 group-hover/item:scale-150 transition-transform duration-300"></div>
                   <span className="text-white text-sm xs:text-base sm:text-lg md:text-xl leading-relaxed">
                     Continuous quality monitoring
                   </span>
                 </li>
                 <li className="flex items-start group/item">
-                  <div className="flex-shrink-0 w-1.5 h-1.5 xs:w-2 xs:h-2 rounded-full bg-white  mt-1.5 xs:mt-2 mr-2 xs:mr-2.5 sm:mr-3 group-hover/item:scale-150 transition-transform duration-300"></div>
+                  <div className="flex-shrink-0 w-1.5 h-1.5 xs:w-2 xs:h-2 rounded-full bg-white mt-1.5 xs:mt-2 mr-2 xs:mr-2.5 sm:mr-3 group-hover/item:scale-150 transition-transform duration-300"></div>
                   <span className="text-white text-sm xs:text-base sm:text-lg md:text-xl leading-relaxed">
                     Performance guarantees
                   </span>
@@ -423,7 +467,7 @@ const ContactSection = () => {
           </div>
 
           {/* Additional Info Section */}
-          <div className="mt-6 xs:mt-8 sm:mt-10 md:mt-12 text-center">
+          <div className="mt-6 xs:mt-8 sm:mt-10 md:mt-12 pb-6 xs:pb-8 sm:pb-10 md:pb-12 text-center">
             <div className="inline-flex items-center gap-1.5 xs:gap-2 bg-white rounded-full px-4 xs:px-5 sm:px-6 py-2 xs:py-2.5 sm:py-3">
               <div className="w-2 h-2 xs:w-3 xs:h-3 rounded-full bg-blue-500 animate-pulse flex-shrink-0"></div>
               <span className="text-xs xs:text-sm sm:text-base text-gray-700 font-medium">
