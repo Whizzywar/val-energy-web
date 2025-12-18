@@ -343,14 +343,14 @@ const ContactSection = () => {
         </div>
       </div>
 
-      <div className="w-full min-h-screen relative p-0 pt-3 xs:pt-4 sm:pt-6 md:pt-8 lg:pt-10 xl:pt-12">
-        {/* Background Image with Overlay */}
+      <div className="w-full min-h-screen bg-black relative p-0 pt-3 xs:pt-4 sm:pt-6 md:pt-8 lg:pt-10 xl:pt-12">
+        {/* Background Image with Overlay 
         <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          className="absolute inset-0  bg-cover bg-center bg-no-repeat"
           style={{
             backgroundImage: "url(/aminaAtar.jpg)",
           }}
-        ></div>
+        ></div> */}
 
         <div className="max-w-[95%] xs:max-w-[90%] sm:max-w-[85%] md:max-w-3xl lg:max-w-5xl xl:max-w-7xl mx-auto relative z-10">
           {/* Header Section */}
