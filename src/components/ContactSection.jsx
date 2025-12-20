@@ -142,16 +142,16 @@ const ContactSection = () => {
   return (
     <div>
       <Navbar />
-      <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 pt-3 sm:pt-7">
+      <div className="min-h-screen  pt-3 sm:pt-7">
         <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6 py-8 sm:py-12 lg:py-16">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-center text-black leading-tight mb-6 sm:mb-8 lg:mb-12 px-2">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-center text-black leading-tight mb-5 sm:mb-8 lg:mb-10 px-2">
             We Are Committed To Providing Sustainable Energy Solutions For{" "}
             <span className="bg-gradient-to-r from-blue-600 to-blue-500 text-transparent bg-clip-text">
               The Future
             </span>
           </h1>
 
-          <div className="bg-white rounded-xl sm:rounded-2xl shadow-lg sm:shadow-xl p-4 sm:p-6 lg:p-10">
+          <div className=" rounded-3xl sm:rounded-2xl shadow-lg sm:shadow-xl p-4 sm:p-6 lg:p-10">
             <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
               {/* Left Column - Image */}
               <div className="order-2 lg:order-1">
@@ -343,16 +343,8 @@ const ContactSection = () => {
         </div>
       </div>
 
-      <div className="w-full min-h-screen bg-black relative p-0 pt-3 xs:pt-4 sm:pt-6 md:pt-8 lg:pt-10 xl:pt-12">
-        {/* Background Image with Overlay 
-        <div
-          className="absolute inset-0  bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: "url(/aminaAtar.jpg)",
-          }}
-        ></div> */}
-
-        <div className="max-w-[95%] xs:max-w-[90%] sm:max-w-[85%] md:max-w-3xl lg:max-w-5xl xl:max-w-7xl mx-auto relative z-10">
+      <section className="relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen bg-black py-20 sm:py-28">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header Section */}
           <div className="text-center mb-6 xs:mb-8 sm:mb-10 md:mb-12 lg:mb-14">
             <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-2 xs:mb-3 sm:mb-4 drop-shadow-lg px-2">
@@ -467,7 +459,7 @@ const ContactSection = () => {
           </div>
 
           {/* Additional Info Section */}
-          <div className="mt-6 xs:mt-8 sm:mt-10 md:mt-12 pb-6 xs:pb-8 sm:pb-10 md:pb-12 text-center">
+          <div className="mt-6 xs:mt-8 sm:mt-10 md:mt-12 text-center">
             <div className="inline-flex items-center gap-1.5 xs:gap-2 bg-white rounded-full px-4 xs:px-5 sm:px-6 py-2 xs:py-2.5 sm:py-3">
               <div className="w-2 h-2 xs:w-3 xs:h-3 rounded-full bg-blue-500 animate-pulse flex-shrink-0"></div>
               <span className="text-xs xs:text-sm sm:text-base text-gray-700 font-medium">
@@ -476,7 +468,7 @@ const ContactSection = () => {
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
       {/* Slide Over Panel for Single Partner - Responsive */}
       {isSlideOverOpen && (
