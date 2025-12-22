@@ -160,11 +160,11 @@ const HomePage = () => {
         <ProductsList />
       </section>
 
-      <section className="px-4 sm:px-6 lg:px-8 py-16 bg-gray-50">
+      <section className="px-2 sm:px-3 lg:px-4 py-8 bg-gray-50">
         <AboutSection />
       </section>
 
-      <section className="px-4 sm:px-6 lg:px-8 py-16">
+      <section className="">
         <ContactSection />
       </section>
 

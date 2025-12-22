@@ -143,7 +143,7 @@ const ContactSection = () => {
     <div>
       <Navbar />
       <div className="min-h-screen  pt-3 sm:pt-7">
-        <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6 py-8 sm:py-12 lg:py-16">
+        <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6 py-4 sm:py-6 lg:py-8">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-center text-black leading-tight mb-5 sm:mb-8 lg:mb-10 px-2">
             We Are Committed To Providing Sustainable Energy Solutions For{" "}
             <span className="bg-gradient-to-r from-blue-600 to-blue-500 text-transparent bg-clip-text">
@@ -279,7 +279,7 @@ const ContactSection = () => {
             </div>
 
             {/* Single Partner Card with Certificate Badge */}
-            <div className="max-w-sm sm:max-w-md mx-auto relative mb-6 sm:mb-8">
+            <div className="max-w-sm sm:max-w-md mx-auto relative mb-3 sm:mb-8">
               <div className="absolute -top-3 -right-3 sm:-top-4 sm:-right-4 z-10">
                 <div className="bg-blue-600 text-white rounded-full px-3 py-1 sm:px-4 sm:py-2 text-xs sm:text-sm font-bold shadow-lg flex items-center space-x-1 sm:space-x-2">
                   <BadgeCheck className="w-3 h-3 sm:w-4 sm:h-4" />
@@ -343,10 +343,16 @@ const ContactSection = () => {
         </div>
       </div>
 
-      <section className="relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen bg-black py-20 sm:py-28">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen py-5 sm:py-10">
+        <div className="max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div
+            className="absolute inset-0  bg-cover bg-center bg-no-repeat"
+            style={{
+              backgroundImage: "url(/aminaAtar.jpg)",
+            }}
+          ></div>
           {/* Header Section */}
-          <div className="text-center mb-6 xs:mb-8 sm:mb-10 md:mb-12 lg:mb-14">
+          <div className="text-center mb-3 xs:mb-4 sm:mb-5 md:mb-6 lg:mb-7">
             <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-2 xs:mb-3 sm:mb-4 drop-shadow-lg px-2">
               Discover The Advantages of Partnering With Industry Leaders in
               Solar Technology
@@ -459,14 +465,7 @@ const ContactSection = () => {
           </div>
 
           {/* Additional Info Section */}
-          <div className="mt-6 xs:mt-8 sm:mt-10 md:mt-12 text-center">
-            <div className="inline-flex items-center gap-1.5 xs:gap-2 bg-white rounded-full px-4 xs:px-5 sm:px-6 py-2 xs:py-2.5 sm:py-3">
-              <div className="w-2 h-2 xs:w-3 xs:h-3 rounded-full bg-blue-500 animate-pulse flex-shrink-0"></div>
-              <span className="text-xs xs:text-sm sm:text-base text-gray-700 font-medium">
-                Trusted by 10,000+ customers worldwide
-              </span>
-            </div>
-          </div>
+          <div className="mt-6 xs:mt-8 sm:mt-10 md:mt-12 "></div>
         </div>
       </section>
 
