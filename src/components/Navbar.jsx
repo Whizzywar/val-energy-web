@@ -54,7 +54,7 @@ const Navbar = () => {
             ))}
           </div>
 
-          {/* CTA  */}
+          {/* CTA Button */}
           <div className="">
             <Link
               to="/contact"
@@ -79,14 +79,6 @@ const Navbar = () => {
           </button>
         </div>
       </nav>
-
-      {/* Overlay */}
-      {isMenuOpen && (
-        <div
-          className="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden transition-opacity duration-300"
-          onClick={() => setIsMenuOpen(false)}
-        ></div>
-      )}
 
       {/* Sliding Sidebar */}
       <div

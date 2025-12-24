@@ -262,7 +262,7 @@ const ContactSection = () => {
             </div>
           </div>
 
-          {/* Single Partner Collaboration Section */}
+          
           <div className="mt-12 sm:mt-16 lg:mt-20 bg-white rounded-xl sm:rounded-2xl shadow-lg sm:shadow-xl p-4 sm:p-6 lg:p-8">
             <div className="text-center mb-6 sm:mb-8">
               <div className="inline-flex items-center bg-blue-100 text-blue-800 rounded-full px-4 py-2 sm:px-6 sm:py-3 text-sm sm:text-base mb-4 sm:mb-6">
@@ -278,7 +278,7 @@ const ContactSection = () => {
               </p>
             </div>
 
-            {/* Single Partner Card with Certificate Badge */}
+            {/* Certificate Badge */}
             <div className="max-w-sm sm:max-w-md mx-auto relative mb-3 sm:mb-8">
               <div className="absolute -top-3 -right-3 sm:-top-4 sm:-right-4 z-10">
                 <div className="bg-blue-600 text-white rounded-full px-3 py-1 sm:px-4 sm:py-2 text-xs sm:text-sm font-bold shadow-lg flex items-center space-x-1 sm:space-x-2">
@@ -301,7 +301,6 @@ const ContactSection = () => {
                   {partner.collaboration}
                 </div>
 
-                {/* Certificate Info with Actions */}
                 <div className="bg-white/80 rounded-lg sm:rounded-xl p-3 sm:p-4 w-full mb-3 sm:mb-4 border border-green-200">
                   <div className="flex items-center space-x-2 text-black mb-2 sm:mb-3">
                     <FileText className="w-3 h-3 sm:w-4 sm:h-4" />
@@ -349,7 +348,7 @@ const ContactSection = () => {
           <div className="absolute bottom-0 left-0 w-96 h-96 bg-green-400 rounded-full blur-3xl"></div>
         </div>
         <div className="max-w-7x l  px-4 sm:px-6 lg:px-8">
-          {/* Header Section */}
+         
           <div className="text-center mb-3 xs:mb-4 sm:mb-5 md:mb-6 lg:mb-7">
             <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-2 xs:mb-3 sm:mb-4 drop-shadow-lg px-2">
               Discover The Advantages of Partnering With Industry Leaders in
@@ -359,7 +358,7 @@ const ContactSection = () => {
 
           {/* 2-Column Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 xs:gap-5 sm:gap-6 md:gap-7 lg:gap-8 xl:gap-10">
-            {/* Partnership Benefits Card */}
+            {/* Partnership Card */}
             <div className="backdrop-blur-sm rounded-xl xs:rounded-2xl sm:rounded-3xl p-4 xs:p-5 sm:p-6 md:p-7 lg:p-8 border border-white/20 shadow-2xl hover:shadow-blue-500/20 transition-all duration-500 transform hover:-translate-y-1 md:hover:-translate-y-2">
               <div className="flex items-center mb-3 xs:mb-4 sm:mb-5 md:mb-6">
                 <div className="rounded-full p-2 xs:p-2.5 sm:p-3 mr-2.5 xs:mr-3 sm:mr-4 group-hover:bg-blue-200 transition-colors duration-300 flex-shrink-0">
@@ -397,7 +396,6 @@ const ContactSection = () => {
                 </li>
               </ul>
 
-              {/* Decorative element */}
               <div className="mt-4 xs:mt-5 sm:mt-6 pt-4 xs:pt-5 sm:pt-6 border-t border-blue-200">
                 <div className="flex items-center justify-between text-xs xs:text-sm text-white">
                   <span className="font-semibold">Premium Access</span>
@@ -448,7 +446,6 @@ const ContactSection = () => {
                 </li>
               </ul>
 
-              {/* Decorative element */}
               <div className="mt-4 xs:mt-5 sm:mt-6 pt-4 xs:pt-5 sm:pt-6 border-t border-gray-200">
                 <div className="flex items-center justify-between text-xs xs:text-sm text-white">
                   <span className="font-semibold">Certified Protection</span>
@@ -462,7 +459,6 @@ const ContactSection = () => {
             </div>
           </div>
 
-          {/* Additional Info Section */}
           <div className="mt-6 xs:mt-8 sm:mt-10 md:mt-12 "></div>
         </div>
       </section>
@@ -470,7 +466,6 @@ const ContactSection = () => {
       {/* Slide Over Panel for Single Partner - Responsive */}
       {isSlideOverOpen && (
         <div className="fixed inset-0 z-50 overflow-hidden">
-          {/* Backdrop */}
           <div
             className="absolute inset-0 bg-black bg-opacity-50 transition-opacity duration-300"
             onClick={() => setIsSlideOverOpen(false)}

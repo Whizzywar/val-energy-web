@@ -8,7 +8,7 @@ const AboutSection = () => {
       <section className="relative overflow-hidden text-white py-20 sm:py-32">
         <div className="absolute inset-0">
           <img
-            src="/kumpan.jpg"
+            src="/newpower.jpg"
             alt="Solar panels background"
             className="w-full h-full object-cover"
           />
