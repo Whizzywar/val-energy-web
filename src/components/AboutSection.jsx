@@ -3,7 +3,7 @@ import { Shield } from "lucide-react";
 
 const AboutSection = () => {
   return (
-    <section id="about" className="relative w-full  py-12 md:py-18">
+    <section id="about" className="relative w-full  py-5 md:py-10">
       <div className="max-w-7xl mx-auto px-5 sm:px-10 lg:px-12 xl:px-16">
         <div className="grid lg:grid-cols-2 gap-12 md:gap-16 lg:gap-20 items-center">
           <div className="order-2 lg:order-1">

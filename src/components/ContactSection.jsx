@@ -343,14 +343,12 @@ const ContactSection = () => {
         </div>
       </div>
 
-      <section className="relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen py-5 sm:py-10">
-        <div className="max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div
-            className="absolute inset-0  bg-cover bg-center bg-no-repeat"
-            style={{
-              backgroundImage: "url(/aminaAtar.jpg)",
-            }}
-          ></div>
+      <section className="relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] bg-black  text-white w-screen py-10 sm:py-20">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 left-0 w-96 h-96 bg-green-400 rounded-full blur-3xl"></div>
+        </div>
+        <div className="max-w-7x l  px-4 sm:px-6 lg:px-8">
           {/* Header Section */}
           <div className="text-center mb-3 xs:mb-4 sm:mb-5 md:mb-6 lg:mb-7">
             <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-2 xs:mb-3 sm:mb-4 drop-shadow-lg px-2">

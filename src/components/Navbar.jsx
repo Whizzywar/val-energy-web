@@ -96,7 +96,7 @@ const Navbar = () => {
       >
         {/* Sidebar Header */}
         <div className="flex items-center justify-between p-2 ">
-          <h2 className="text-black font-bold text-xl">Menu</h2>
+          <h2 className="text-black font-bold text-xl">Valtech Energy</h2>
           <button
             onClick={() => setIsMenuOpen(false)}
             className="p-1.5 rounded-md hover:bg-black transition-colors duration-300"

@@ -44,11 +44,9 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="w-full bg-gradient-to-b from-gray-900 via-black to-black text-white">
-      {/* Main Footer Content */}
+    <footer className="w-full bg-black border-t border-white/10 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-8 md:pt-16 md:pb-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-          {/* Company Info */}
           <div className="sm:col-span-2 lg:col-span-1">
             <div className="flex items-center gap-2 mb-4">
               <h3 className="text-xl font-bold">Valtech Solar Energy</h3>
@@ -59,7 +57,6 @@ const Footer = () => {
               dependable energy.
             </p>
 
-            {/* Contact Info */}
             <div className="space-y-3 mb-6">
               <div className="flex items-center gap-3 text-gray-400">
                 <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center group-hover:bg-white/10 transition-colors">
@@ -86,7 +83,6 @@ const Footer = () => {
               </div>
             </div>
 
-            {/* Social Media */}
             <div className="flex flex-wrap gap-3">
               {socialMedia.map((social, index) => {
                 const IconComponent = social.icon;
@@ -109,7 +105,6 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Products */}
           <div>
             <h4 className="text-lg font-semibold mb-5 relative inline-block">
               Our Products
@@ -131,12 +126,12 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Bottom Bar */}
+      {/*  Footer Bottom  */}
       <div className="border-t border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-2 text-gray-400 text-sm">
             <p className="text-center sm:text-left">
-              © 2025 Valtech Solar Energy. All rights reserved.
+              © 2026 Valtech Solar Energy. All rights reserved.
             </p>
             <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
               <a href="#" className="hover:text-white transition-colors">
