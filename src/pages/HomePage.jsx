@@ -15,7 +15,7 @@ const HomePage = () => {
       subtitle: "",
       description:
         "Your trusted partner for high-performance lithium batteries and solar solutions for a sustainable future.",
-      image: "/siwawut.jpg",
+      image: "/evgeniy.jpg",
     },
     {
       title: "Clean Energy",
