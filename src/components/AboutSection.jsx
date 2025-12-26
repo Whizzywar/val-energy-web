@@ -32,7 +32,7 @@ const AboutSection = () => {
           <div className="order-1 lg:order-2 flex justify-center">
             <div className="relative w-full max-w-lg">
               <img
-                src="/evgeniy.jpg"
+                src="/daniele.jpg"
                 alt="Valtech Energy"
                 className="relative rounded-2xl sm:rounded-3xl w-full h-auto object-cover shadow-lg"
               />

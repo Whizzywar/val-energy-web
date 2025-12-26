@@ -34,13 +34,98 @@ const ProductPage = () => {
         warranty: "25 years",
       },
     },
+
     {
       id: 2,
+      name: "SolarHome",
+      category: "solar",
+      price: "10,000",
+      description:
+        "Complete residential solar system with premium efficiency panels",
+      image: "/darmau.jpg",
+      features: [
+        "25-Year Performance Warranty",
+        "95% System Efficiency",
+        "Smart Energy Monitoring",
+        "Weather-Resistant Design",
+        "Easy Installation Process",
+      ],
+      specifications: {
+        capacity: "8.2 kW",
+        warranty: "25 years",
+      },
+    },
+
+    {
+      id: 3,
+      name: "SolarHome",
+      category: "solar",
+      price: "10,000",
+      description:
+        "Complete residential solar system with premium efficiency panels",
+      image: "/daniele.jpg",
+      features: [
+        "25-Year Performance Warranty",
+        "95% System Efficiency",
+        "Smart Energy Monitoring",
+        "Weather-Resistant Design",
+        "Easy Installation Process",
+      ],
+      specifications: {
+        capacity: "8.2 kW",
+        warranty: "25 years",
+      },
+    },
+
+    {
+      id: 4,
+      name: "SolarHome",
+      category: "solar",
+      price: "10,000",
+      description:
+        "Complete residential solar system with premium efficiency panels",
+      image: "/andrey.jpg",
+      features: [
+        "25-Year Performance Warranty",
+        "95% System Efficiency",
+        "Smart Energy Monitoring",
+        "Weather-Resistant Design",
+        "Easy Installation Process",
+      ],
+      specifications: {
+        capacity: "8.2 kW",
+        warranty: "25 years",
+      },
+    },
+
+    {
+      id: 5,
+      name: "SolarHome",
+      category: "solar",
+      price: "10,000",
+      description:
+        "Complete residential solar system with premium efficiency panels",
+      image: "/andrey.jpg",
+      features: [
+        "25-Year Performance Warranty",
+        "95% System Efficiency",
+        "Smart Energy Monitoring",
+        "Weather-Resistant Design",
+        "Easy Installation Process",
+      ],
+      specifications: {
+        capacity: "8.2 kW",
+        warranty: "25 years",
+      },
+    },
+
+    {
+      id: 6,
       name: "PowerWall",
       category: "storage",
       price: "$8,999",
       description: "Advanced home battery storage for energy independence",
-      image: "/VirtualSolar.jpg",
+      image: "/moritzKindler.jpg",
       features: [
         "13.5 kWh Capacity",
         "10-Year Warranty",
@@ -53,27 +138,109 @@ const ProductPage = () => {
         warranty: "10 years",
       },
     },
+
     {
-      id: 3,
-      name: "Smart Thermo",
-      category: "smart",
-      price: "$299",
-      description: "AI-powered smart thermostat for optimal energy savings",
-      image: "/SolarPanel.jpg",
+      id: 7,
+      name: "PowerWall",
+      category: "storage",
+      price: "$8,999",
+      description: "Advanced home battery storage for energy independence",
+      image: "/newpower.jpg",
       features: [
-        "AI Energy Optimization",
-        "Voice Control Compatible",
-        "Geofencing Technology",
-        "Energy Usage Reports",
-        "Easy DIY Installation",
+        "13.5 kWh Capacity",
+        "10-Year Warranty",
+        "Backup Power Ready",
+        "Smart Grid Integration",
+        "Mobile App Control",
       ],
       specifications: {
-        capacity: "12-24 kW",
-        warranty: "3 years",
+        capacity: "13.5 kWh",
+        warranty: "10 years",
       },
     },
+
     {
-      id: 4,
+      id: 8,
+      name: "PowerWall",
+      cateory: "storage",
+      price: "$8,999",
+      description: "Advanced home battery storage for energy independence",
+      image: "/newpower.jpg",
+      features: [
+        "13.5 kWh Capacity",
+        "10-Year Warranty",
+        "Backup Power Ready",
+        "Smart Grid Integration",
+        "Mobile App Control",
+      ],
+      specifications: {
+        capacity: "13.5 kWh",
+        warranty: "10 years",
+      },
+    },
+
+    {
+      id: 9,
+      name: "PowerWall",
+      category: "storage",
+      price: "$8,999",
+      description: "Advanced home battery storage for energy independence",
+      image: "/newpower.jpg",
+      features: [
+        "13.5 kWh Capacity",
+        "10-Year Warranty",
+        "Backup Power Ready",
+        "Smart Grid Integration",
+        "Mobile App Control",
+      ],
+      specifications: {
+        capacity: "13.5 kWh",
+        warranty: "10 years",
+      },
+    },
+
+    {
+      id: 10,
+      name: "PowerWall",
+      category: "storage",
+      price: "$8,999",
+      description: "Advanced home battery storage for energy independence",
+      image: "/newpower.jpg",
+      features: [
+        "13.5 kWh Capacity",
+        "10-Year Warranty",
+        "Backup Power Ready",
+        "Smart Grid Integration",
+        "Mobile App Control",
+      ],
+      specifications: {
+        capacity: "13.5 kWh",
+        warranty: "10 years",
+      },
+    },
+
+    {
+      id: 10,
+      name: "PowerWall",
+      category: "storage",
+      price: "$8,999",
+      description: "Advanced home battery storage for energy independence",
+      image: "/newpower.jpg",
+      features: [
+        "13.5 kWh Capacity",
+        "10-Year Warranty",
+        "Backup Power Ready",
+        "Smart Grid Integration",
+        "Mobile App Control",
+      ],
+      specifications: {
+        capacity: "13.5 kWh",
+        warranty: "10 years",
+      },
+    },
+
+    {
+      id: 12,
       name: "Commercial Solar",
       category: "commercial",
       price: "$299",
@@ -92,8 +259,9 @@ const ProductPage = () => {
         warranty: "15-25 years",
       },
     },
+
     {
-      id: 5,
+      id: 13,
       name: "Commercial Solar",
       category: "commercial",
       price: "$299",
@@ -112,8 +280,50 @@ const ProductPage = () => {
         warranty: "15-25 years",
       },
     },
+
     {
-      id: 6,
+      id: 14,
+      name: "Commercial Solar",
+      category: "commercial",
+      price: "$299",
+      description:
+        "Enterprise-grade solar solutions for businesses and organizations",
+      image: "/SolarBattery.jpg",
+      features: [
+        "Scalable to 1MW+",
+        "Commercial Warranty",
+        "Remote Monitoring",
+        "Maintenance Programs",
+        "ROI Optimization",
+      ],
+      specifications: {
+        capacity: "12-24 kW",
+        warranty: "15-25 years",
+      },
+    },
+
+    {
+      id: 16,
+      name: "Commercial Solar",
+      category: "commercial",
+      price: "$299",
+      description:
+        "Enterprise-grade solar solutions for businesses and organizations",
+      image: "/VirtualSolar.jpg",
+      features: [
+        "Scalable to 1MW+",
+        "Commercial Warranty",
+        "Remote Monitoring",
+        "Maintenance Programs",
+        "ROI Optimization",
+      ],
+      specifications: {
+        capacity: "12-24 kW",
+        warranty: "15-25 years",
+      },
+    },
+    {
+      id: 17,
       name: "Solar System",
       category: "commercial",
       price: "$45,000",
@@ -132,8 +342,91 @@ const ProductPage = () => {
         warranty: "15 years",
       },
     },
+
     {
-      id: 7,
+      id: 18,
+      name: "Energy Monitor",
+      category: "smart",
+      price: "$199",
+      description:
+        "Real-time energy monitoring and insights for your entire home",
+      image: "/InverterBox.jpg",
+      features: [
+        "Real-time Monitoring",
+        "Circuit-level Insights",
+        "Cost Tracking",
+        "Alerts & Notifications",
+        "Easy Installation",
+      ],
+      specifications: {
+        capacity: "12-24 kW",
+        warranty: "2 years",
+      },
+    },
+
+    {
+      id: 11,
+      name: "Smart Thermo",
+      category: "smart",
+      price: "$299",
+      description: "AI-powered smart thermostat for optimal energy savings",
+      image: "/sikweScater.jpg",
+      features: [
+        "AI Energy Optimization",
+        "Voice Control Compatible",
+        "Geofencing Technology",
+        "Energy Usage Reports",
+        "Easy DIY Installation",
+      ],
+      specifications: {
+        capacity: "12-24 kW",
+        warranty: "3 years",
+      },
+    },
+
+    {
+      id: 19,
+      name: "Energy Monitor",
+      category: "smart",
+      price: "$199",
+      description:
+        "Real-time energy monitoring and insights for your entire home",
+      image: "/InverterBox.jpg",
+      features: [
+        "Real-time Monitoring",
+        "Circuit-level Insights",
+        "Cost Tracking",
+        "Alerts & Notifications",
+        "Easy Installation",
+      ],
+      specifications: {
+        capacity: "12-24 kW",
+        warranty: "2 years",
+      },
+    },
+    {
+      id: 20,
+      name: "Energy Monitor",
+      category: "smart",
+      price: "$199",
+      description:
+        "Real-time energy monitoring and insights for your entire home",
+      image: "/InverterBox.jpg",
+      features: [
+        "Real-time Monitoring",
+        "Circuit-level Insights",
+        "Cost Tracking",
+        "Alerts & Notifications",
+        "Easy Installation",
+      ],
+      specifications: {
+        capacity: "12-24 kW",
+        warranty: "2 years",
+      },
+    },
+
+    {
+      id: 21,
       name: "Energy Monitor",
       category: "smart",
       price: "$199",

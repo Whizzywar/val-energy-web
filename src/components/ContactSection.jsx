@@ -262,7 +262,6 @@ const ContactSection = () => {
             </div>
           </div>
 
-          
           <div className="mt-12 sm:mt-16 lg:mt-20 bg-white rounded-xl sm:rounded-2xl shadow-lg sm:shadow-xl p-4 sm:p-6 lg:p-8">
             <div className="text-center mb-6 sm:mb-8">
               <div className="inline-flex items-center bg-blue-100 text-blue-800 rounded-full px-4 py-2 sm:px-6 sm:py-3 text-sm sm:text-base mb-4 sm:mb-6">
@@ -343,12 +342,8 @@ const ContactSection = () => {
       </div>
 
       <section className="relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] bg-black  text-white w-screen py-10 sm:py-20">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-green-400 rounded-full blur-3xl"></div>
-        </div>
+        <div className="absolute inset-0 opacity-10"></div>
         <div className="max-w-7x l  px-4 sm:px-6 lg:px-8">
-         
           <div className="text-center mb-3 xs:mb-4 sm:mb-5 md:mb-6 lg:mb-7">
             <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-2 xs:mb-3 sm:mb-4 drop-shadow-lg px-2">
               Discover The Advantages of Partnering With Industry Leaders in
