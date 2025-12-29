@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 
 const HomePage = () => {
   const [heroIndex, setHeroIndex] = useState(0);
+  const [direction, setDirection] = useState("right");
 
   const heroContent = [
     {
@@ -35,6 +36,7 @@ const HomePage = () => {
 
   useEffect(() => {
     const t = setInterval(() => {
+      setDirection("right");
       setHeroIndex((p) => (p + 1) % heroContent.length);
     }, 5000);
     return () => clearInterval(t);
@@ -49,14 +51,17 @@ const HomePage = () => {
   };
 
   const handlePrevious = () => {
+    setDirection("left");
     setHeroIndex((prev) => (prev === 0 ? heroContent.length - 1 : prev - 1));
   };
 
   const handleNext = () => {
+    setDirection("right");
     setHeroIndex((prev) => (prev === heroContent.length - 1 ? 0 : prev + 1));
   };
 
   const handleIndicatorClick = (index) => {
+    setDirection(index > heroIndex ? "right" : "left");
     setHeroIndex(index);
   };
 
@@ -64,16 +69,31 @@ const HomePage = () => {
     <div className="w-full min-h-screen overflow-hidden bg-white">
       <Navbar />
 
-      <main className="relative w-full min-h-[80vh] flex flex-col justify-start items-center pt-20">
-        <div
-          key={heroIndex}
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat animate-fade-in-bg"
-          style={{
-            backgroundImage: `url(${heroContent[heroIndex].image})`,
-          }}
-          aria-hidden
-        >
-          <div className="absolute inset-0 bg-black/60" />
+      <main className="relative w-full min-h-[80vh] flex flex-col justify-start items-center pt-20 overflow-hidden">
+        {/* Background Images with Sliding Effect */}
+        <div className="absolute inset-0 overflow-hidden">
+          {heroContent.map((item, index) => (
+            <div
+              key={index}
+              className={`absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-700 ease-in-out ${
+                index === heroIndex
+                  ? "translate-x-0"
+                  : direction === "right"
+                  ? index < heroIndex
+                    ? "-translate-x-full"
+                    : "translate-x-full"
+                  : index < heroIndex
+                  ? "-translate-x-full"
+                  : "translate-x-full"
+              }`}
+              style={{
+                backgroundImage: `url(${item.image})`,
+              }}
+              aria-hidden
+            >
+              <div className="absolute inset-0 bg-black/60" />
+            </div>
+          ))}
         </div>
 
         {/* Left Arrow */}
@@ -95,18 +115,38 @@ const HomePage = () => {
         </button>
 
         <section className="relative z-10 w-full text-base sm:text-lg lg:text-xl flex flex-col items-center justify-center text-center pt-20 pb-10 sm:pt-31 sm:pb-14">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold leading-tight text-white max-w-[90%] sm:max-w-[80%] md:max-w-[70%] mx-auto">
-            <span className="block animate-fade-in">
-              {heroContent[heroIndex].title}
-            </span>
-            <span className="block text-white bg-clip-text  animate-fade-in-delay">
-              {heroContent[heroIndex].subtitle}
-            </span>
-          </h1>
+          {/* Content with Sliding Effect */}
+          <div className="relative w-full overflow-hidden min-h-[300px]">
+            {heroContent.map((item, index) => (
+              <div
+                key={index}
+                className={`absolute inset-0 transition-all duration-700 ease-in-out ${
+                  index === heroIndex
+                    ? "opacity-100 translate-x-0"
+                    : direction === "right"
+                    ? index < heroIndex
+                      ? "opacity-0 -translate-x-full"
+                      : "opacity-0 translate-x-full"
+                    : index < heroIndex
+                    ? "opacity-0 -translate-x-full"
+                    : "opacity-0 translate-x-full"
+                }`}
+              >
+                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold leading-tight text-white max-w-[90%] sm:max-w-[80%] md:max-w-[70%] mx-auto">
+                  <span className="block">{item.title}</span>
+                  {item.subtitle && (
+                    <span className="block text-white bg-clip-text">
+                      {item.subtitle}
+                    </span>
+                  )}
+                </h1>
 
-          <p className="mt-4 text-base sm:text-lg md:text-xl text-white max-w-2xl sm:max-w-3xl leading-relaxed mx-auto px-4">
-            {heroContent[heroIndex].description}
-          </p>
+                <p className="mt-4 text-base sm:text-lg md:text-xl text-white max-w-2xl sm:max-w-3xl leading-relaxed mx-auto px-4">
+                  {item.description}
+                </p>
+              </div>
+            ))}
+          </div>
 
           {/* CTA */}
           <div className="mt-7 flex flex-wrap justify-center items-center gap-4">
@@ -141,7 +181,7 @@ const HomePage = () => {
 
       <button
         onClick={handleWhatsAppClick}
-        className="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600 text-white rounded-full p-4 shadow-2xl transform transition-all duration-300 hover:scale-110 hover:shadow-green-500/50 group"
+        className="fixed bottom-6 right-6 z-50 bg-green-500  text-white rounded-full p-4 shadow-2xl transform transition-all duration-300 "
         aria-label="Contact us on WhatsApp"
       >
         <svg
@@ -152,8 +192,6 @@ const HomePage = () => {
         >
           <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
         </svg>
-
-        <span className="absolute inset-0 rounded-full bg-green-500 animate-ping opacity-75"></span>
       </button>
 
       <section className="px-3 sm:px-5 lg:px-9 py-15">
@@ -167,52 +205,6 @@ const HomePage = () => {
       <section className="">
         <ContactSection />
       </section>
-
-      <style jsx>{`
-        @keyframes fade-in {
-          from {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        @keyframes fade-in-delay {
-          from {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        @keyframes fade-in-bg {
-          from {
-            opacity: 0;
-          }
-          to {
-            opacity: 1;
-          }
-        }
-
-        .animate-fade-in {
-          animation: fade-in 1.4s ease-out forwards;
-        }
-
-        .animate-fade-in-delay {
-          animation: fade-in-delay 1.4s ease-out 0.3s forwards;
-          opacity: 0;
-        }
-
-        .animate-fade-in-bg {
-          animation: fade-in-bg 1.4s ease-in-out;
-        }
-      `}</style>
     </div>
   );
 };

@@ -48,7 +48,7 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-8 md:pt-16 md:pb-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
           <div className="sm:col-span-2 lg:col-span-1">
-            <div className="flex items-center gap-2 mb-4">
+            <div className="fle gap-2 mb-4">
               <h3 className="text-xl font-bold">Valtech Solar Energy</h3>
             </div>
             <p className="text-gray-400 text-sm leading-relaxed mb-6">
@@ -58,7 +58,7 @@ const Footer = () => {
             </p>
 
             <div className="space-y-3 mb-6">
-              <div className="flex items-center gap-3 text-gray-400">
+              <div className="flex  gap-3 text-gray-400">
                 <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center group-hover:bg-white/10 transition-colors">
                   <Phone className="w-4 h-4" />
                 </div>
@@ -66,7 +66,7 @@ const Footer = () => {
               </div>
               <a
                 href="mailto:ValtechSolarEnergy@yahoo.com"
-                className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors group"
+                className="flex  gap-3 text-gray-400 hover:text-white transition-colors group"
               >
                 <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center group-hover:bg-white/10 transition-colors">
                   <Mail className="w-4 h-4" />
