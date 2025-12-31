@@ -189,7 +189,7 @@ const ContactSection = () => {
               <div className="relative order-1 lg:order-2">
                 <div className="bg-gradient-to-br from-blue-50 via-green-50 to-purple-50 rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-10 border-2 border-gray-200">
                   <div className="text-center mb-6 sm:mb-8 lg:mb-10">
-                    <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-blue-600 mb-3 sm:mb-4">
+                    <h3 className="text-2xl text-center sm:text-3xl lg:text-4xl font-bold text-blue-600 mb-3 sm:mb-4">
                       Our Impact
                     </h3>
                     <p className="text-gray-600 text-sm sm:text-base lg:text-lg">
@@ -268,7 +268,7 @@ const ContactSection = () => {
                 <Users className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
                 <span className="font-bold">Certified Partnership</span>
               </div>
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-black mb-3 sm:mb-4">
+              <h2 className="text-2xl  text-center sm:text-3xl lg:text-4xl font-bold text-black mb-3 sm:mb-4">
                 Official Technology Partner
               </h2>
               <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto">
@@ -345,7 +345,7 @@ const ContactSection = () => {
         <div className="absolute inset-0 opacity-10"></div>
         <div className="max-w-7x l  px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-3 xs:mb-4 sm:mb-5 md:mb-6 lg:mb-7">
-            <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-2 xs:mb-3 sm:mb-4 drop-shadow-lg px-2">
+            <h2 className="text-2xl text-center xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-2 xs:mb-3 sm:mb-4 drop-shadow-lg px-2">
               Discover The Advantages of Partnering With Industry Leaders in
               Solar Technology
             </h2>
@@ -359,7 +359,7 @@ const ContactSection = () => {
                 <div className="rounded-full p-2 xs:p-2.5 sm:p-3 mr-2.5 xs:mr-3 sm:mr-4 group-hover:bg-blue-200 transition-colors duration-300 flex-shrink-0">
                   <CheckCircle className="w-5 h-5 xs:w-6 xs:h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-white" />
                 </div>
-                <h4 className="text-lg xs:text-xl sm:text-2xl md:text-3xl font-bold text-white leading-tight">
+                <h4 className="text-lg text-center xs:text-xl sm:text-2xl md:text-3xl font-bold text-white leading-tight">
                   Partnership Benefits
                 </h4>
               </div>
@@ -409,7 +409,7 @@ const ContactSection = () => {
                 <div className="rounded-full p-2 xs:p-2.5 sm:p-3 mr-2.5 xs:mr-3 sm:mr-4 group-hover:bg-blue-200 transition-colors duration-300 flex-shrink-0">
                   <Shield className="w-5 h-5 xs:w-6 xs:h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-white" />
                 </div>
-                <h4 className="text-lg xs:text-xl sm:text-2xl md:text-3xl font-bold text-white leading-tight">
+                <h4 className="text-lg text-center xs:text-xl sm:text-2xl md:text-3xl font-bold text-white leading-tight">
                   Quality Assurance
                 </h4>
               </div>

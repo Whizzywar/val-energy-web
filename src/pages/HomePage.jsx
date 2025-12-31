@@ -149,7 +149,7 @@ const HomePage = () => {
           </div>
 
           {/* CTA */}
-          <div className="mt-7 flex flex-wrap justify-center items-center gap-4">
+          <div className=" flex flex-wrap justify-center items-center gap-4">
             <Link
               to="/products"
               className="inline-flex items-center gap-2 bg-blue-600 text-white px-4 py-3 rounded-full font-semibold text-sm sm:text-base shadow-lg transform transition-all duration-300 hover:scale-105"
@@ -161,7 +161,7 @@ const HomePage = () => {
           </div>
 
           {/* Indicators */}
-          <div className="mt-8 flex gap-2 justify-center">
+          <div className="mt-6 flex gap-2 justify-center">
             {heroContent.map((_, index) => (
               <button
                 key={index}

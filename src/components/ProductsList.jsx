@@ -105,13 +105,13 @@ const ProductsList = () => {
   return (
     <section id="products" className="py-6 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-10">
-          <div className="inline-flex items-center text-base sm:text-lg lg:text-xl bg-blue-50 text-blue-700 rounded-full px-4 py-3 mb-5 shadow-sm">
+        <div className="mb-10">
+          <div className="inline-flex text-center text-base sm:text-lg lg:text-xl bg-blue-50 text-blue-700 rounded-full px-4 py-3 mb-5 shadow-sm">
             <Award className="w-6 h-6 mr-2" />
             <span className="font-semibold">Premium Energy Solutions</span>
           </div>
 
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold pt-2 text-black leading-tight">
+          <h2 className="text-4xl text-center sm:text-5xl md:text-6xl font-bold pt-2 text-black leading-tight">
             Explore Our{" "}
             <span className="bg-blue-600 bg-clip-text text-transparent">
               Products

@@ -14,7 +14,7 @@ const AboutSection = () => {
               </span>
             </div>
 
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-black leading-tight mb-4 sm:mb-5">
+            <h2 className="text-3xl text-center sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-black leading-tight mb-4 sm:mb-5">
               Why{" "}
               <span className="bg-gradient-to-r from-blue-600 to-blue-700 text-transparent bg-clip-text">
                 Valtech Solar Energy?
