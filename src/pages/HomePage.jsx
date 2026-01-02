@@ -23,14 +23,14 @@ const HomePage = () => {
       subtitle: "Smart Solutions",
       description:
         "Advanced solar technology and energy storage systems for modern living.",
-      image: "/kumpan.jpg",
+      image: "/solar2.jpg",
     },
     {
       title: "Sustainable",
       subtitle: "Energy Systems",
       description:
         "Premium lithium batteries and solar equipment for residential & commercial use.",
-      image: "/ronnakorn.jpg",
+      image: "/kumpan.jpg",
     },
   ];
 

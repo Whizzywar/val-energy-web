@@ -8,7 +8,7 @@ const AboutSection = () => {
       <section className="relative overflow-hidden text-white py-20 sm:py-32">
         <div className="absolute inset-0">
           <img
-            src="/newpower.jpg"
+            src="/SolarEnergyPanel.jpg"
             alt="Solar panels background"
             className="w-full h-full object-cover"
           />
@@ -58,7 +58,7 @@ const AboutSection = () => {
               <div className="absolute -inset-4 rounded-3xl blur-2xl opacity-20"></div>
               <div className="relative h-full rounded-2xl overflow-hidden ">
                 <img
-                  src="/ricardo.jpg"
+                  src="/solar.jpg"
                   alt="Solar panels installation representing our mission"
                   className="w-full h-full object-cover"
                 />
@@ -89,7 +89,7 @@ const AboutSection = () => {
                 <div className="absolute -inset-4  rounded-3xl blur-2xl opacity-20"></div>
                 <div className="relative aspect-[4/3] rounded-2xl overflow-hidden ">
                   <img
-                    src="/newpowak.jpg"
+                    src="/ronnakorn.jpg"
                     alt="Solar panels installation representing our mission"
                     className="w-full h-full object-cover"
                   />
