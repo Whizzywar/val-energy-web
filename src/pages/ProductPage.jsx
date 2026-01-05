@@ -204,7 +204,7 @@ const ProductsList = () => {
         "Premium Components",
       ],
     },
-    // Add more products
+    
   ];
 
   return (
@@ -232,7 +232,7 @@ const ProductsList = () => {
                 animationDelay: `${index * 100}ms`,
               }}
             >
-              {/* Badge & Discount */}
+            
               <div className="absolute top-4 left-4 z-10 flex flex-col gap-2">
                 <span className="bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">
                   {product.badge}
@@ -290,7 +290,7 @@ const ProductsList = () => {
                 {/* Divider */}
                 <div className="border-t border-gray-200 my-4"></div>
 
-                {/* PRICE */}
+        
                 <div className="inline-flex">
                   <div>
                     <p className="text-black font-bold text-2xl flex items-baseline gap-1">

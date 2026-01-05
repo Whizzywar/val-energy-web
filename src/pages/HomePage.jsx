@@ -4,11 +4,14 @@ import Navbar from "../components/Navbar";
 import ProductsList from "../components/ProductsList";
 import AboutSection from "../components/AboutSection";
 import ContactSection from "../components/ContactSection";
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom"
+
+
 
 const HomePage = () => {
   const [heroIndex, setHeroIndex] = useState(0);
   const [direction, setDirection] = useState("right");
+  
 
   const heroContent = [
     {
