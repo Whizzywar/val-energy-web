@@ -8,9 +8,9 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Layout from "./components/Layout";
 import gsap from "gsap";
-import {ScrollTrigger, SplitText} from "gsap/all";
+import { ScrollTrigger, SplitText } from "gsap/all";
 
-gsap.registerPlugin{ScrollTrigger, SplitText};
+gsap.registerPlugin(ScrollTrigger, SplitText);
 
 function App() {
   const handleWhatsAppClick = () => {
