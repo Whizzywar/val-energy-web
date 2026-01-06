@@ -1,11 +1,33 @@
-import { Menu, Phone, X, Zap } from "lucide-react";
-import React, { useState } from "react";
-import { Link, Links, useLocation } from "react-router-dom";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { Menu, X } from "lucide-react";
+import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const location = useLocation();
+
+  useGSAP(() => {
+    const navTween = gsap.timeline({
+      scrollTrigger: {
+        trigger: "nav",
+        start: "bottom top",
+      },
+    });
+
+    navTween.fromTo(
+      "nav",
+      { backgroundColor: "transparent" },
+      {
+        backgroundColor: "#00000050",
+        backgroundFilter: "blur(10px)",
+        duration: "1",
+        ease: "power1.inOut",
+      }
+    );
+  });
 
   const navigationItems = [
     { id: "home", label: "Home", path: "/" },
