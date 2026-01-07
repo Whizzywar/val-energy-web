@@ -1,8 +1,11 @@
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -10,6 +13,8 @@ const Navbar = () => {
   const location = useLocation();
 
   useGSAP(() => {
+    ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+
     const navTween = gsap.timeline({
       scrollTrigger: {
         trigger: "nav",
@@ -27,7 +32,11 @@ const Navbar = () => {
         ease: "power1.inOut",
       }
     );
-  });
+
+    return () => {
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
+  }, [location.pathname]);
 
   const navigationItems = [
     { id: "home", label: "Home", path: "/" },
