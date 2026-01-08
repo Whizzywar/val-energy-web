@@ -53,7 +53,7 @@ const Navbar = () => {
   return (
     <div className="bg-white">
       {/* Fixed Top Navbar */}
-      <nav className="fixed top-0 left-0 w-full z-50 bg-black border-b shadow-sm">
+      <nav className="fixed top-0 left-0 w-full z-50 ">
         <div className="flex items-center justify-between w-full h-16 px-6 sm:px-10 lg:px-14">
           {/* Logo */}
           <Link
@@ -74,7 +74,7 @@ const Navbar = () => {
                 className={`relative text-sm font-semibold uppercase tracking-wide transition-all duration-300 ${
                   isActive(item.id)
                     ? "text-white"
-                    : "text-gray-400 hover:text-white"
+                    : "text-gray-500 hover:text-white"
                 }`}
               >
                 {item.label}

@@ -1,17 +1,22 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import gsap from "gsap";
 import { ArrowRight, ChevronLeft, ChevronRight, Zap } from "lucide-react";
 import Navbar from "../components/Navbar";
 import ProductsList from "../components/ProductsList";
 import AboutSection from "../components/AboutSection";
 import ContactSection from "../components/ContactSection";
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
+import { useGSAP } from "@gsap/react";
+import { SplitText } from "gsap/all";
 
-
+gsap.registerPlugin(SplitText);
 
 const HomePage = () => {
   const [heroIndex, setHeroIndex] = useState(0);
   const [direction, setDirection] = useState("right");
-  
+  const titleRef = useRef(null);
+  const subtitleRef = useRef(null);
+  const descriptionRef = useRef(null);
 
   const heroContent = [
     {
@@ -22,20 +27,108 @@ const HomePage = () => {
       image: "/evgeniy.jpg",
     },
     {
-      title: "Clean Energy",
-      subtitle: "Smart Solutions",
+      title: "Clean Energy Solutions",
+      subtitle: "",
       description:
         "Advanced solar technology and energy storage systems for modern living.",
       image: "/solar2.jpg",
     },
     {
-      title: "Sustainable",
-      subtitle: "Energy Systems",
+      title: "Sustainable Energy Systems",
+      subtitle: "",
       description:
         "Premium lithium batteries and solar equipment for residential & commercial use.",
       image: "/kumpan.jpg",
     },
   ];
+
+  // Animate text on hero index change
+  useGSAP(() => {
+    if (titleRef.current) {
+      // Split the title text
+      const titleSplit = new SplitText(titleRef.current, {
+        type: "chars,words",
+        charsClass: "split-char",
+        wordsClass: "split-word",
+      });
+
+      // Animate title characters with sliding effect
+      gsap.fromTo(
+        titleSplit.chars,
+        {
+          yPercent: 100,
+          opacity: 0,
+          rotationX: -90,
+        },
+        {
+          yPercent: 0,
+          opacity: 1,
+          rotationX: 0,
+          duration: 1.2,
+          ease: "expo.out",
+          stagger: 0.02,
+        }
+      );
+    }
+
+    if (subtitleRef.current && heroContent[heroIndex].subtitle) {
+      // Split the subtitle text
+      const subtitleSplit = new SplitText(subtitleRef.current, {
+        type: "chars,words",
+        charsClass: "split-char",
+      });
+
+      // Animate subtitle with sliding effect
+      gsap.fromTo(
+        subtitleSplit.chars,
+        {
+          yPercent: 100,
+          opacity: 0,
+        },
+        {
+          yPercent: 0,
+          opacity: 1,
+          duration: 1,
+          ease: "expo.out",
+          stagger: 0.015,
+          delay: 0.3,
+        }
+      );
+    }
+
+    if (descriptionRef.current) {
+      // Split description into lines
+      const descSplit = new SplitText(descriptionRef.current, {
+        type: "lines",
+        linesClass: "split-line",
+      });
+
+      // Wrap lines in overflow containers for slide effect
+      descSplit.lines.forEach((line) => {
+        const wrapper = document.createElement("div");
+        wrapper.style.overflow = "hidden";
+        line.parentNode.insertBefore(wrapper, line);
+        wrapper.appendChild(line);
+      });
+
+      // Animate description lines
+      gsap.fromTo(
+        descSplit.lines,
+        {
+          yPercent: 100,
+          opacity: 0,
+        },
+        {
+          yPercent: 0,
+          opacity: 1,
+          duration: 0.8,
+          ease: "expo.out",
+          stagger: 0.1,
+          delay: 0.6,
+        }
+      );
+    }
+  }, [heroIndex]);
 
   useEffect(() => {
     const t = setInterval(() => {
@@ -119,32 +212,38 @@ const HomePage = () => {
 
         <section className="relative z-10 w-full text-base sm:text-lg lg:text-xl flex flex-col items-center justify-center text-center pt-20 pb-10 sm:pt-31 sm:pb-14">
           {/* Content with Sliding Effect */}
-          <div className="relative w-full overflow-hidden min-h-[300px]">
+          <div className="relative w-full min-h-[300px]">
             {heroContent.map((item, index) => (
               <div
                 key={index}
-                className={`absolute inset-0 transition-all duration-700 ease-in-out ${
+                className={`w-full transition-opacity duration-700 ${
                   index === heroIndex
-                    ? "opacity-100 translate-x-0"
-                    : direction === "right"
-                    ? index < heroIndex
-                      ? "opacity-0 -translate-x-full"
-                      : "opacity-0 translate-x-full"
-                    : index < heroIndex
-                    ? "opacity-0 -translate-x-full"
-                    : "opacity-0 translate-x-full"
+                    ? "opacity-100"
+                    : "opacity-0 absolute inset-0 pointer-events-none"
                 }`}
               >
                 <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold leading-tight text-white max-w-[90%] sm:max-w-[80%] md:max-w-[70%] mx-auto">
-                  <span className="block">{item.title}</span>
+                  <span
+                    ref={index === heroIndex ? titleRef : null}
+                    className="block overflow-hidden"
+                    style={{ perspective: "400px" }}
+                  >
+                    {item.title}
+                  </span>
                   {item.subtitle && (
-                    <span className="block text-white bg-clip-text">
+                    <span
+                      ref={index === heroIndex ? subtitleRef : null}
+                      className="block text-white bg-clip-text overflow-hidden"
+                    >
                       {item.subtitle}
                     </span>
                   )}
                 </h1>
 
-                <p className="mt-4 text-base sm:text-lg md:text-xl text-white max-w-2xl sm:max-w-3xl leading-relaxed mx-auto px-4">
+                <p
+                  ref={index === heroIndex ? descriptionRef : null}
+                  className="mt-4 text-base sm:text-lg md:text-xl text-white max-w-2xl sm:max-w-3xl leading-relaxed mx-auto px-4"
+                >
                   {item.description}
                 </p>
               </div>

@@ -2,6 +2,13 @@
 
 @import "tailwindcss";
 
+@utility text-gradient {
+  backgound: linear-gradient(to bottom #ffffff, #898989);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
