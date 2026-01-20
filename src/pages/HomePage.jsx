@@ -64,9 +64,9 @@ const HomePage = () => {
           yPercent: 0,
           opacity: 1,
           rotationX: 0,
-          duration: 1.2,
+          duration: 1.8,
           ease: "expo.out",
-          stagger: 0.02,
+          stagger: 0.05,
         }
       );
     }
@@ -88,10 +88,10 @@ const HomePage = () => {
         {
           yPercent: 0,
           opacity: 1,
-          duration: 1,
+          duration: 1.8,
           ease: "expo.out",
-          stagger: 0.015,
-          delay: 0.3,
+          stagger: 0.05,
+          delay: 0.055,
         }
       );
     }
@@ -121,9 +121,9 @@ const HomePage = () => {
         {
           yPercent: 0,
           opacity: 1,
-          duration: 0.8,
+          duration: 1.8,
           ease: "expo.out",
-          stagger: 0.1,
+          stagger: 0.05,
           delay: 0.6,
         }
       );

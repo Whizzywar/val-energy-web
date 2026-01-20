@@ -9,7 +9,7 @@ const AboutSection = () => {
           <div className="order-2 lg:order-1">
             <div className="inline-flex items-center bg-blue-100 text-blue-800 rounded-full px-4 sm:px-6 py-2 mb-6">
               <Shield className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
-              <span className="font-semibold text-sm sm:text-base">
+              <span className="font-semibold">
                 Trusted by Thousands
               </span>
             </div>

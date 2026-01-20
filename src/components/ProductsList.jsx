@@ -1,8 +1,20 @@
 import { Award, CheckCircle, ArrowRight, TrendingUp, Zap } from "lucide-react";
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { SplitText } from "gsap/SplitText";
+
+// Register GSAP plugins
+gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const ProductsList = () => {
+  const sectionRef = useRef(null);
+  const headingRef = useRef(null);
+  const subheadingRef = useRef(null);
+  const descriptionRef = useRef(null);
+  const productsRef = useRef([]);
+
   const products = [
     {
       id: 1,
@@ -102,23 +114,164 @@ const ProductsList = () => {
     },
   ];
 
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Split and animate main heading
+      const headingSplit = new SplitText(headingRef.current, {
+        type: "words,chars",
+        wordsClass: "word",
+        charsClass: "char",
+      });
+
+      gsap.from(headingSplit.chars, {
+        scrollTrigger: {
+          trigger: headingRef.current,
+          start: "top 80%",
+          end: "top 40%",
+          scrub: 1,
+        },
+        opacity: 0,
+        y: 50,
+        rotationX: -90,
+        stagger: 0.02,
+        ease: "back.out(1.7)",
+      });
+
+      // Split and animate subheading
+      const subheadingSplit = new SplitText(subheadingRef.current, {
+        type: "words",
+        wordsClass: "word",
+      });
+
+      gsap.from(subheadingSplit.words, {
+        scrollTrigger: {
+          trigger: subheadingRef.current,
+          start: "top 85%",
+          end: "top 50%",
+          scrub: 1,
+        },
+        opacity: 0,
+        y: 30,
+        stagger: 0.03,
+        ease: "power2.out",
+      });
+
+      // Split and animate description
+      const descriptionSplit = new SplitText(descriptionRef.current, {
+        type: "lines,words",
+        linesClass: "line",
+        wordsClass: "word",
+      });
+
+      gsap.from(descriptionSplit.words, {
+        scrollTrigger: {
+          trigger: descriptionRef.current,
+          start: "top 85%",
+          end: "top 55%",
+          scrub: 1,
+        },
+        opacity: 0,
+        y: 20,
+        stagger: 0.015,
+        ease: "power1.out",
+      });
+
+      // Animate product cards
+      productsRef.current.forEach((card, index) => {
+        if (!card) return;
+
+        // Animate product name
+        const productName = card.querySelector(".product-name");
+        if (productName) {
+          const nameSplit = new SplitText(productName, {
+            type: "words,chars",
+            wordsClass: "word",
+            charsClass: "char",
+          });
+
+          gsap.from(nameSplit.chars, {
+            scrollTrigger: {
+              trigger: card,
+              start: "top 85%",
+              end: "top 60%",
+              scrub: 1,
+            },
+            opacity: 0,
+            scale: 0.3,
+            rotation: -15,
+            stagger: 0.03,
+            ease: "back.out(2)",
+          });
+        }
+
+        // Animate feature texts
+        const features = card.querySelectorAll(".feature-text");
+        features.forEach((feature, i) => {
+          const featureSplit = new SplitText(feature, {
+            type: "words",
+            wordsClass: "word",
+          });
+
+          gsap.from(featureSplit.words, {
+            scrollTrigger: {
+              trigger: card,
+              start: "top 80%",
+              end: "top 55%",
+              scrub: 1,
+            },
+            opacity: 0,
+            x: -20,
+            stagger: 0.02,
+            delay: i * 0.05,
+            ease: "power2.out",
+          });
+        });
+
+        // Animate card container
+        gsap.from(card, {
+          scrollTrigger: {
+            trigger: card,
+            start: "top 90%",
+            end: "top 60%",
+            scrub: 1,
+          },
+          opacity: 0,
+          y: 100,
+          rotationY: 15,
+          scale: 0.9,
+          ease: "power3.out",
+        });
+      });
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <section id="products" className="py-6 bg-white">
+    <section id="products" className="py-4 bg-white" ref={sectionRef}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-10">
-          <div className="inline-flex text-center text-base sm:text-lg lg:text-xl bg-blue-50 text-blue-700 rounded-full px-4 py-3 mb-5 shadow-sm">
+          <div
+            ref={subheadingRef}
+            className="inline-flex text-center text-base sm:text-lg lg:text-xl bg-blue-50 text-blue-700 rounded-full px-4 py-3 mb-5 shadow-sm"
+          >
             <Award className="w-6 h-6 mr-2" />
             <span className="font-semibold">Premium Energy Solutions</span>
           </div>
 
-          <h2 className="text-4xl text-center sm:text-5xl md:text-6xl font-bold pt-2 text-black leading-tight">
-            Explore Our{" "}
-            <span className="bg-blue-600 bg-clip-text text-transparent">
+          <h2
+            ref={headingRef}
+            className="text-4xl text-center sm:text-5xl md:text-6xl font-bold pt-2 text-black leading-tight"
+          >
+             Explore Our{" "}
+            <span className="text-blue-600">
               Products
             </span>
           </h2>
-
-          <p className="text-gray-600 text-lg mt-3 max-w-3xl mx-auto">
+          <p
+            ref={descriptionRef}
+            className="text-gray-600 text-lg mt-3 max-w-3xl mx-auto"
+          >
             Professionally engineered energy solutions designed for performance,
             durability, and long-term value.
           </p>
@@ -128,10 +281,8 @@ const ProductsList = () => {
           {products.map((product, index) => (
             <div
               key={product.id}
+              ref={(el) => (productsRef.current[index] = el)}
               className="group bg-white border border-gray-200 rounded-3xl shadow-sm hover:shadow-2xl hover:border-blue-500/40 hover:-translate-y-2 transition-all duration-500 overflow-hidden relative"
-              style={{
-                animationDelay: `${index * 100}ms`,
-              }}
             >
               {/* Badge & Discount */}
               <div className="absolute top-4 left-4 z-10 flex flex-col gap-2">
@@ -172,7 +323,7 @@ const ProductsList = () => {
                   </div>
                 </div>
 
-                <h3 className="text-xl font-bold text-black mt-2 mb-4 leading-snug group-hover:text-blue-600 transition-colors duration-300">
+                <h3 className="product-name text-xl font-bold text-black mt-2 mb-4 leading-snug group-hover:text-blue-600 transition-colors duration-300">
                   {product.name}
                 </h3>
 
@@ -183,7 +334,7 @@ const ProductsList = () => {
                       className="flex items-center text-gray-700 group/item hover:text-blue-600 transition-colors duration-200"
                     >
                       <CheckCircle className="w-5 h-5 text-blue-500 mr-2 group-hover/item:scale-110 transition-transform duration-200" />
-                      <span className="text-sm">{feature}</span>
+                      <span className="feature-text text-sm">{feature}</span>
                     </div>
                   ))}
                 </div>
@@ -216,7 +367,7 @@ const ProductsList = () => {
         </div>
 
         {/* View All Products CTA */}
-        <div className="text-center mt-16">
+        <div className="text-center mt-10">
           <Link
             to="/products"
             className="inline-flex items-center gap-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white px-8 py-4 rounded-full font-bold text-lg shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300"
@@ -226,24 +377,6 @@ const ProductsList = () => {
           </Link>
         </div>
       </div>
-
-      <style jsx>{`
-        @keyframes fadeInUp {
-          from {
-            opacity: 0;
-            transform: translateY(30px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        .group {
-          animation: fadeInUp 0.6s ease-out forwards;
-          opacity: 0;
-        }
-      `}</style>
     </section>
   );
 };
