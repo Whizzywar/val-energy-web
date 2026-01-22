@@ -263,10 +263,7 @@ const ProductsList = () => {
             ref={headingRef}
             className="text-4xl text-center sm:text-5xl md:text-6xl font-bold pt-2 text-black leading-tight"
           >
-             Explore Our{" "}
-            <span className="text-blue-600">
-              Products
-            </span>
+            Explore Our <span className="text-blue-600">Products</span>
           </h2>
           <p
             ref={descriptionRef}

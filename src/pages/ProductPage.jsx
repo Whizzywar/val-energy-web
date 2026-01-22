@@ -1,10 +1,251 @@
-import React, { useState } from "react";
+import React, { useRef, useEffect } from "react";
 import Navbar from "../components/Navbar";
-
 import { Award, CheckCircle, ArrowRight, TrendingUp, Zap } from "lucide-react";
-import { Link } from "react-router-dom";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { SplitText } from "gsap/SplitText";
+
+// Register GSAP plugins
+gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const ProductsList = () => {
+  // Refs for animation targets
+  const headingRef = useRef(null);
+  const descriptionRef = useRef(null);
+  const productsGridRef = useRef(null);
+  const productCardsRef = useRef([]);
+
+  useEffect(() => {
+    // Initialize animations after component mounts
+    const ctx = gsap.context(() => {
+      initHeaderAnimations();
+      initProductCardAnimations();
+      initParallaxEffects();
+    });
+
+    // Cleanup function
+    return () => {
+      ctx.revert();
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
+  }, []);
+
+  // Header text animations with SplitText
+  const initHeaderAnimations = () => {
+    if (!headingRef.current || !descriptionRef.current) return;
+
+    // Split heading into characters and words
+    const headingSplit = new SplitText(headingRef.current, {
+      type: "chars,words",
+      charsClass: "char",
+      wordsClass: "word",
+    });
+
+    // Split description into lines
+    const descSplit = new SplitText(descriptionRef.current, {
+      type: "lines",
+      linesClass: "line",
+    });
+
+    // Wrap lines in overflow hidden divs for clean animation
+    gsap.set(descSplit.lines, {
+      overflow: "hidden",
+      paddingBottom: "0.2em",
+    });
+
+    // Create master timeline for header
+    const headerTL = gsap.timeline({
+      scrollTrigger: {
+        trigger: headingRef.current,
+        start: "top 80%",
+        end: "bottom 20%",
+        toggleActions: "play none none reverse",
+      },
+    });
+
+    // Animate heading characters with 3D effect
+    headerTL.from(headingSplit.chars, {
+      opacity: 0,
+      y: 50,
+      rotateX: -90,
+      transformOrigin: "50% 50% -50px",
+      stagger: {
+        amount: 0.8,
+        from: "start",
+      },
+      duration: 0.8,
+      ease: "back.out(1.7)",
+    });
+
+    // Animate description lines
+    headerTL.from(
+      descSplit.lines,
+      {
+        opacity: 0,
+        y: 30,
+        stagger: 0.15,
+        duration: 0.6,
+        ease: "power2.out",
+      },
+      "-=0.4",
+    );
+  };
+
+  // Product cards animations
+  const initProductCardAnimations = () => {
+    productCardsRef.current.forEach((card, index) => {
+      if (!card) return;
+
+      // Create timeline for each card
+      const cardTL = gsap.timeline({
+        scrollTrigger: {
+          trigger: card,
+          start: "top 85%",
+          end: "bottom 20%",
+          toggleActions: "play none none reverse",
+        },
+      });
+
+      // Main card entrance animation
+      cardTL.from(card, {
+        opacity: 0,
+        y: 100,
+        scale: 0.8,
+        rotateY: -15,
+        transformOrigin: "center center",
+        duration: 0.8,
+        ease: "power3.out",
+      });
+
+      // Animate badges
+      const badges = card.querySelectorAll(".badge");
+      if (badges.length > 0) {
+        cardTL.from(
+          badges,
+          {
+            opacity: 0,
+            x: -50,
+            stagger: 0.1,
+            duration: 0.5,
+            ease: "back.out(2)",
+          },
+          "-=0.5",
+        );
+      }
+
+      // Animate product image
+      const image = card.querySelector(".product-image");
+      if (image) {
+        cardTL.from(
+          image,
+          {
+            scale: 1.3,
+            opacity: 0,
+            duration: 1,
+            ease: "power2.out",
+          },
+          "-=0.8",
+        );
+      }
+
+      // Animate category and rating section
+      const categorySection = card.querySelector(".category-section");
+      if (categorySection) {
+        cardTL.from(
+          categorySection,
+          {
+            opacity: 0,
+            y: 10,
+            duration: 0.4,
+            ease: "power2.out",
+          },
+          "-=0.6",
+        );
+      }
+
+      // Animate product title
+      const title = card.querySelector(".product-title");
+      if (title) {
+        cardTL.from(
+          title,
+          {
+            opacity: 0,
+            y: 20,
+            duration: 0.5,
+            ease: "power2.out",
+          },
+          "-=0.3",
+        );
+      }
+
+      // Animate feature items
+      const features = card.querySelectorAll(".feature-item");
+      if (features.length > 0) {
+        cardTL.from(
+          features,
+          {
+            opacity: 0,
+            x: -20,
+            stagger: 0.08,
+            duration: 0.4,
+            ease: "power2.out",
+          },
+          "-=0.4",
+        );
+      }
+
+      // Animate price section with elastic effect
+      const priceSection = card.querySelector(".price-section");
+      if (priceSection) {
+        cardTL.from(
+          priceSection,
+          {
+            opacity: 0,
+            scale: 0.5,
+            duration: 0.6,
+            ease: "elastic.out(1, 0.5)",
+          },
+          "-=0.3",
+        );
+      }
+    });
+  };
+
+  // Parallax scrolling effects
+  const initParallaxEffects = () => {
+    productCardsRef.current.forEach((card, index) => {
+      if (!card) return;
+
+      // Subtle parallax movement
+      gsap.to(card, {
+        y: -30,
+        ease: "none",
+        scrollTrigger: {
+          trigger: card,
+          start: "top bottom",
+          end: "bottom top",
+          scrub: 1,
+        },
+      });
+
+      // Image parallax
+      const image = card.querySelector(".product-image");
+      if (image) {
+        gsap.to(image, {
+          y: 20,
+          scale: 1.05,
+          ease: "none",
+          scrollTrigger: {
+            trigger: card,
+            start: "top bottom",
+            end: "bottom top",
+            scrub: 1.5,
+          },
+        });
+      }
+    });
+  };
+
   const products = [
     {
       id: 1,
@@ -102,7 +343,6 @@ const ProductsList = () => {
         "Premium Components",
       ],
     },
-
     {
       id: 7,
       name: "Complete Solar Kit",
@@ -119,7 +359,6 @@ const ProductsList = () => {
         "Premium Components",
       ],
     },
-
     {
       id: 8,
       name: "Complete Solar Kit",
@@ -136,7 +375,6 @@ const ProductsList = () => {
         "Premium Components",
       ],
     },
-
     {
       id: 9,
       name: "Complete Solar Kit",
@@ -153,7 +391,6 @@ const ProductsList = () => {
         "Premium Components",
       ],
     },
-
     {
       id: 10,
       name: "Complete Solar Kit",
@@ -170,7 +407,6 @@ const ProductsList = () => {
         "Premium Components",
       ],
     },
-
     {
       id: 11,
       name: "Complete Solar Kit",
@@ -187,7 +423,6 @@ const ProductsList = () => {
         "Premium Components",
       ],
     },
-
     {
       id: 12,
       name: "Complete Solar Kit",
@@ -204,56 +439,69 @@ const ProductsList = () => {
         "Premium Components",
       ],
     },
-    
   ];
 
   return (
-    <section id="products" className="py-6 bg-white">
+    <section
+      id="products"
+      className="py-20 bg-gradient-to-b from-white to-gray-50 overflow-hidden"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mb-10">
-          
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-black mb-4 mt-15">
-        Power Your Future with{" "}
-        <span className="text-blue-600">Clean Energy</span>
-      </h1>
+        {/* Header Section */}
+        <div className="mb-16">
+          <h1
+            ref={headingRef}
+            className="text-4xl sm:text-5xl lg:text-6xl font-bold text-black mb-6 text-center"
+          >
+            Power Your Future with{" "}
+            <span className="text-blue-600">Clean Energy</span>
+          </h1>
 
-          <p className="text-base sm:text-lg lg:text-xl text-center text-gray-600 mb-4 max-w-3xl mx-auto">
-        Discover our comprehensive range of energy products designed for
-        efficiency, sustainability, and cost savings for homes and businesses.
-      </p>
+          <p
+            ref={descriptionRef}
+            className="text-base sm:text-lg lg:text-xl text-center text-gray-600 max-w-3xl mx-auto leading-relaxed"
+          >
+            Discover our comprehensive range of energy products designed for
+            efficiency, sustainability, and cost savings for homes and
+            businesses.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+        {/* Products Grid */}
+        <div
+          ref={productsGridRef}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
           {products.map((product, index) => (
             <div
               key={product.id}
-              className="group bg-white border border-gray-200 rounded-3xl shadow-sm hover:shadow-2xl hover:border-blue-500/40 hover:-translate-y-2 transition-all duration-500 overflow-hidden relative"
-              style={{
-                animationDelay: `${index * 100}ms`,
-              }}
+              ref={(el) => (productCardsRef.current[index] = el)}
+              className="group bg-white border border-gray-200 rounded-3xl shadow-lg hover:shadow-2xl hover:border-blue-500/40 transition-all duration-500 overflow-hidden relative"
             >
-            
+              {/* Badges */}
               <div className="absolute top-4 left-4 z-10 flex flex-col gap-2">
-                <span className="bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">
+                <span className="badge bg-blue-600 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">
                   {product.badge}
                 </span>
-                <span className="bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg flex items-center gap-1">
+                <span className="badge bg-green-500 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg flex items-center gap-1">
                   <TrendingUp className="w-3 h-3" />
                   {product.discount}
                 </span>
               </div>
 
-              {/* Image */}
+              {/* Product Image */}
               <div className="relative w-full h-56 bg-gradient-to-br from-gray-100 to-gray-200 overflow-hidden">
                 <img
                   src={product.image}
                   alt={product.name}
-                  className="w-full h-full object-cover group-hover:scale-110 group-hover:rotate-2 transition-transform duration-700"
+                  className="product-image w-full h-full object-cover group-hover:scale-110 group-hover:rotate-2 transition-transform duration-700"
                 />
               </div>
 
+              {/* Product Details */}
               <div className="p-6">
-                <div className="flex items-center justify-between mb-3">
+                {/* Category and Rating */}
+                <div className="category-section flex items-center justify-between mb-3">
                   <p className="text-blue-600 font-medium text-xs uppercase tracking-wide flex items-center gap-1">
                     <Zap className="w-3 h-3" />
                     {product.category}
@@ -271,17 +519,19 @@ const ProductsList = () => {
                   </div>
                 </div>
 
-                <h3 className="text-xl font-bold text-black mt-2 mb-4 leading-snug group-hover:text-blue-600 transition-colors duration-300">
+                {/* Product Title */}
+                <h3 className="product-title text-xl font-bold text-black mt-2 mb-4 leading-snug group-hover:text-blue-600 transition-colors duration-300">
                   {product.name}
                 </h3>
 
-                <div className="space-y-3 mb-6">
+                {/* Features List */}
+                <div className="space-y-2.5 mb-6">
                   {product.features.map((feature, i) => (
                     <div
                       key={i}
-                      className="flex items-center text-gray-700 group/item hover:text-blue-600 transition-colors duration-200"
+                      className="feature-item flex items-center text-gray-700 group/item hover:text-blue-600 transition-colors duration-200"
                     >
-                      <CheckCircle className="w-5 h-5 text-blue-500 mr-2 group-hover/item:scale-110 transition-transform duration-200" />
+                      <CheckCircle className="w-4 h-4 text-blue-500 mr-2 flex-shrink-0 group-hover/item:scale-110 transition-transform duration-200" />
                       <span className="text-sm">{feature}</span>
                     </div>
                   ))}
@@ -290,23 +540,23 @@ const ProductsList = () => {
                 {/* Divider */}
                 <div className="border-t border-gray-200 my-4"></div>
 
-        
-                <div className="inline-flex">
-                  <div>
-                    <p className="text-black font-bold text-2xl flex items-baseline gap-1">
+                {/* Price Section */}
+                <div className="price-section">
+                  <div className="flex items-baseline gap-2">
+                    <p className="text-black font-bold text-3xl">
                       ${product.price}
-                      <span className="text-xs text-gray-500 font-normal">
-                        USD
-                      </span>
                     </p>
-                    <p className="text-gray-400 line-through text-sm">
-                      ${product.originalPrice}
-                    </p>
+                    <span className="text-xs text-gray-500 font-normal">
+                      USD
+                    </span>
                   </div>
+                  <p className="text-gray-400 line-through text-sm mt-1">
+                    ${product.originalPrice}
+                  </p>
                 </div>
               </div>
 
-              {/* Animated Border Effect */}
+              {/* Hover Border Effect */}
               <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
                 <div className="absolute inset-0 rounded-3xl border-2 border-blue-400 animate-pulse"></div>
               </div>
@@ -314,24 +564,6 @@ const ProductsList = () => {
           ))}
         </div>
       </div>
-
-      <style jsx>{`
-        @keyframes fadeInUp {
-          from {
-            opacity: 0;
-            transform: translateY(30px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        .group {
-          animation: fadeInUp 0.6s ease-out forwards;
-          opacity: 0;
-        }
-      `}</style>
     </section>
   );
 };
