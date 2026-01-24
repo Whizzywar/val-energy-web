@@ -87,15 +87,16 @@ const AboutSection = () => {
         opacity: 0,
         y: 100,
         rotationX: -90,
-        transformOrigin: "50% 50% -50px",
-        stagger: {
-          amount: 1.2,
-          from: "random",
-        },
-        duration: 1,
-        ease: "back.out(1.5)",
       },
-      "-=0.5",
+
+      {
+        yPercent: 0,
+        opacity: 1,
+        rotationX: 0,
+        duration: 1.8,
+        ease: "expo.out",
+        stagger: 0.05,
+      },
     );
 
     // Animate hero text lines
@@ -336,7 +337,7 @@ const AboutSection = () => {
         trigger: featuresRef.current,
         start: "top 75%",
         end: "bottom 20%",
-        toggleActions: "play none none reverse",
+        toggleActions: "play none none none",
       },
     });
 
@@ -352,8 +353,8 @@ const AboutSection = () => {
         opacity: 0,
         y: 50,
         rotationX: -90,
-        stagger: 0.05,
-        duration: 0.8,
+        stagger: 0.04,
+        duration: 0.7,
         ease: "back.out(1.5)",
       });
     }
@@ -369,14 +370,15 @@ const AboutSection = () => {
           duration: 0.6,
           ease: "power2.out",
         },
-        "-=0.5",
+        "-=0.4",
       );
     }
 
-    // Animate feature cards
+    // Animate feature cards - sequential with stagger
     featureCardsRef.current.forEach((card, index) => {
       if (!card) return;
 
+      // Card entrance - each card staggers from the previous
       featuresTL.from(
         card,
         {
@@ -387,7 +389,7 @@ const AboutSection = () => {
           duration: 0.8,
           ease: "power3.out",
         },
-        `-=${0.6 - index * 0.15}`,
+        index === 0 ? "-=0.3" : "-=0.6", // First card overlaps less, others overlap more
       );
 
       // Icon animation
@@ -401,7 +403,7 @@ const AboutSection = () => {
             duration: 0.6,
             ease: "back.out(2)",
           },
-          `-=${0.6}`,
+          "<", // Starts with card
         );
       }
 
@@ -416,7 +418,7 @@ const AboutSection = () => {
             duration: 0.4,
             ease: "power2.out",
           },
-          `-=${0.5}`,
+          "<0.2", // Starts 0.2s after card
         );
       }
 
@@ -474,7 +476,7 @@ const AboutSection = () => {
       },
     });
 
-    // Animate heading
+    // Animate heading - faster stagger
     if (ctaHeadingRef.current) {
       const headingSplit = new SplitText(ctaHeadingRef.current, {
         type: "chars",
@@ -485,13 +487,13 @@ const AboutSection = () => {
         opacity: 0,
         y: 100,
         rotationX: -90,
-        stagger: 0.03,
-        duration: 0.8,
+        stagger: 0.011, // Reduced from 0.03 to 0.015 (2x faster)
+        duration: 0.6, // Reduced from 0.8
         ease: "back.out(1.5)",
       });
     }
 
-    // Animate text
+    // Animate text - starts almost immediately with heading
     if (ctaTextRef.current) {
       const textSplit = new SplitText(ctaTextRef.current, {
         type: "lines",
@@ -503,15 +505,15 @@ const AboutSection = () => {
         {
           opacity: 0,
           y: 40,
-          stagger: 0.15,
-          duration: 0.7,
+          stagger: 0.1, // Reduced from 0.15
+          duration: 0.5, // Reduced from 0.7
           ease: "power2.out",
         },
-        "-=0.5",
+        "-=0.5", // Starts very early, overlapping heavily with heading
       );
     }
 
-    // Animate button
+    // Animate button - starts right after heading begins
     if (ctaButtonRef.current) {
       ctaTL.from(
         ctaButtonRef.current,
@@ -519,10 +521,10 @@ const AboutSection = () => {
           opacity: 0,
           scale: 0,
           rotation: -180,
-          duration: 0.8,
+          duration: 0.6, // Reduced from 0.8 for snappier feel
           ease: "elastic.out(1, 0.5)",
         },
-        "-=0.4",
+        0.3, // Starts just 0.3s after the timeline begins (absolute position)
       );
 
       // Add hover effect

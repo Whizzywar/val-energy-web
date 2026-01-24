@@ -79,16 +79,10 @@ const ContactSection = () => {
     // Animate heading characters with wave effect
     headerTL.from(headingSplit.chars, {
       opacity: 0,
-      y: 100,
+      y: 50,
       rotationX: -90,
-      transformOrigin: "50% 50% -50px",
-      stagger: {
-        amount: 1,
-        from: "start",
-        ease: "power2.out",
-      },
-      duration: 0.8,
-      ease: "back.out(1.5)",
+      stagger: 0.02,
+      ease: "back.out(1.7)",
     });
 
     // Animate description lines
@@ -388,11 +382,6 @@ const ContactSection = () => {
       id="contact"
       className="relative w-full text-gray py-27 lg:py-30 overflow-hidden"
     >
-      {/* Animated Background */}
-      <div className="absolute inset-0 -z-10">
-        <div className="bg-glow absolute top-10 left-1/2 -translate-x-1/2 w-[650px] h-[650px] bg-blue-500/20 rounded-full blur-[180px]" />
-      </div>
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Section */}
         <div className="text-center mb-12 lg:mb-16">
@@ -401,9 +390,7 @@ const ContactSection = () => {
             className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 lg:mb-5"
           >
             Get a Free Quote From{" "}
-            <span className="bg-gradient-to-r from-blue-600 to-blue-400 text-transparent bg-clip-text">
-              Valtech Energy
-            </span>
+            <span className="text-blue-600">Valtech Energy</span>
           </h2>
 
           <p
@@ -474,7 +461,7 @@ const ContactSection = () => {
               ref={buttonRef}
               onClick={handleSubmit}
               disabled={isDisabled}
-              className="w-full py-3 px-6 rounded-lg font-semibold bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 transition-all shadow-lg shadow-blue-500/30 text-white transform hover:scale-[1.02] active:scale-[0.97] disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full py-3 px-6 rounded-lg font-semibold bg-blue-600  text-white transform hover:scale-[1.02] "
             >
               {status === "loading" ? (
                 <span className="flex items-center justify-center gap-2">
