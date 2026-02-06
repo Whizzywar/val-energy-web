@@ -70,9 +70,6 @@ const ContactSection = () => {
     const headerTL = gsap.timeline({
       scrollTrigger: {
         trigger: headingRef.current,
-        start: "top 85%",
-        end: "bottom 20%",
-        toggleActions: "play none none reverse",
       },
     });
 
@@ -81,8 +78,9 @@ const ContactSection = () => {
       opacity: 0,
       y: 50,
       rotationX: -90,
-      stagger: 0.02,
-      ease: "back.out(1.7)",
+      stagger: 0.01,
+      ease: "ease.out",
+      duration: 0.3,
     });
 
     // Animate description lines

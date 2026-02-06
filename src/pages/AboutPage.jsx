@@ -93,9 +93,9 @@ const AboutSection = () => {
         yPercent: 0,
         opacity: 1,
         rotationX: 0,
-        duration: 1.8,
-        ease: "expo.out",
-        stagger: 0.05,
+        duration: 0.3,
+        ease: "ease.out",
+        stagger: 0.01,
       },
     );
 

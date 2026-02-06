@@ -68,13 +68,9 @@ const ProductsList = () => {
       opacity: 0,
       y: 50,
       rotateX: -90,
-      transformOrigin: "50% 50% -50px",
-      stagger: {
-        amount: 0.8,
-        from: "start",
-      },
-      duration: 0.8,
-      ease: "back.out(1.7)",
+      stagger: 0.01,
+      ease: "ease.out",
+      duration: 0.3,
     });
 
     // Animate description lines
