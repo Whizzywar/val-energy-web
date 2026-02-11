@@ -5,6 +5,7 @@ import Navbar from "../components/Navbar";
 import ProductsList from "../components/ProductsList";
 import AboutSection from "../components/AboutSection";
 import ContactSection from "../components/ContactSection";
+import CallUsTodaySection from "../components/CallUsTodaySection";
 import { Link } from "react-router-dom";
 import { useGSAP } from "@gsap/react";
 import { SplitText } from "gsap/all";
@@ -67,7 +68,7 @@ const HomePage = () => {
           duration: 1.8,
           ease: "expo.out",
           stagger: 0.05,
-        }
+        },
       );
     }
 
@@ -92,7 +93,7 @@ const HomePage = () => {
           ease: "expo.out",
           stagger: 0.05,
           delay: 0.055,
-        }
+        },
       );
     }
 
@@ -125,7 +126,7 @@ const HomePage = () => {
           ease: "expo.out",
           stagger: 0.05,
           delay: 0.6,
-        }
+        },
       );
     }
   }, [heroIndex]);
@@ -141,7 +142,7 @@ const HomePage = () => {
   const handleWhatsAppClick = () => {
     const phoneNumber = "+2348140067333";
     const message = encodeURIComponent(
-      "Hello Valtech! I'm interested in your solar energy products."
+      "Hello Valtech! I'm interested in your solar energy products.",
     );
     window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank");
   };
@@ -175,12 +176,12 @@ const HomePage = () => {
                 index === heroIndex
                   ? "translate-x-0"
                   : direction === "right"
-                  ? index < heroIndex
-                    ? "-translate-x-full"
-                    : "translate-x-full"
-                  : index < heroIndex
-                  ? "-translate-x-full"
-                  : "translate-x-full"
+                    ? index < heroIndex
+                      ? "-translate-x-full"
+                      : "translate-x-full"
+                    : index < heroIndex
+                      ? "-translate-x-full"
+                      : "translate-x-full"
               }`}
               style={{
                 backgroundImage: `url(${item.image})`,
@@ -306,6 +307,10 @@ const HomePage = () => {
 
       <section className="">
         <ContactSection />
+      </section>
+
+      <section className="">
+        <CallUsTodaySection />
       </section>
     </div>
   );
