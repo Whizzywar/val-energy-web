@@ -13,7 +13,7 @@ const CallUsTodaySection = () => {
           }}
         >
           {/* Dark Gradient Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/70 to-blue-900/70"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/70 to-black/10"></div>
 
           {/* Animated Gradient Accent */}
           <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/20 via-transparent to-blue-500/20"></div>
@@ -30,7 +30,7 @@ const CallUsTodaySection = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               to="/contact"
-              className="inline-flex items-center justify-center bg-gradient-to-r from-emerald-500 to-blue-600 text-white px-10 py-4 rounded-full font-bold text-lg hover:from-emerald-600 hover:to-blue-700 hover:shadow-2xl hover:scale-105 transition-all duration-300 shadow-lg"
+              className="inline-flex items-center justify-center bg-blue-600 text-white px-10 py-4 rounded-full font-semibold text-sm sm:text-base shadow-lg  hover:scale-105 transition-all duration-300"
             >
               Contact Us Today
             </Link>

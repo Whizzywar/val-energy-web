@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/SplitText";
+import ClientsFeedbackSection from "../components/ClientsFeedbackSection";
 
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger, SplitText);
@@ -23,10 +24,6 @@ const AboutSection = () => {
   const missionCardRef = useRef(null);
   const featuresRef = useRef(null);
   const featureCardsRef = useRef([]);
-  const ctaRef = useRef(null);
-  const ctaHeadingRef = useRef(null);
-  const ctaTextRef = useRef(null);
-  const ctaButtonRef = useRef(null);
 
   useEffect(() => {
     // Initialize all animations using GSAP context
@@ -35,7 +32,7 @@ const AboutSection = () => {
       initStoryAnimations();
       initMissionAnimations();
       initFeaturesAnimations();
-      initCTAAnimations();
+
       initParallaxEffects();
     });
 
@@ -463,89 +460,6 @@ const AboutSection = () => {
     });
   };
 
-  // CTA section animations
-  const initCTAAnimations = () => {
-    if (!ctaRef.current) return;
-
-    const ctaTL = gsap.timeline({
-      scrollTrigger: {
-        trigger: ctaRef.current,
-        start: "top 80%",
-        end: "bottom 20%",
-        toggleActions: "play none none reverse",
-      },
-    });
-
-    // Animate heading - faster stagger
-    if (ctaHeadingRef.current) {
-      const headingSplit = new SplitText(ctaHeadingRef.current, {
-        type: "chars",
-        charsClass: "char",
-      });
-
-      ctaTL.from(headingSplit.chars, {
-        opacity: 0,
-        y: 100,
-        rotationX: -90,
-        stagger: 0.011, // Reduced from 0.03 to 0.015 (2x faster)
-        duration: 0.6, // Reduced from 0.8
-        ease: "back.out(1.5)",
-      });
-    }
-
-    // Animate text - starts almost immediately with heading
-    if (ctaTextRef.current) {
-      const textSplit = new SplitText(ctaTextRef.current, {
-        type: "lines",
-        linesClass: "line",
-      });
-
-      ctaTL.from(
-        textSplit.lines,
-        {
-          opacity: 0,
-          y: 40,
-          stagger: 0.1, // Reduced from 0.15
-          duration: 0.5, // Reduced from 0.7
-          ease: "power2.out",
-        },
-        "-=0.5", // Starts very early, overlapping heavily with heading
-      );
-    }
-
-    // Animate button - starts right after heading begins
-    if (ctaButtonRef.current) {
-      ctaTL.from(
-        ctaButtonRef.current,
-        {
-          opacity: 0,
-          scale: 0,
-          rotation: -180,
-          duration: 0.6, // Reduced from 0.8 for snappier feel
-          ease: "elastic.out(1, 0.5)",
-        },
-        0.3, // Starts just 0.3s after the timeline begins (absolute position)
-      );
-
-      // Add hover effect
-      ctaButtonRef.current.addEventListener("mouseenter", () => {
-        gsap.to(ctaButtonRef.current, {
-          scale: 1.05,
-          duration: 0.3,
-          ease: "power2.out",
-        });
-      });
-
-      ctaButtonRef.current.addEventListener("mouseleave", () => {
-        gsap.to(ctaButtonRef.current, {
-          scale: 1,
-          duration: 0.3,
-          ease: "power2.out",
-        });
-      });
-    }
-  };
-
   // Parallax effects
   const initParallaxEffects = () => {
     // Hero image parallax
@@ -799,37 +713,8 @@ const AboutSection = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section
-        ref={ctaRef}
-        className="relative py-20 sm:py-28 bg-black text-white overflow-hidden"
-      >
-        <div className="absolute inset-0 opacity-10"></div>
-
-        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2
-            ref={ctaHeadingRef}
-            className="text-4xl sm:text-5xl font-bold mb-6"
-          >
-            Ready to Transform Your Energy?
-          </h2>
-          <p
-            ref={ctaTextRef}
-            className="text-xl text-blue-100 mb-10 leading-relaxed"
-          >
-            Join 2,000+ satisfied customers who have made the switch to clean,
-            reliable solar power.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              ref={ctaButtonRef}
-              to="/contact"
-              className="inline-flex items-center justify-center bg-transparent border-2 border-white text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-black transition-all duration-300"
-            >
-              Contact Us Today
-            </Link>
-          </div>
-        </div>
+      <section className="">
+        <ClientsFeedbackSection />
       </section>
     </div>
   );
