@@ -5,6 +5,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/SplitText";
 import ClientsFeedbackSection from "../components/ClientsFeedbackSection";
+import WhyChooseUsFeatureSection from "../components/WhyChooseUsFeatureSection";
 
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger, SplitText);
@@ -22,8 +23,6 @@ const AboutSection = () => {
   const missionHeadingRef = useRef(null);
   const missionImageRef = useRef(null);
   const missionCardRef = useRef(null);
-  const featuresRef = useRef(null);
-  const featureCardsRef = useRef([]);
 
   useEffect(() => {
     // Initialize all animations using GSAP context
@@ -31,7 +30,6 @@ const AboutSection = () => {
       initHeroAnimations();
       initStoryAnimations();
       initMissionAnimations();
-      initFeaturesAnimations();
 
       initParallaxEffects();
     });
@@ -325,141 +323,6 @@ const AboutSection = () => {
     }
   };
 
-  // Features section animations
-  const initFeaturesAnimations = () => {
-    if (!featuresRef.current) return;
-
-    const featuresTL = gsap.timeline({
-      scrollTrigger: {
-        trigger: featuresRef.current,
-        start: "top 75%",
-        end: "bottom 20%",
-        toggleActions: "play none none none",
-      },
-    });
-
-    // Animate section heading
-    const heading = featuresRef.current.querySelector(".features-heading");
-    if (heading) {
-      const headingSplit = new SplitText(heading, {
-        type: "words",
-        wordsClass: "word",
-      });
-
-      featuresTL.from(headingSplit.words, {
-        opacity: 0,
-        y: 50,
-        rotationX: -90,
-        stagger: 0.04,
-        duration: 0.7,
-        ease: "back.out(1.5)",
-      });
-    }
-
-    // Animate subtext
-    const subtext = featuresRef.current.querySelector(".features-subtext");
-    if (subtext) {
-      featuresTL.from(
-        subtext,
-        {
-          opacity: 0,
-          y: 30,
-          duration: 0.6,
-          ease: "power2.out",
-        },
-        "-=0.4",
-      );
-    }
-
-    // Animate feature cards - sequential with stagger
-    featureCardsRef.current.forEach((card, index) => {
-      if (!card) return;
-
-      // Card entrance - each card staggers from the previous
-      featuresTL.from(
-        card,
-        {
-          opacity: 0,
-          y: 100,
-          scale: 0.8,
-          rotation: -5,
-          duration: 0.8,
-          ease: "power3.out",
-        },
-        index === 0 ? "-=0.3" : "-=0.6", // First card overlaps less, others overlap more
-      );
-
-      // Icon animation
-      const icon = card.querySelector(".feature-icon");
-      if (icon) {
-        featuresTL.from(
-          icon,
-          {
-            scale: 0,
-            rotation: -180,
-            duration: 0.6,
-            ease: "back.out(2)",
-          },
-          "<", // Starts with card
-        );
-      }
-
-      // Badge animation
-      const badge = card.querySelector(".feature-badge");
-      if (badge) {
-        featuresTL.from(
-          badge,
-          {
-            opacity: 0,
-            x: 20,
-            duration: 0.4,
-            ease: "power2.out",
-          },
-          "<0.2", // Starts 0.2s after card
-        );
-      }
-
-      // Add hover effect
-      card.addEventListener("mouseenter", () => {
-        gsap.to(card, {
-          y: -10,
-          scale: 1.03,
-          duration: 0.3,
-          ease: "power2.out",
-        });
-
-        const cardIcon = card.querySelector(".feature-icon");
-        if (cardIcon) {
-          gsap.to(cardIcon, {
-            rotation: 360,
-            scale: 1.1,
-            duration: 0.6,
-            ease: "back.out(2)",
-          });
-        }
-      });
-
-      card.addEventListener("mouseleave", () => {
-        gsap.to(card, {
-          y: 0,
-          scale: 1,
-          duration: 0.3,
-          ease: "power2.out",
-        });
-
-        const cardIcon = card.querySelector(".feature-icon");
-        if (cardIcon) {
-          gsap.to(cardIcon, {
-            rotation: 0,
-            scale: 1,
-            duration: 0.4,
-            ease: "power2.out",
-          });
-        }
-      });
-    });
-  };
-
   // Parallax effects
   const initParallaxEffects = () => {
     // Hero image parallax
@@ -654,63 +517,8 @@ const AboutSection = () => {
         </div>
       </section>
 
-      {/* Features Section */}
-      <section ref={featuresRef} className="py-20 sm:py-28 bg-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-15">
-            <h2 className="features-heading text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
-              Why Thousands Choose Us
-            </h2>
-            <p className="features-subtext text-xl text-gray-600 max-w-3xl mx-auto">
-              Experience the difference of working with Nigeria's premier solar
-              energy provider.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                icon: <Bike className="w-12 h-12" />,
-                title: "Waybill Delivery",
-                description: "We waybill to any location in Nigeria and Africa",
-                badge: "Safe Delivery",
-              },
-              {
-                icon: <CarIcon className="w-12 h-12" />,
-                title: "Premium Products",
-                description: "Only Tier-1 solar panels and lithium batteries",
-                badge: "Top Tier",
-              },
-              {
-                icon: <CheckCircle className="w-12 h-12" />,
-                title: "Proven Results",
-                description: "99.9% uptime and 4.9-star customer satisfaction",
-                badge: "4.9★",
-              },
-            ].map((feature, index) => (
-              <div
-                key={index}
-                ref={(el) => (featureCardsRef.current[index] = el)}
-                className="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 group cursor-pointer"
-              >
-                <div className="flex justify-between items-start mb-6">
-                  <div className="feature-icon w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center text-blue-600 transition-colors duration-300">
-                    {feature.icon}
-                  </div>
-                  <span className="feature-badge bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1 rounded-full">
-                    {feature.badge}
-                  </span>
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">
-                  {feature.title}
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  {feature.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
+      <section className="">
+        <WhyChooseUsFeatureSection />
       </section>
 
       <section className="">
