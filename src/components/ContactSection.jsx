@@ -144,7 +144,7 @@ const ContactSection = () => {
       <Navbar />
       <div className="min-h-screen  pt-3 sm:pt-7">
         <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6 py-4 sm:py-6 lg:py-8">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-center text-black leading-tight mb-5 sm:mb-8 lg:mb-10 px-2">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-center text- black leading-tight mb-5 sm:mb-8 lg:mb-10 px-2">
             We Are Committed To Providing Sustainable Energy Solutions For{" "}
             <span className="bg-gradient-to-r from-blue-600 to-blue-500 text-transparent bg-clip-text">
               The Future

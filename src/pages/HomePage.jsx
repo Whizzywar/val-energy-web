@@ -6,6 +6,7 @@ import ProductsList from "../components/ProductsList";
 import AboutSection from "../components/AboutSection";
 import ContactSection from "../components/ContactSection";
 import CallUsTodaySection from "../components/CallUsTodaySection";
+import ImpactSection from "../components/ImpactSection";
 import { Link } from "react-router-dom";
 import { useGSAP } from "@gsap/react";
 import { SplitText } from "gsap/all";
@@ -306,7 +307,7 @@ const HomePage = () => {
       </section>
 
       <section className="">
-        <ContactSection />
+        <ImpactSection />
       </section>
 
       <section className="">
