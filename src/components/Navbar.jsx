@@ -30,7 +30,7 @@ const Navbar = () => {
         backgroundFilter: "blur(10px)",
         duration: "1",
         ease: "power1.inOut",
-      }
+      },
     );
 
     return () => {
@@ -91,7 +91,7 @@ const Navbar = () => {
               to="/contact"
               className="hidden lg:flex items-center bg-blue-600 text-white  px-3 py-2 rounded-full text-xs font-medium shadow-lg transform transition-all duration-300 hover:scale-105"
             >
-              FREE QUOTE
+              GET QUOTE
               <div className="w-4 h-5 text-center group-hover:translate transition-transform duration-300" />
             </Link>
           </div>

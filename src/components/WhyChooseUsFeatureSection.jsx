@@ -153,7 +153,7 @@ const WhyChooseUsFeatureSection = () => {
             </h2>
             <p
               ref={subtextRef}
-              className="features-subtext text-xl text-gray-600 max-w-3xl mx-auto"
+              className="features-subtext text-xl text-gray-800 max-w-3xl mx-auto"
               style={{ opacity: 0 }}
             >
               Experience the difference of working with Nigeria's premier solar
@@ -180,7 +180,7 @@ const WhyChooseUsFeatureSection = () => {
                 <h3 className="text-xl font-bold text-gray-900 mb-3">
                   {feature.title}
                 </h3>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-gray-800 leading-relaxed">
                   {feature.description}
                 </p>
               </div>

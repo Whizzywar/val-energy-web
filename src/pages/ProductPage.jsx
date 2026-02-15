@@ -89,7 +89,7 @@ const ProductsList = () => {
 
   // Product cards animations
   const initProductCardAnimations = () => {
-    productCardsRef.current.forEach((card, index) => {
+    productCardsRef.current.forEach((card) => {
       if (!card) return;
 
       // Create timeline for each card
@@ -209,7 +209,7 @@ const ProductsList = () => {
 
   // Parallax scrolling effects
   const initParallaxEffects = () => {
-    productCardsRef.current.forEach((card, index) => {
+    productCardsRef.current.forEach((card) => {
       if (!card) return;
 
       // Subtle parallax movement
@@ -455,7 +455,7 @@ const ProductsList = () => {
 
           <p
             ref={descriptionRef}
-            className="text-base sm:text-lg lg:text-xl text-center text-gray-600 max-w-3xl mx-auto leading-relaxed"
+            className="text-lg text-center text-gray-800 max-w-3xl mx-auto leading-relaxed"
           >
             Discover our comprehensive range of energy products designed for
             efficiency, sustainability, and cost savings for homes and
@@ -525,7 +525,7 @@ const ProductsList = () => {
                   {product.features.map((feature, i) => (
                     <div
                       key={i}
-                      className="feature-item flex items-center text-gray-700 group/item hover:text-blue-600 transition-colors duration-200"
+                      className="feature-item flex items-center text-gray-800 group/item "
                     >
                       <CheckCircle className="w-4 h-4 text-blue-500 mr-2 flex-shrink-0 group-hover/item:scale-110 transition-transform duration-200" />
                       <span className="text-sm">{feature}</span>

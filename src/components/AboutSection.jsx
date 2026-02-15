@@ -148,7 +148,7 @@ const AboutSection = () => {
 
             <p
               ref={paragraphRef}
-              className="text-base sm:text-lg lg:text-xl text-gray-600 leading-relaxed"
+              className="text-lg text-gray-800 leading-relaxed"
               style={{ opacity: 0 }}
             >
               With over 15 years of expertise in renewable energy, Valtech

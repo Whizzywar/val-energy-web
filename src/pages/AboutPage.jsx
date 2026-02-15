@@ -404,7 +404,7 @@ const AboutSection = () => {
 
           <p
             ref={heroTextRef}
-            className="text-xl sm:text-2xl text-blue-100 max-w-3xl mx-auto mb-12 leading-relaxed"
+            className="text-xl sm:lg text-blue-100 max-w-3xl mx-auto mb-12 leading-relaxed"
           >
             Our Vision is to be Africa's most trusted renewable energy partner,
             leading the continent's transition to clean energy and creating a
@@ -429,7 +429,7 @@ const AboutSection = () => {
               </h2>
               <p
                 ref={(el) => (storyParagraphsRef.current[0] = el)}
-                className="text-lg text-gray-600 mb-6 leading-relaxed"
+                className="text-lg text-gray-800 mb-6 leading-relaxed"
               >
                 Founded in 2009, Valtech Solar Energy emerged from a simple
                 vision: to make clean, reliable energy accessible to every
@@ -439,7 +439,7 @@ const AboutSection = () => {
               </p>
               <p
                 ref={(el) => (storyParagraphsRef.current[1] = el)}
-                className="text-lg text-gray-600 mb-8 leading-relaxed"
+                className="text-lg text-gray-800 mb-8 leading-relaxed"
               >
                 Today, we've installed over 2,000 solar systems, generated 50MW
                 of clean energy, and helped thousands reduce their carbon
@@ -474,7 +474,7 @@ const AboutSection = () => {
             >
               Guided by Purpose
             </h2>
-            <p className="mission-subtext text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="mission-subtext text-xl text-gray-800 max-w-3xl mx-auto">
               Our mission and vision drive every decision we make and every
               customer we serve.
             </p>
@@ -504,7 +504,7 @@ const AboutSection = () => {
                   <h3 className="mission-title text-2xl font-bold text-gray-900 mb-4">
                     Our Mission
                   </h3>
-                  <p className="mission-text text-gray-600 text-lg leading-relaxed">
+                  <p className="mission-text text-gray-800 text-lg leading-relaxed">
                     To empower every Nigerian with access to reliable,
                     affordable, and sustainable energy solutions that transform
                     lives, protect the environment, and drive economic growth

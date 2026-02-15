@@ -393,7 +393,7 @@ const ContactSection = () => {
 
           <p
             ref={descriptionRef}
-            className="text-gray-600 max-w-2xl mx-auto text-base sm:text-lg lg:text-xl leading-relaxed px-4"
+            className="text-gray-800 max-w-2xl mx-auto text-lg leading-relaxed px-4"
           >
             Reach out today and our energy experts will help you design the
             perfect solar or lithium solution for your home or business.

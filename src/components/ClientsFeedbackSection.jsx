@@ -242,7 +242,7 @@ const ClientsFeedbackSection = () => {
           </h2>
           <p
             ref={subtextRef}
-            className="text-xl text-gray-600 max-w-3xl mx-auto"
+            className="text-xl text-gray-800 max-w-3xl mx-auto"
             style={{ opacity: 0 }}
           >
             Discover how leading organizations are transforming their energy
@@ -268,7 +268,7 @@ const ClientsFeedbackSection = () => {
                   />
                   <p
                     ref={contentRef}
-                    className="text-lg md:text-xl text-gray-700 leading-relaxed mb-8"
+                    className="text-lg md:text-xl text-gray-600 leading-relaxed mb-8"
                   >
                     "{testimonials[currentSlide].content}"
                   </p>
@@ -329,7 +329,7 @@ const ClientsFeedbackSection = () => {
                 <div
                   key={index}
                   ref={(el) => (trustBadgesRef.current[index] = el)}
-                  className="text-2xl font-bold text-gray-400"
+                  className="text-2xl font-bold text-gray-600"
                   style={{ opacity: 0 }}
                 >
                   {badge}

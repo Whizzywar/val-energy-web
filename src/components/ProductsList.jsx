@@ -177,7 +177,7 @@ const ProductsList = () => {
       });
 
       // Animate product cards
-      productsRef.current.forEach((card, index) => {
+      productsRef.current.forEach((card) => {
         if (!card) return;
 
         // Animate product name
@@ -267,7 +267,7 @@ const ProductsList = () => {
           </h2>
           <p
             ref={descriptionRef}
-            className="text-gray-600 text-lg mt-3 max-w-3xl mx-auto"
+            className="text-gray-800 text-lg mt-3 max-w-3xl mx-auto"
           >
             Professionally engineered energy solutions designed for performance,
             durability, and long-term value.
@@ -328,7 +328,7 @@ const ProductsList = () => {
                   {product.features.map((feature, i) => (
                     <div
                       key={i}
-                      className="flex items-center text-gray-700 group/item hover:text-blue-600 transition-colors duration-200"
+                      className="flex items-center text-gray-800 group/item "
                     >
                       <CheckCircle className="w-5 h-5 text-blue-500 mr-2 group-hover/item:scale-110 transition-transform duration-200" />
                       <span className="feature-text text-sm">{feature}</span>

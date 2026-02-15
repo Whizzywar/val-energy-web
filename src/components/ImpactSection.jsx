@@ -224,13 +224,11 @@ const ImpactSection = () => {
           <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6 py-4 sm:py-6 lg:py-8">
             <h1
               ref={headingRef}
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-center text-black leading-tight mb-5 sm:mb-8 lg:mb-10 px-2"
+              className="text-4xl sm:text-5xl lg:text-6xl font-bold text-center text-black leading-tight mb-5 sm:mb-8 lg:mb-10 px-2"
               style={{ opacity: 0 }}
             >
-              We Are Committed To Providing Sustainable Energy Solutions For{" "}
-              <span className="bg-gradient-to-r from-blue-600 to-blue-500 text-transparent bg-clip-text">
-                The Future
-              </span>
+              We Are Committed To Providing Sustainable Energy Solutions For The
+              Future
             </h1>
 
             <div className="rounded-3xl sm:rounded-2xl shadow-lg sm:shadow-xl p-4 sm:p-6 lg:p-10">
@@ -272,7 +270,7 @@ const ImpactSection = () => {
                       <div className="text-xl sm:text-2xl font-bold text-green-600 mb-1">
                         100%
                       </div>
-                      <div className="text-xs sm:text-sm text-gray-700 font-medium">
+                      <div className="text-xs sm:text-sm text-gray-800 font-medium">
                         Renewable Focus
                       </div>
                     </div>
@@ -292,7 +290,7 @@ const ImpactSection = () => {
                       </h3>
                       <p
                         ref={impactSubtextRef}
-                        className="text-gray-600 text-sm sm:text-base lg:text-lg"
+                        className="text-gray-800 text-sm sm:text-base lg:text-lg"
                         style={{ opacity: 0 }}
                       >
                         Transforming energy consumption across the nation
@@ -312,7 +310,7 @@ const ImpactSection = () => {
                           >
                             {stat.value}
                           </div>
-                          <div className="text-xs sm:text-sm lg:text-base font-semibold text-gray-700 leading-tight">
+                          <div className="text-xs sm:text-sm lg:text-base font-semibold text-gray-800 leading-tight">
                             {stat.label}
                           </div>
                         </div>

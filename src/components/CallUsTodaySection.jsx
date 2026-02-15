@@ -153,14 +153,14 @@ const CallUsTodaySection = () => {
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
           <h2
             ref={headingRef}
-            className="text-4xl sm:text-5xl font-bold mb-6 drop-shadow-lg"
+            className="text-4xl text-center sm:text-5xl md:text-6xl  font-bold mb-6 "
             style={{ opacity: 0 }}
           >
             Ready to Transform Your Energy?
           </h2>
           <p
             ref={textRef}
-            className="text-xl text-blue-100 mb-10 leading-relaxed drop-shadow-md"
+            className="text-lg text-blue-100 mb-10 leading-relaxed "
             style={{ opacity: 0 }}
           >
             Join 2,000+ satisfied customers who have made the switch to clean,
