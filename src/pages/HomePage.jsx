@@ -4,7 +4,6 @@ import { ArrowRight, ChevronLeft, ChevronRight, Zap } from "lucide-react";
 import Navbar from "../components/Navbar";
 import ProductsList from "../components/ProductsList";
 import AboutSection from "../components/AboutSection";
-import ContactSection from "../components/ContactSection";
 import CallUsTodaySection from "../components/CallUsTodaySection";
 import ImpactSection from "../components/ImpactSection";
 import { Link } from "react-router-dom";
@@ -148,16 +147,6 @@ const HomePage = () => {
     window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank");
   };
 
-  const handlePrevious = () => {
-    setDirection("left");
-    setHeroIndex((prev) => (prev === 0 ? heroContent.length - 1 : prev - 1));
-  };
-
-  const handleNext = () => {
-    setDirection("right");
-    setHeroIndex((prev) => (prev === heroContent.length - 1 ? 0 : prev + 1));
-  };
-
   const handleIndicatorClick = (index) => {
     setDirection(index > heroIndex ? "right" : "left");
     setHeroIndex(index);
@@ -193,24 +182,6 @@ const HomePage = () => {
             </div>
           ))}
         </div>
-
-        {/* Left Arrow */}
-        <button
-          onClick={handlePrevious}
-          className=" hidden md:flex absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white p-3 rounded-b-sm transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-white/50"
-          aria-label="Previous slide"
-        >
-          <ChevronLeft className="w-6 h-6" />
-        </button>
-
-        {/* Right Arrow */}
-        <button
-          onClick={handleNext}
-          className=" hidden md:flex absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white p-3 rounded-b-sm transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-white/50"
-          aria-label="Next slide"
-        >
-          <ChevronRight className="w-6 h-6" />
-        </button>
 
         <section className="relative z-10 w-full text-base sm:text-lg lg:text-xl flex flex-col items-center justify-center text-center pt-20 pb-10 sm:pt-31 sm:pb-14">
           {/* Content with Sliding Effect */}
