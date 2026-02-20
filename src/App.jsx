@@ -17,7 +17,7 @@ function App() {
   const handleWhatsAppClick = () => {
     const phoneNumber = "+2348140067333";
     const message = encodeURIComponent(
-      "Hello! I'm interested in your solar energy products."
+      "Hello! I'm interested in your solar energy products.",
     );
     window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank");
   };
@@ -38,7 +38,7 @@ function App() {
         backgroundFilter: "blur(10px)",
         duration: "1",
         ease: "power1.inOut",
-      }
+      },
     );
   });
 
@@ -56,7 +56,7 @@ function App() {
 
           <button
             onClick={handleWhatsAppClick}
-            className="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600 text-white rounded-full p-4 shadow-2xl transform transition-all duration-300 "
+            className="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600 text-white rounded-full p-4  "
             aria-label="Contact us on WhatsApp"
           >
             <svg

@@ -269,11 +269,11 @@ const HomePage = () => {
         </svg>
       </button>
 
-      <section className="px-3 sm:px-5 lg:px-9 py-15">
+      <section className="px-1 sm:px-3 lg:px-7 py-13">
         <ProductsList />
       </section>
 
-      <section className="px-2 sm:px-3 lg:px-4 py-8 bg-gray-50">
+      <section className="">
         <AboutSection />
       </section>
 
