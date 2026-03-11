@@ -14,10 +14,12 @@ gsap.registerPlugin(SplitText);
 
 const HomePage = () => {
   const [heroIndex, setHeroIndex] = useState(0);
+  const [prevIndex, setPrevIndex] = useState(null);
   const [direction, setDirection] = useState("right");
-  const titleRef = useRef(null);
-  const subtitleRef = useRef(null);
-  const descriptionRef = useRef(null);
+
+  const titleRefs = useRef([]);
+  const subtitleRefs = useRef([]);
+  const descriptionRefs = useRef([]);
 
   const heroContent = [
     {
@@ -43,24 +45,37 @@ const HomePage = () => {
     },
   ];
 
-  // Animate text on hero index change
+  const getTransform = (index) => {
+    // Active slide: always centered
+    if (index === heroIndex) return "translate-x-0";
+    // Outgoing slide: exits in the direction of travel
+    if (index === prevIndex)
+      return direction === "right" ? "-translate-x-full" : "translate-x-full";
+    // All other waiting slides: park on the incoming side (same direction as travel)
+    return direction === "right" ? "translate-x-full" : "-translate-x-full";
+  };
+
+  const goToSlide = (newIndex, dir) => {
+    setDirection(dir);
+    setPrevIndex(heroIndex);
+    setHeroIndex(newIndex);
+  };
+
   useGSAP(() => {
-    if (titleRef.current) {
-      // Split the title text
-      const titleSplit = new SplitText(titleRef.current, {
+    const titleEl = titleRefs.current[heroIndex];
+    const subtitleEl = subtitleRefs.current[heroIndex];
+    const descEl = descriptionRefs.current[heroIndex];
+
+    if (titleEl) {
+      const titleSplit = new SplitText(titleEl, {
         type: "chars,words",
         charsClass: "split-char",
         wordsClass: "split-word",
       });
 
-      // Animate title characters with sliding effect
       gsap.fromTo(
         titleSplit.chars,
-        {
-          yPercent: 100,
-          opacity: 0,
-          rotationX: -90,
-        },
+        { yPercent: 100, opacity: 0, rotationX: -90 },
         {
           yPercent: 0,
           opacity: 1,
@@ -72,20 +87,15 @@ const HomePage = () => {
       );
     }
 
-    if (subtitleRef.current && heroContent[heroIndex].subtitle) {
-      // Split the subtitle text
-      const subtitleSplit = new SplitText(subtitleRef.current, {
+    if (subtitleEl && heroContent[heroIndex].subtitle) {
+      const subtitleSplit = new SplitText(subtitleEl, {
         type: "chars,words",
         charsClass: "split-char",
       });
 
-      // Animate subtitle with sliding effect
       gsap.fromTo(
         subtitleSplit.chars,
-        {
-          yPercent: 100,
-          opacity: 0,
-        },
+        { yPercent: 100, opacity: 0 },
         {
           yPercent: 0,
           opacity: 1,
@@ -97,14 +107,12 @@ const HomePage = () => {
       );
     }
 
-    if (descriptionRef.current) {
-      // Split description into lines
-      const descSplit = new SplitText(descriptionRef.current, {
+    if (descEl) {
+      const descSplit = new SplitText(descEl, {
         type: "lines",
         linesClass: "split-line",
       });
 
-      // Wrap lines in overflow containers for slide effect
       descSplit.lines.forEach((line) => {
         const wrapper = document.createElement("div");
         wrapper.style.overflow = "hidden";
@@ -112,13 +120,9 @@ const HomePage = () => {
         wrapper.appendChild(line);
       });
 
-      // Animate description lines
       gsap.fromTo(
         descSplit.lines,
-        {
-          yPercent: 100,
-          opacity: 0,
-        },
+        { yPercent: 100, opacity: 0 },
         {
           yPercent: 0,
           opacity: 1,
@@ -133,11 +137,11 @@ const HomePage = () => {
 
   useEffect(() => {
     const t = setInterval(() => {
-      setDirection("right");
-      setHeroIndex((p) => (p + 1) % heroContent.length);
+      const next = (heroIndex + 1) % heroContent.length;
+      goToSlide(next, "right");
     }, 5000);
     return () => clearInterval(t);
-  }, [heroContent.length]);
+  }, [heroIndex]);
 
   const handleWhatsAppClick = () => {
     const phoneNumber = "+2348140067333";
@@ -148,34 +152,21 @@ const HomePage = () => {
   };
 
   const handleIndicatorClick = (index) => {
-    setDirection(index > heroIndex ? "right" : "left");
-    setHeroIndex(index);
+    goToSlide(index, index > heroIndex ? "right" : "left");
   };
 
   return (
     <div className="w-full min-h-screen overflow-hidden bg-white">
       <Navbar />
 
-      <main className="relative w-full min-h-[80vh] flex flex-col justify-start items-center pt-20 overflow-hidden">
-        {/* Background Images with Sliding Effect */}
+      <main className="relative w-full min-h-[80vh] flex flex-col justify-start items-center overflow-hidden">
+        {/* Background Images */}
         <div className="absolute inset-0 overflow-hidden">
           {heroContent.map((item, index) => (
             <div
               key={index}
-              className={`absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-700 ease-in-out ${
-                index === heroIndex
-                  ? "translate-x-0"
-                  : direction === "right"
-                    ? index < heroIndex
-                      ? "-translate-x-full"
-                      : "translate-x-full"
-                    : index < heroIndex
-                      ? "-translate-x-full"
-                      : "translate-x-full"
-              }`}
-              style={{
-                backgroundImage: `url(${item.image})`,
-              }}
+              className={`absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-700 ease-in-out ${getTransform(index)}`}
+              style={{ backgroundImage: `url(${item.image})` }}
               aria-hidden
             >
               <div className="absolute inset-0 bg-black/60" />
@@ -183,9 +174,8 @@ const HomePage = () => {
           ))}
         </div>
 
-        <section className="relative z-10 w-full text-base sm:text-lg lg:text-xl flex flex-col items-center justify-center text-center pt-20 pb-10 sm:pt-31 sm:pb-14">
-          {/* Content with Sliding Effect */}
-          <div className="relative w-full min-h-[300px]">
+        <section className="relative z-10 w-full flex flex-col items-center justify-center text-center pt-24 pb-10">
+          <div className="relative w-full">
             {heroContent.map((item, index) => (
               <div
                 key={index}
@@ -197,7 +187,7 @@ const HomePage = () => {
               >
                 <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold leading-tight text-white max-w-[90%] sm:max-w-[80%] md:max-w-[70%] mx-auto">
                   <span
-                    ref={index === heroIndex ? titleRef : null}
+                    ref={(el) => (titleRefs.current[index] = el)}
                     className="block overflow-hidden"
                     style={{ perspective: "400px" }}
                   >
@@ -205,7 +195,7 @@ const HomePage = () => {
                   </span>
                   {item.subtitle && (
                     <span
-                      ref={index === heroIndex ? subtitleRef : null}
+                      ref={(el) => (subtitleRefs.current[index] = el)}
                       className="block text-white bg-clip-text overflow-hidden"
                     >
                       {item.subtitle}
@@ -214,7 +204,7 @@ const HomePage = () => {
                 </h1>
 
                 <p
-                  ref={index === heroIndex ? descriptionRef : null}
+                  ref={(el) => (descriptionRefs.current[index] = el)}
                   className="mt-4 text-base sm:text-lg md:text-xl text-white max-w-2xl sm:max-w-3xl leading-relaxed mx-auto px-4"
                 >
                   {item.description}
@@ -224,7 +214,7 @@ const HomePage = () => {
           </div>
 
           {/* CTA */}
-          <div className=" flex flex-wrap justify-center items-center gap-4">
+          <div className="mt-8 flex flex-wrap justify-center items-center gap-4">
             <Link
               to="/products"
               className="inline-flex items-center gap-2 bg-blue-600 text-white px-4 py-3 rounded-full font-semibold text-sm sm:text-base shadow-lg transform transition-all duration-300 hover:scale-105"
