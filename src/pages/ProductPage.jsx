@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import Navbar from "../components/Navbar";
-import { Award, CheckCircle, ArrowRight, TrendingUp, Zap } from "lucide-react";
+import { CheckCircle, TrendingUp, Zap } from "lucide-react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/SplitText";
@@ -444,7 +444,7 @@ const ProductsList = () => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Section */}
-        <div className="mb-16">
+        <div className="mb-10">
           <h1
             ref={headingRef}
             className="text-4xl sm:text-5xl lg:text-6xl font-bold text-black mb-6 text-center"
@@ -466,7 +466,7 @@ const ProductsList = () => {
         {/* Products Grid */}
         <div
           ref={productsGridRef}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3"
         >
           {products.map((product, index) => (
             <div
