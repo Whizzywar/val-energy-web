@@ -131,16 +131,8 @@ const Footer = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="relative flex flex-col sm:flex-row justify-between items-center gap-2 text-gray-400 text-sm">
             <p className="text-center sm:absolute sm:left-1/2 sm:-translate-x-1/2">
-              © 2026 Valtech Solar Energy. All rights reserved.
+              © 2026 Valtech Solar Energy.
             </p>
-            <div className="flex flex-wrap justify-center gap-4 sm:gap-6 sm:ml-auto">
-              <a href="#" className="hover:text-white transition-colors">
-                Privacy Policy
-              </a>
-              <a href="#" className="hover:text-white transition-colors">
-                Terms of Service
-              </a>
-            </div>
           </div>
         </div>
       </div>

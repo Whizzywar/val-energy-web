@@ -1,42 +1,47 @@
 import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Menu, X } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-
-gsap.registerPlugin(ScrollTrigger);
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const location = useLocation();
 
-  useGSAP(() => {
-    ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+  const lightBgRoutes = ["/products", "/contact", "/about"];
+  const isLightPage = lightBgRoutes.includes(location.pathname);
 
-    const navTween = gsap.timeline({
-      scrollTrigger: {
-        trigger: "nav",
-        start: "bottom top",
-      },
+  useEffect(() => {
+    const nav = document.querySelector("nav");
+
+    // On light pages, start with a dark gradient so white text is visible
+    // On dark pages (home), start fully transparent
+    gsap.set(nav, {
+      backgroundColor: isLightPage ? "#00000040" : "transparent",
+      backdropFilter: "blur(0px)",
     });
 
-    navTween.fromTo(
-      "nav",
-      { backgroundColor: "transparent" },
-      {
-        backgroundColor: "#00000050",
-        backgroundFilter: "blur(10px)",
-        duration: "1",
-        ease: "power1.inOut",
-      },
-    );
-
-    return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        gsap.to(nav, {
+          backgroundColor: "#00000080",
+          backdropFilter: "blur(10px)",
+          duration: 0.4,
+          ease: "power1.inOut",
+        });
+      } else {
+        gsap.to(nav, {
+          backgroundColor: isLightPage ? "#00000040" : "transparent",
+          backdropFilter: "blur(0px)",
+          duration: 0.4,
+          ease: "power1.inOut",
+        });
+      }
     };
-  }, [location.pathname]);
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [location.pathname, isLightPage]);
 
   const navigationItems = [
     { id: "home", label: "Home", path: "/" },
@@ -60,7 +65,7 @@ const Navbar = () => {
             to="/"
             className="flex items-center space-x-2 group cursor-pointer"
           >
-            <h1 className="font-bold text-white text-2xl tracking-tight">
+            <h1 className="font-bold text-2xl tracking-tight text-white">
               Valtech Solar Energy
             </h1>
           </Link>
@@ -72,14 +77,14 @@ const Navbar = () => {
                 key={item.id}
                 to={item.path}
                 className={`relative text-sm font-semibold uppercase tracking-wide transition-all duration-300 ${
-                  isActive(item.id)
+                  isActive(item.path)
                     ? "text-white"
-                    : "text-gray-500 hover:text-white"
+                    : "text-white/50 hover:text-white"
                 }`}
               >
                 {item.label}
-                {isActive(item.id) && (
-                  <span className="absolute -bottom-1 left-0 w-full h-[2px] bg-white rounded-full"></span>
+                {isActive(item.path) && (
+                  <span className="absolute -bottom-1 left-0 w-full h-[2px] rounded-full bg-white"></span>
                 )}
               </Link>
             ))}
@@ -136,8 +141,10 @@ const Navbar = () => {
               key={item.id}
               to={item.path}
               onClick={() => setIsMenuOpen(false)}
-              className={` block w-full text-left px-1 py-2.5  font-medium text-sm uppercase tracking-wide border-b border-gray-400 transition-all duration-300 ${
-                isActive(item.id) ? "bg-white text-black" : "text-gray-900 "
+              className={`block w-full text-left px-1 py-2.5 font-medium text-sm uppercase tracking-wide border-b border-gray-400 transition-all duration-300 ${
+                isActive(item.path)
+                  ? "text-blue-600 border-b-blue-600"
+                  : "text-gray-900 hover:text-blue-600"
               }`}
             >
               {item.label}
