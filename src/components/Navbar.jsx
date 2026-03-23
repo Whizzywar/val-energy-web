@@ -79,7 +79,7 @@ const Navbar = () => {
                 className={`relative text-sm font-semibold uppercase tracking-wide transition-all duration-300 ${
                   isActive(item.path)
                     ? "text-white"
-                    : "text-white/50 hover:text-white"
+                    : "text-white/40 hover:text-white"
                 }`}
               >
                 {item.label}
@@ -153,9 +153,7 @@ const Navbar = () => {
         </div>
 
         {/* Sidebar Footer */}
-        <div className="absolute bottom-0 left-0 right-0 p-12 border-t border-gray-800">
-          <div></div>
-        </div>
+        <div className="absolute bottom-0 left-0 right-0 p-12 border-t border-gray-800"></div>
       </div>
     </div>
   );
